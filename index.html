@@ -50,7 +50,7 @@
 
         .events-container { width: 100%; background: rgba(255, 255, 255, 0.03); border-radius: 18px; margin-top: 5px; overflow: hidden; border: 1px solid var(--btn-border); }
 
-        .gallery-container { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+        .gallery-container { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; margin-bottom: 20px; }
         .gallery-item { position: relative; aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: var(--btn-bg); border: 1px solid var(--btn-border); cursor: pointer; }
         .gallery-item.large { grid-column: span 2; aspect-ratio: 16/9; }
         .slide { display: none; width: 100%; height: 100%; }
@@ -75,7 +75,9 @@
         @media (min-width: 1024px) {
             .container { max-width: 1100px; flex-direction: row; display: flex; gap: 50px; text-align: left; align-items: flex-start; }
             .left-column { flex: 0 0 420px; }
-            .right-column { flex: 1; }
+            .right-column { flex: 1; height: 85vh; overflow-y: auto; padding-right: 15px; }
+            .right-column::-webkit-scrollbar { width: 4px; }
+            .right-column::-webkit-scrollbar-thumb { background: var(--btn-border); border-radius: 10px; }
             .logo { text-align: left; font-size: 3.5rem; }
             .section-title { justify-content: flex-start; }
         }
@@ -124,8 +126,14 @@
         </div>
 
         <div class="right-column">
-            <p class="section-title">Gallery</p>
-            <div class="gallery-container" id="galleryContainer"></div>
+            <p class="section-title">Highlights</p>
+            <div class="gallery-container" id="highlightsGrid"></div>
+
+            <p class="section-title">Video Reel</p>
+            <div class="gallery-container" id="videoGrid"></div>
+
+            <p class="section-title">Life</p>
+            <div class="gallery-container" id="lifeGrid"></div>
         </div>
     </main>
 
@@ -137,23 +145,41 @@
     </div>
 
     <script>
-        // CONFIGURAZIONE MEDIA OTTIMIZZATA
-        const galleryData = [
-            { type: 'large', media: [{type:'video', src:'vid/video_promo_1.webp'}, {type:'image', src:'img/live_set.jpg'}] },
-            { type: 'normal', media: [{type:'image', src:'dasto_dj_napoli_live.webp'}, {type:'image', src:'img/live2.jpg'}] },
-            { type: 'normal', media: [{type:'image', src:'img/foto_io.jpg'}] }
+        // CONFIGURAZIONE DATI SEPARATA
+        const highlightsData = [
+            { 
+                type: 'large', 
+                media: [
+                    { type: 'image', src: 'img/dasto_dj_napoli_live_1.jpg' }, 
+                    { type: 'image', src: 'img/dasto_dj_napoli_live_2.jpg' }
+                ] 
+            }
         ];
 
-        function generateGallery() {
-            const container = document.getElementById('galleryContainer');
-            galleryData.forEach((item, idx) => {
+        const videoReelData = [
+            { type: 'normal', media: [{ type: 'video', src: 'vid/video_promo_1.webp' }] },
+            { type: 'normal', media: [{ type: 'video', src: 'vid/video_promo_2.webp' }] }
+        ];
+
+        const lifeData = [
+            { type: 'normal', media: [{ type: 'image', src: 'img/foto_me_1.jpg' }] },
+            { type: 'normal', media: [{ type: 'image', src: 'img/foto_me_2.jpg' }] }
+        ];
+
+        function buildGallery(data, containerId) {
+            const container = document.getElementById(containerId);
+            data.forEach((item, idx) => {
                 const div = document.createElement('div');
                 div.className = `gallery-item ${item.type}`;
                 
                 let mediaHtml = item.media.map((m, mIdx) => {
                     if(m.type === 'video') {
                         return `<div class="slide ${mIdx===0?'active':''}">
-                                    <video muted loop playsinline><source src="${m.src}" type="video/mp4"></video>
+                                    <video muted loop playsinline>
+    <source src="vid/video_promo_1.webm" type="video/webm">
+    <source src="vid/video_promo_2.webp" type="video/webm">
+    <source src="vid/video_promo_3.mp4" type="video/mp4">
+</video>
                                 </div>`;
                     } else {
                         const webpSrc = m.src.replace('.jpg', '.webp').replace('.jpeg', '.webp');
@@ -172,7 +198,7 @@
                     </div>` : '';
 
                 div.innerHTML = mediaHtml + dotsHtml;
-                div.onclick = (e) => { e.stopPropagation(); openModal(idx); };
+                div.onclick = (e) => { e.stopPropagation(); openModal(item.media[0]); };
                 container.appendChild(div);
 
                 if(item.media.length > 1) {
@@ -221,18 +247,20 @@
             requestAnimationFrame(animate);
         }
 
-        function openModal(idx) {
+        function openModal(m) {
             const modal = document.getElementById('modal');
             const content = document.getElementById('modalContent');
-            const m = galleryData[idx].media[0];
             content.innerHTML = m.type === 'video' ? `<video controls autoplay class="modal-content"><source src="${m.src}"></video>` : `<img src="${m.src}" class="modal-content">`;
             modal.classList.add('active');
         }
 
-        function closeModal() { document.getElementById('modal').classList.remove('active'); }
+        function closeModal() { document.getElementById('modal').classList.remove('active'); document.getElementById('modalContent').innerHTML=''; }
 
         window.onresize = init;
-        init(); animate(); generateGallery();
+        init(); animate();
+        buildGallery(highlightsData, 'highlightsGrid');
+        buildGallery(videoReelData, 'videoGrid');
+        buildGallery(lifeData, 'lifeGrid');
     </script>
 </body>
 </html>
