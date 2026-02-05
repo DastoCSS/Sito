@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASTO | Official Site</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22%3E%3Ctext%20y=%22.9em%22%20font-size=%2290%22%3E🎧%3C/text%3E%3C/svg%3E">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        :root { 
+            --bg-color: #000; 
+            --text-color: #fff; 
+            --btn-bg: rgba(255,255,255,0.08); 
+            --btn-border: rgba(255,255,255,0.15); 
+            --section-title: #aaa; 
+            --glass: rgba(0, 0, 0, 0.4); 
+            --accent-color: #25d366; 
+        }
+        
+        body.light-theme { 
+            --bg-color: #f5f5f7; 
+            --text-color: #1d1d1f; 
+            --btn-bg: rgba(0,0,0,0.04); 
+            --btn-border: rgba(0,0,0,0.1); 
+            --section-title: #555; 
+            --glass: rgba(255, 255, 255, 0.3); 
+        }
+        
+        body { 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            font-family: 'Inter', sans-serif; 
+            min-height: 100dvh; 
+            width: 100%; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            overflow-x: hidden;
+            overflow-y: auto;
+            transition: background-color 0.8s ease; 
+            padding: 20px;
+        }
+        
+        #canvas-bg { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            z-index: 1; 
+            filter: blur(80px) saturate(150%); 
+            transform: scale(1.1); 
+        }
+        
+        .container { 
+            position: relative; 
+            z-index: 10; 
+            width: 100%; 
+            max-width: 380px; 
+            display: flex; 
+            flex-direction: column; 
+            padding: 30px 20px; 
+            background: var(--glass); 
+            backdrop-filter: blur(40px) saturate(180%); 
+            -webkit-backdrop-filter: blur(40px) saturate(180%); 
+            border: 1px solid var(--btn-border); 
+            border-radius: 35px; 
+            text-align: center; 
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2); 
+            margin: 20px auto;
+        }
+        
+        .logo { 
+            font-size: 2.2rem; 
+            font-weight: 900; 
+            letter-spacing: 12px; 
+            margin-bottom: 25px; 
+            background: linear-gradient(180deg, var(--text-color) 0%, rgba(150,150,150,0.5) 100%); 
+            -webkit-background-clip: text; 
+            background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+        
+        .soundcloud-frame { 
+            width: 100%; 
+            height: 100px; 
+            border: 0; 
+            border-radius: 15px; 
+            margin-bottom: 18px; 
+            overflow: hidden; 
+            display: block; 
+        }
+        
+        .links-container { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 8px; 
+        }
+        
+        .section-title { 
+            color: var(--section-title); 
+            font-size: 11px; 
+            letter-spacing: 2.5px; 
+            margin-top: 16px; 
+            margin-bottom: 6px; 
+            text-transform: uppercase; 
+            font-weight: 600; 
+        }
+        
+        .btn { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            background: var(--btn-bg); 
+            border: 1px solid var(--btn-border); 
+            padding: 14px; 
+            color: var(--text-color); 
+            text-decoration: none; 
+            font-size: 0.8rem; 
+            font-weight: 600;
+            letter-spacing: 1.5px; 
+            text-transform: uppercase; 
+            border-radius: 12px; 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+        
+        .btn:hover { 
+            background: var(--text-color); 
+            color: var(--bg-color); 
+            transform: translateY(-2px); 
+        }
+        
+        #btn-booking { 
+            border-color: rgba(37, 211, 102, 0.4); 
+            color: var(--accent-color); 
+            font-weight: 600;
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            margin-top: 18px;
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--btn-bg);
+            border: 1px solid var(--btn-border);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item.large {
+            grid-column: span 2;
+            aspect-ratio: 16/9;
+        }
+        
+        /* Slideshow interno agli items */
+        .slideshow-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .slide img,
+        .slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            color: white;
+            opacity: 0.8;
+            pointer-events: none;
+            z-index: 5;
+        }
+        
+        /* Indicatori slideshow */
+        .slide-indicators {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 6;
+        }
+        
+        .indicator-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transition: all 0.3s;
+        }
+        
+        .indicator-dot.active {
+            background: white;
+            width: 18px;
+            border-radius: 3px;
+        }
+        
+        /* Modal fullscreen con swipe */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-slideshow {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            touch-action: pan-y pinch-zoom;
+        }
+        
+        .modal-slide {
+            display: none;
+            max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+        }
+        
+        .modal-slide.active {
+            display: block;
+            animation: modalFadeIn 0.3s;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .modal-slide img,
+        .modal-slide video {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 15px;
+            object-fit: contain;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 35px;
+            cursor: pointer;
+            z-index: 1001;
+            background: rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        
+        .modal-close:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        /* Frecce navigazione modal */
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        
+        .modal-nav:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        .modal-nav.prev {
+            left: 20px;
+        }
+        
+        .modal-nav.next {
+            right: 20px;
+        }
+        
+        /* Counter */
+        .modal-counter {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            z-index: 1001;
+        }
+        
+        .social-links { 
+            display: flex; 
+            justify-content: center; 
+            gap: 25px; 
+            margin-top: 22px; 
+        }
+        
+        .social-links a { 
+            color: var(--text-color); 
+            font-size: 20px; 
+            opacity: 0.7; 
+            transition: 0.3s; 
+        }
+        
+        .social-links a:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+        
+        .call-float { 
+            position: fixed; 
+            bottom: 20px; 
+            right: 20px; 
+            width: 55px; 
+            height: 55px; 
+            background-color: #25d366; 
+            color: white; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 24px; 
+            z-index: 999; 
+            text-decoration: none; 
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4); 
+            transition: transform 0.3s ease;
+        }
+        
+        .call-float:hover {
+            transform: scale(1.1);
+        }
+        
+        footer { 
+            margin-top: 20px; 
+            font-size: 0.62rem; 
+            color: var(--section-title); 
+            letter-spacing: 4px; 
+            opacity: 0.6; 
+            font-weight: 600;
+        }
+        
+        /* TABLET - Da 600px in su */
+        @media screen and (min-width: 600px) {
+            body {
+                padding: 40px;
+            }
+            
+            .container {
+                max-width: 500px;
+                padding: 40px 30px;
+            }
+            
+            .logo {
+                font-size: 2.8rem;
+                letter-spacing: 16px;
+                margin-bottom: 30px;
+            }
+            
+            .soundcloud-frame {
+                height: 120px;
+                margin-bottom: 22px;
+            }
+            
+            .section-title {
+                font-size: 12px;
+                margin-top: 20px;
+                margin-bottom: 8px;
+            }
+            
+            .btn {
+                padding: 16px;
+                font-size: 0.85rem;
+                letter-spacing: 2px;
+            }
+            
+            .gallery-container {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+            }
+            
+            .gallery-item.large {
+                grid-column: span 3;
+            }
+            
+            .play-icon {
+                font-size: 2.5rem;
+            }
+            
+            .social-links {
+                gap: 30px;
+                margin-top: 28px;
+            }
+            
+            .social-links a {
+                font-size: 22px;
+            }
+            
+            .call-float {
+                bottom: 30px;
+                right: 30px;
+                width: 60px;
+                height: 60px;
+                font-size: 26px;
+            }
+            
+            footer {
+                font-size: 0.65rem;
+                margin-top: 25px;
+            }
+        }
+        
+        /* DESKTOP - Da 1024px in su */
+        @media screen and (min-width: 1024px) {
+            body {
+                padding: 60px;
+            }
+            
+            .container {
+                max-width: 1100px;
+                flex-direction: row;
+                gap: 50px;
+                padding: 50px;
+                text-align: left;
+            }
+            
+            .left-column {
+                flex: 0 0 420px;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .right-column {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                min-width: 0;
+            }
+            
+            .logo {
+                font-size: 3.5rem;
+                letter-spacing: 18px;
+                margin-bottom: 35px;
+                text-align: left;
+            }
+            
+            .soundcloud-frame {
+                height: 140px;
+                margin-bottom: 25px;
+            }
+            
+            .section-title {
+                font-size: 13px;
+                text-align: left;
+                margin-top: 22px;
+                margin-bottom: 10px;
+            }
+            
+            .btn {
+                padding: 18px 24px;
+                font-size: 0.9rem;
+                letter-spacing: 2.2px;
+            }
+            
+            .links-container {
+                gap: 10px;
+            }
+            
+            .gallery-section {
+                margin-top: 0;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .gallery-section .section-title {
+                text-align: center;
+                margin-top: 0;
+                margin-bottom: 15px;
+            }
+            
+            .gallery-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                flex: 1;
+            }
+            
+            .gallery-item.large {
+                grid-column: span 2;
+                aspect-ratio: 16/9;
+            }
+            
+            .play-icon {
+                font-size: 3rem;
+            }
+            
+            .social-links {
+                margin-top: 30px;
+                justify-content: flex-start;
+                gap: 35px;
+            }
+            
+            .social-links a {
+                font-size: 24px;
+            }
+            
+            footer {
+                font-size: 0.68rem;
+                text-align: left;
+                margin-top: 30px;
+            }
+            
+            .modal-close {
+                top: 40px;
+                right: 40px;
+                font-size: 45px;
+            }
+            
+            .modal-nav {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+            }
+            
+            .modal-nav.prev {
+                left: 40px;
+            }
+            
+            .modal-nav.next {
+                right: 40px;
+            }
+        }
+        
+        /* DESKTOP LARGE - Da 1400px in su */
+        @media screen and (min-width: 1400px) {
+            .container {
+                max-width: 1300px;
+                gap: 60px;
+                padding: 60px;
+            }
+            
+            .left-column {
+                flex: 0 0 450px;
+            }
+            
+            .logo {
+                font-size: 4rem;
+                letter-spacing: 20px;
+            }
+            
+            .soundcloud-frame {
+                height: 160px;
+            }
+            
+            .section-title {
+                font-size: 14px;
+                margin-top: 25px;
+            }
+            
+            .btn {
+                padding: 20px 28px;
+                font-size: 0.95rem;
+                letter-spacing: 2.5px;
+            }
+            
+            .gallery-container {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 18px;
+            }
+            
+            .gallery-item.large {
+                grid-column: span 3;
+            }
+            
+            .call-float {
+                width: 65px;
+                height: 65px;
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas-bg"></canvas>
+    
+    <main class="container">
+        <div class="left-column">
+            <h1 class="logo">DASTO</h1>
+            
+            <iframe class="soundcloud-frame" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2251688624&color=%23ff5500&auto_play=false&visual=true"></iframe>
+            
+            <div class="links-container">
+                <p class="section-title">Identity</p>
+                <a href="/pdf/presskit-dasto.pdf" target="_blank" class="btn">📂 Press Kit</a>
+                
+                <p class="section-title">Training</p>
+                <a href="https://wa.me/393514090392?text=Info%20Corsi" class="btn">🎓 DJ Courses</a>
+                
+                <p class="section-title">Booking</p>
+                <a href="https://wa.me/393514090392?text=Booking" class="btn" id="btn-booking">📱 WhatsApp</a>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/dastodj/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://soundcloud.com/dastodj" target="_blank"><i class="fab fa-soundcloud"></i></a>
+            </div>
+            
+            <footer>NAPLES • 2026</footer>
+        </div>
+        
+        <div class="right-column">
+            <div class="gallery-section">
+                <p class="section-title">Gallery</p>
+                <div class="gallery-container" id="galleryContainer">
+                    <!-- Gli items verranno generati dinamicamente -->
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <a href="https://wa.me/393514090392" class="call-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Modal fullscreen -->
+    <div id="modal" class="modal">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <div class="modal-counter" id="modalCounter">1 / 10</div>
+        <button class="modal-nav prev" onclick="changeModalSlide(-1)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="modal-slideshow" id="modalSlideshow">
+            <!-- Le slides verranno generate dinamicamente -->
+        </div>
+        <button class="modal-nav next" onclick="changeModalSlide(1)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+    
+    <script>
+        // ============================================
+        // CONFIGURAZIONE GALLERY
+        // ============================================
+        const galleryData = [
+            {
+                type: 'large',
+                media: [
+                    { type: 'video', src: '/Vid/WhatsApp Video 2026-01-30 at 17.21.25.mp4', poster: '../SITO-DASTO/img/video1-cover.jpg' },
+                    { type: 'image', src: '/img/IMAGE 2026-02-03 18:41:21.jpg' },
+                    { type: 'image', src: '/img/WhatsApp Image 2026-01-30 at 17.21.25 (1).jpeg' }
+                ]
+            },
+            {
+                type: 'normal',
+                media: [
+                    { type: 'image', src: '/img/IMAGE 2026-02-03 18:41:21.jpg' },
+                    { type: 'image', src: '/img/WhatsApp Image 2026-01-30 at 17.21.25 (1).jpeg' },
+                    { type: 'video', src: '/Vid/WhatsApp Video 2026-01-30 at 17.21.25.mp4' }
+                ]
+            },
+            {
+                type: 'normal',
+                media: [
+                    { type: 'image', src: '../SITO-DASTO/img/logo-dasto.jpg' },
+                    { type: 'image', src: '../SITO-DASTO/img/IMAGE 2026-02-03 18:41:21.jpg' }
+                ]
+            },
+            {
+                type: 'normal',
+                media: [
+                    { type: 'image', src: '../SITO-DASTO/img/IMAGE 2026-02-03 18:41:21.jpg' },
+                    { type: 'image', src: '../SITO-DASTO/img/foto4.jpg' }
+                ]
+            },
+            {
+                type: 'normal',
+                media: [
+                    { type: 'image', src: '/img/liveimg1.jpeg' },
+                    { type: 'image', src: '/img/liveimg2.jpeg' }
+                ]
+            }
+        ];
+
+        let currentSlideIndexes = [];
+        let slideIntervals = [];
+        let allMedia = [];
+        let currentModalIndex = 0;
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        // ============================================
+        // GENERA GALLERY ITEMS CON SLIDESHOW
+        // ============================================
+        function generateGallery() {
+            const container = document.getElementById('galleryContainer');
+            container.innerHTML = '';
+            
+            galleryData.forEach((item, itemIndex) => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = `gallery-item ${item.type}`;
+                
+                const slideshowContainer = document.createElement('div');
+                slideshowContainer.className = 'slideshow-container';
+                
+                // Crea slides
+                item.media.forEach((media, mediaIndex) => {
+                    const slide = document.createElement('div');
+                    slide.className = `slide ${mediaIndex === 0 ? 'active' : ''}`;
+                    
+                    if (media.type === 'image') {
+                        const img = document.createElement('img');
+                        img.src = media.src;
+                        img.alt = 'DASTO Gallery';
+                        slide.appendChild(img);
+                    } else if (media.type === 'video') {
+                        const video = document.createElement('video');
+                        video.muted = true;
+                        video.loop = true;
+                        video.playsInline = true;
+                        if (media.poster) video.poster = media.poster;
+                        const source = document.createElement('source');
+                        source.src = media.src;
+                        source.type = 'video/mp4';
+                        video.appendChild(source);
+                        slide.appendChild(video);
+                        
+                        const playIcon = document.createElement('i');
+                        playIcon.className = 'fas fa-play-circle play-icon';
+                        slide.appendChild(playIcon);
+                    }
+                    
+                    slideshowContainer.appendChild(slide);
+                    
+                    // Aggiungi a array globale per modal
+                    allMedia.push({ ...media, itemIndex, mediaIndex });
+                });
+                
+                // Indicatori
+                if (item.media.length > 1) {
+                    const indicators = document.createElement('div');
+                    indicators.className = 'slide-indicators';
+                    
+                    item.media.forEach((_, idx) => {
+                        const dot = document.createElement('div');
+                        dot.className = `indicator-dot ${idx === 0 ? 'active' : ''}`;
+                        indicators.appendChild(dot);
+                    });
+                    
+                    slideshowContainer.appendChild(indicators);
+                }
+                
+                galleryItem.appendChild(slideshowContainer);
+                galleryItem.onclick = () => openModal(itemIndex);
+                container.appendChild(galleryItem);
+                
+                currentSlideIndexes[itemIndex] = 0;
+                
+                // Avvia slideshow automatico se ci sono più media
+                if (item.media.length > 1) {
+                    slideIntervals[itemIndex] = setInterval(() => {
+                        nextSlide(itemIndex);
+                    }, 3000);
+                }
+            });
+        }
+
+        // ============================================
+        // SLIDESHOW AUTOMATICO NEGLI ITEMS
+        // ============================================
+        function nextSlide(itemIndex) {
+            const item = galleryData[itemIndex];
+            const slides = document.querySelectorAll(`.gallery-item:nth-child(${itemIndex + 1}) .slide`);
+            const indicators = document.querySelectorAll(`.gallery-item:nth-child(${itemIndex + 1}) .indicator-dot`);
+            
+            slides[currentSlideIndexes[itemIndex]].classList.remove('active');
+            if (indicators.length > 0) {
+                indicators[currentSlideIndexes[itemIndex]].classList.remove('active');
+            }
+            
+            currentSlideIndexes[itemIndex] = (currentSlideIndexes[itemIndex] + 1) % item.media.length;
+            
+            slides[currentSlideIndexes[itemIndex]].classList.add('active');
+            if (indicators.length > 0) {
+                indicators[currentSlideIndexes[itemIndex]].classList.add('active');
+            }
+        }
+
+        // ============================================
+        // MODAL FULLSCREEN CON SWIPE
+        // ============================================
+        function openModal(itemIndex) {
+            const modal = document.getElementById('modal');
+            const modalSlideshow = document.getElementById('modalSlideshow');
+            
+            // Trova l'indice globale del primo media di questo item
+            currentModalIndex = allMedia.findIndex(m => m.itemIndex === itemIndex);
+            
+            // Genera tutte le slides nel modal
+            modalSlideshow.innerHTML = '';
+            allMedia.forEach((media, index) => {
+                const slide = document.createElement('div');
+                slide.className = `modal-slide ${index === currentModalIndex ? 'active' : ''}`;
+                
+                if (media.type === 'image') {
+                    const img = document.createElement('img');
+                    img.src = media.src;
+                    img.alt = 'DASTO';
+                    slide.appendChild(img);
+                } else if (media.type === 'video') {
+                    const video = document.createElement('video');
+                    video.controls = true;
+                    video.playsInline = true;
+                    if (media.poster) video.poster = media.poster;
+                    const source = document.createElement('source');
+                    source.src = media.src;
+                    source.type = 'video/mp4';
+                    video.appendChild(source);
+                    slide.appendChild(video);
+                }
+                
+                modalSlideshow.appendChild(slide);
+            });
+            
+            updateModalCounter();
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            const videos = modal.querySelectorAll('video');
+            videos.forEach(v => {
+                v.pause();
+                v.currentTime = 0;
+            });
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function changeModalSlide(direction) {
+            const slides = document.querySelectorAll('.modal-slide');
+            slides[currentModalIndex].classList.remove('active');
+            
+            // Pausa video corrente
+            const currentVideo = slides[currentModalIndex].querySelector('video');
+            if (currentVideo) {
+                currentVideo.pause();
+                currentVideo.currentTime = 0;
+            }
+            
+            currentModalIndex = (currentModalIndex + direction + allMedia.length) % allMedia.length;
+            slides[currentModalIndex].classList.add('active');
+            updateModalCounter();
+        }
+
+        function updateModalCounter() {
+            document.getElementById('modalCounter').textContent = 
+                `${currentModalIndex + 1} / ${allMedia.length}`;
+        }
+
+        // ============================================
+        // TOUCH SWIPE PER MOBILE
+        // ============================================
+        const modal = document.getElementById('modal');
+        
+        modal.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        modal.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            if (touchEndX < touchStartX - swipeThreshold) {
+                changeModalSlide(1); // Swipe left
+            }
+            if (touchEndX > touchStartX + swipeThreshold) {
+                changeModalSlide(-1); // Swipe right
+            }
+        }
+
+        // Frecce tastiera
+        document.addEventListener('keydown', (e) => {
+            if (!modal.classList.contains('active')) return;
+            if (e.key === 'ArrowLeft') changeModalSlide(-1);
+            if (e.key === 'ArrowRight') changeModalSlide(1);
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // ============================================
+        // CANVAS BACKGROUND
+        // ============================================
+        const canvas = document.getElementById('canvas-bg');
+        const ctx = canvas.getContext('2d');
+        let w, h, blobs = [];
+        
+        const hour = new Date().getHours();
+        const isMorning = hour >= 8 && hour < 20;
+        if(isMorning) document.body.classList.add('light-theme');
+        
+        const colors = isMorning 
+            ? ['#FFD2A0', '#A29BFE', '#81ECEC', '#FF9F9F'] 
+            : ['#1a1a1a', '#4a00e0', '#8e2de2', '#ff0055'];
+        
+        class Blob { 
+            constructor(color) { 
+                this.x = Math.random() * window.innerWidth; 
+                this.y = Math.random() * window.innerHeight; 
+                this.r = Math.random() * (window.innerWidth * 0.8) + (window.innerWidth * 0.3); 
+                this.vx = (Math.random() - 0.5) * 2.5; 
+                this.vy = (Math.random() - 0.5) * 2.5; 
+                this.color = color; 
+            } 
+            update() { 
+                this.x += this.vx; 
+                this.y += this.vy; 
+                if (this.x < -this.r) this.x = w + this.r; 
+                if (this.x > w + this.r) this.x = -this.r; 
+                if (this.y < -this.r) this.y = h + this.r; 
+                if (this.y > h + this.r) this.y = -this.r; 
+            } 
+            draw() { 
+                const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r); 
+                grad.addColorStop(0, this.color); 
+                grad.addColorStop(1, 'transparent'); 
+                ctx.fillStyle = grad; 
+                ctx.beginPath(); 
+                ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2); 
+                ctx.fill(); 
+            } 
+        }
+        
+        function init() { 
+            w = canvas.width = window.innerWidth; 
+            h = canvas.height = window.innerHeight; 
+            blobs = colors.map(c => new Blob(c)); 
+        }
+        
+        function loop() { 
+            ctx.clearRect(0, 0, w, h); 
+            ctx.globalCompositeOperation = isMorning ? 'multiply' : 'screen'; 
+            blobs.forEach(b => { 
+                b.update(); 
+                b.draw(); 
+            }); 
+            requestAnimationFrame(loop); 
+        }
+        
+        window.addEventListener('resize', init);
+        init(); 
+        loop();
+        
+        // Inizializza gallery
+        generateGallery();
+    </script>
+</body>
+</html>
