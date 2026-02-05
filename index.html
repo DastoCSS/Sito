@@ -3,10 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="language" content="Italian">
-
-<title>DASTO | DJ & Producer Napoli - Official Site</title>
-<meta name="description" content="Sito ufficiale di DASTO, DJ e Producer napoletano.">
+<title>DASTO – DJ & Producer | Portfolio 2026</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
@@ -15,13 +12,14 @@
 *{margin:0;padding:0;box-sizing:border-box}
 
 :root{
---bg-color:#000;
---text-color:#fff;
---btn-bg:rgba(255,255,255,.08);
---btn-border:rgba(255,255,255,.15);
---section-title:#aaa;
---glass:rgba(0,0,0,.4);
+--bg-color:#050505;
+--text-color:#ffffff;
+--btn-bg:rgba(255,255,255,.06);
+--btn-border:rgba(255,255,255,.12);
+--section-title:#888;
+--glass:rgba(10,10,10,.6);
 --accent-color:#25d366;
+--gap: 12px; /* Misura standard per i vuoti */
 }
 
 body{
@@ -40,8 +38,7 @@ overflow-x:hidden;
 position:fixed;
 inset:0;
 z-index:1;
-filter:blur(80px) saturate(150%);
-transform:scale(1.1);
+filter:blur(100px) saturate(140%);
 pointer-events:none;
 }
 
@@ -49,43 +46,50 @@ pointer-events:none;
 position:relative;
 z-index:10;
 width:100%;
-max-width:380px;
+max-width:400px;
 background:var(--glass);
-backdrop-filter:blur(40px);
+backdrop-filter:blur(50px);
 border:1px solid var(--btn-border);
-border-radius:35px;
-padding:30px 20px;
-text-align:center;
+border-radius:40px;
+padding:35px 25px;
 }
 
 .logo{
-font-size:2.2rem;
+font-size:2.5rem;
 font-weight:900;
-letter-spacing:12px;
-margin-bottom:25px;
-background:linear-gradient(180deg,#fff,rgba(150,150,150,.5));
+letter-spacing:10px;
+margin-bottom:30px;
+text-align:center;
+background:linear-gradient(180deg,#fff,rgba(255,255,255,.3));
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
 .soundcloud-frame{
 width:100%;
-height:100px;
-border:none;
-border-radius:15px;
-margin-bottom:18px;
+height:120px;
+border-radius:20px;
+margin-bottom:20px;
+border:1px solid var(--btn-border);
 }
 
 .section-title{
 color:var(--section-title);
-font-size:11px;
-letter-spacing:2.5px;
-margin:20px 0 8px;
+font-size:10px;
+letter-spacing:3px;
+margin:25px 0 12px;
 text-transform:uppercase;
 font-weight:600;
 display:flex;
-justify-content:center;
-gap:8px;
+align-items:center;
+gap:10px;
+}
+
+.section-title::after{
+content:'';
+flex:1;
+height:1px;
+background:var(--btn-border);
 }
 
 .btn{
@@ -94,123 +98,81 @@ justify-content:center;
 align-items:center;
 background:var(--btn-bg);
 border:1px solid var(--btn-border);
-padding:14px;
+padding:16px;
 color:var(--text-color);
 text-decoration:none;
-font-size:.8rem;
+font-size:13px;
 font-weight:600;
-letter-spacing:1.5px;
-border-radius:12px;
-transition:.3s;
-margin-bottom:8px;
+border-radius:15px;
+transition:.3s cubic-bezier(0.4, 0, 0.2, 1);
+margin-bottom:10px;
 }
 
 .btn:hover{
-background:#fff;
+background:rgba(255,255,255,1);
 color:#000;
+transform:translateY(-2px);
 }
 
+/* GRIDS */
 .gallery-container{
 display:grid;
-grid-template-columns:1fr 1fr;
-gap:8px;
-margin:8px 0 20px;
+grid-template-columns:repeat(2, 1fr);
+gap:var(--gap);
+margin-bottom:20px;
 }
 
 .gallery-item{
 position:relative;
-aspect-ratio:1;
-border-radius:12px;
+aspect-ratio:1/1;
+border-radius:16px;
 overflow:hidden;
 background:var(--btn-bg);
 border:1px solid var(--btn-border);
-cursor:pointer;
 }
 
 .gallery-item.large{
 grid-column:span 2;
-aspect-ratio:16/9;
+aspect-ratio:16/7;
 }
 
-.slide{display:none;width:100%;height:100%}
-.slide.active{display:block}
-
-.slide img,
-.slide video{
+.gallery-item img, .gallery-item video{
 width:100%;
 height:100%;
 object-fit:cover;
+display:block;
 }
 
-.slide video{
-pointer-events:none;
-}
-
-.slide-indicators{
-position:absolute;
-bottom:8px;
-left:50%;
-transform:translateX(-50%);
-display:flex;
-gap:6px;
-}
-
-.indicator-dot{
-width:6px;
-height:6px;
-border-radius:50%;
-background:rgba(255,255,255,.3);
-}
-
-.indicator-dot.active{
-width:20px;
-border-radius:3px;
-background:#fff;
-}
-
-.modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.95);
-backdrop-filter:blur(15px);
-z-index:1000;
-align-items:center;
-justify-content:center;
-padding:20px;
-}
-
-.modal.active{display:flex}
-
-.modal-content{
-max-width:90%;
-max-height:80vh;
-border-radius:15px;
-}
-
-.modal-close{
-position:absolute;
-top:25px;
-right:25px;
-font-size:35px;
-color:#fff;
-cursor:pointer;
-}
-
+/* DESKTOP OPTIMIZATION (1024px+) */
 @media(min-width:1024px){
 .container{
-max-width:1100px;
-display:flex;
-gap:50px;
-text-align:left;
+  max-width:1150px;
+  display:grid;
+  grid-template-columns:380px 1fr;
+  gap:50px;
+  padding:50px;
+  height:90vh;
 }
-.left-column{flex:0 0 420px}
+
+.left-column{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
 .right-column{
-flex:1;
-height:85vh;
-overflow-y:auto;
-padding-right:15px;
+  overflow-y:auto;
+  padding-right:20px;
 }
+
+.right-column::-webkit-scrollbar { width: 4px; }
+.right-column::-webkit-scrollbar-thumb { background: var(--btn-border); border-radius:10px; }
+
+#videoGrid, #lifeGrid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.section-title{ font-size:11px; }
 }
 </style>
 </head>
@@ -225,120 +187,53 @@ padding-right:15px;
 <h1 class="logo">DASTO</h1>
 
 <iframe class="soundcloud-frame"
-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2251688624&auto_play=false&visual=true">
+src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2251688624&color=%23000000&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true">
 </iframe>
 
 <p class="section-title">Identity</p>
-<a href="pdf/presskit-dasto.pdf" target="_blank" class="btn">📂 Press Kit 2026</a>
-<a href="https://wa.me/393514090392" class="btn" style="color:var(--accent-color)">📱 Booking</a>
+<a href="pdf/presskit-dasto.pdf" class="btn"><i class="far fa-file-pdf" style="margin-right:10px"></i> PRESS KIT 2026</a>
+<a href="https://wa.me/393514090392" class="btn" style="border-color:var(--accent-color); color:var(--accent-color)">
+    <i class="fab fa-whatsapp" style="margin-right:10px"></i> BOOKING AGENT
+</a>
 
-<div style="display:flex;justify-content:center;gap:25px;margin-top:25px">
-<a href="https://instagram.com/dastodj" target="_blank" style="color:#fff;font-size:22px"><i class="fab fa-instagram"></i></a>
-<a href="https://soundcloud.com/dastodj" target="_blank" style="color:#fff;font-size:22px"><i class="fab fa-soundcloud"></i></a>
+<div style="display:flex;justify-content:center;gap:30px;margin-top:30px">
+    <a href="https://instagram.com/dastodj" target="_blank" style="color:#fff;font-size:24px;opacity:0.7;transition:0.3s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7"><i class="fab fa-instagram"></i></a>
+    <a href="https://soundcloud.com/dastodj" target="_blank" style="color:#fff;font-size:24px;opacity:0.7;transition:0.3s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7"><i class="fab fa-soundcloud"></i></a>
 </div>
 </div>
 
 <div class="right-column">
 <p class="section-title">Highlights</p>
-<div class="gallery-container" id="highlightsGrid"></div>
+<div class="gallery-container" id="highlightsGrid">
+    <div class="gallery-item large"><img src="img/showcase_1.jpg" alt="Performance Live"></div>
+</div>
+
+<p class="section-title">Selected Performances</p>
+<div class="gallery-container" id="performancesGrid">
+    <div class="gallery-item"><img src="img/club_napoli.jpg" alt="Club Napoli"></div>
+    <div class="gallery-item"><img src="img/festival_italy.jpg" alt="Festival"></div>
+    <div class="gallery-item large"><img src="img/tour_banner.jpg" alt="Tour 2025"></div>
+</div>
 
 <p class="section-title">Video Reel</p>
-<div class="gallery-container" id="videoGrid"></div>
+<div class="gallery-container" id="videoGrid">
+    <div class="gallery-item"><video muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()"><source src="vid/video_promo_1.mp4"></video></div>
+    <div class="gallery-item"><video muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()"><source src="vid/video_promo_2.mp4"></video></div>
+    <div class="gallery-item"><video muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()"><source src="vid/video_promo_3.mp4"></video></div>
+</div>
 
-<p class="section-title">Life</p>
-<div class="gallery-container" id="lifeGrid"></div>
+<p class="section-title">Life & Style</p>
+<div class="gallery-container" id="lifeGrid">
+    <div class="gallery-item"><img src="img/foto_me_1.webp" alt="DASTO studio"></div>
+    <div class="gallery-item"><img src="img/foto_me_2.webp" alt="DASTO travel"></div>
+    <div class="gallery-item"><img src="img/foto_me_3.webp" alt="DASTO studio 2"></div>
+</div>
 </div>
 
 </main>
 
-<div id="modal" class="modal" onclick="closeModal()">
-<span class="modal-close">&times;</span>
-<div id="modalContent" onclick="event.stopPropagation()"></div>
-</div>
-
 <script>
-const highlightsData=[
-{type:'large',media:[
-{type:'image',src:'img/dasto_dj_napoli_live_1.jpg'},
-{type:'image',src:'img/dasto_dj_napoli_live_2.jpg'}
-]}];
-
-const videoReelData=[
-{type:'normal',media:[{type:'video',src:'vid/video_promo_1.mp4'}]},
-{type:'normal',media:[{type:'video',src:'vid/video_promo_2.mp4'}]}
-];
-
-const lifeData=[
-{type:'normal',media:[{type:'image',src:'img/foto_me_1.jpg'}]},
-{type:'normal',media:[{type:'image',src:'img/foto_me_2.jpg'}]}
-];
-
-function buildGallery(data,id){
-const c=document.getElementById(id);
-
-data.forEach(item=>{
-let idx=0;
-const box=document.createElement('div');
-box.className=`gallery-item ${item.type}`;
-
-box.innerHTML=item.media.map((m,i)=>`
-<div class="slide ${i===0?'active':''}">
-${m.type==='video'
-?`<video muted loop playsinline preload="metadata"><source src="${m.src}"></video>`
-:`<img src="${m.src}" loading="lazy">`}
-</div>`).join('')
-+(item.media.length>1?`
-<div class="slide-indicators">
-${item.media.map((_,i)=>`<div class="indicator-dot ${i===0?'active':''}"></div>`).join('')}
-</div>`:'');
-
-box.onclick=e=>{
-e.stopPropagation();
-openModal(item.media[idx]);
-};
-
-c.appendChild(box);
-
-const syncVideo=()=>{
-box.querySelectorAll('video').forEach((v,i)=>{
-i===idx?v.play():v.pause();
-});
-};
-
-syncVideo();
-
-if(item.media.length>1){
-setInterval(()=>{
-const slides=box.querySelectorAll('.slide');
-const dots=box.querySelectorAll('.indicator-dot');
-slides[idx].classList.remove('active');
-dots[idx].classList.remove('active');
-idx=(idx+1)%item.media.length;
-slides[idx].classList.add('active');
-dots[idx].classList.add('active');
-syncVideo();
-},3500);
-}
-});
-}
-
-function openModal(media){
-const modal=document.getElementById('modal');
-const content=document.getElementById('modalContent');
-
-content.innerHTML=media.type==='video'
-?`<video class="modal-content" controls autoplay><source src="${media.src}"></video>`
-:`<img src="${media.src}" class="modal-content">`;
-
-modal.classList.add('active');
-}
-
-function closeModal(){
-document.getElementById('modal').classList.remove('active');
-document.getElementById('modalContent').innerHTML='';
-}
-
-// BACKGROUND
+/* CANVAS ANIMATION (RIFINITA) */
 const canvas=document.getElementById('canvas-bg');
 const ctx=canvas.getContext('2d');
 let w,h,blobs=[];
@@ -346,22 +241,23 @@ let w,h,blobs=[];
 function init(){
 w=canvas.width=innerWidth;
 h=canvas.height=innerHeight;
-blobs=Array.from({length:6},()=>({
+blobs=Array.from({length:5},()=>({
 x:Math.random()*w,
 y:Math.random()*h,
-r:Math.random()*300+250,
-vx:(Math.random()-.5)*1.2,
-vy:(Math.random()-.5)*1.2,
-c:['#1a1a1a','#4a00e0','#ff0055'][Math.floor(Math.random()*3)]
+r:Math.random()*250+200,
+vx:(Math.random()-.5)*0.8,
+vy:(Math.random()-.5)*0.8,
+c:['#0a0a0a','#1a0033','#440011'][Math.floor(Math.random()*3)]
 }));
 }
 
 function animate(){
-ctx.clearRect(0,0,w,h);
+ctx.fillStyle = '#050505';
+ctx.fillRect(0,0,w,h);
 blobs.forEach(b=>{
-b.x+=b.vx;b.y+=b.vy;
-if(b.x<-b.r||b.x>w+b.r)b.vx*=-1;
-if(b.y<-b.r||b.y>h+b.r)b.vy*=-1;
+b.x+=b.vx; b.y+=b.vy;
+if(b.x<0||b.x>w)b.vx*=-1;
+if(b.y<0||b.y>h)b.vy*=-1;
 ctx.beginPath();
 ctx.arc(b.x,b.y,b.r,0,Math.PI*2);
 ctx.fillStyle=b.c;
@@ -369,13 +265,7 @@ ctx.fill();
 });
 requestAnimationFrame(animate);
 }
-
-window.onresize=init;
-init();animate();
-
-buildGallery(highlightsData,'highlightsGrid');
-buildGallery(videoReelData,'videoGrid');
-buildGallery(lifeData,'lifeGrid');
+window.onresize=init; init(); animate();
 </script>
 
 </body>
