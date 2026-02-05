@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DASTO | DJ & Producer Napoli</title>
+<meta name="language" content="Italian">
 
-<meta name="description" content="Sito ufficiale di DASTO, DJ & Producer napoletano.">
+<title>DASTO | DJ & Producer Napoli - Official Site</title>
+<meta name="description" content="Sito ufficiale di DASTO, DJ e Producer napoletano.">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
@@ -14,17 +15,18 @@
 *{margin:0;padding:0;box-sizing:border-box}
 
 :root{
---bg:#000;
---txt:#fff;
---glass:rgba(0,0,0,.45);
---border:rgba(255,255,255,.15);
---btn:rgba(255,255,255,.08);
---accent:#25d366;
+--bg-color:#000;
+--text-color:#fff;
+--btn-bg:rgba(255,255,255,.08);
+--btn-border:rgba(255,255,255,.15);
+--section-title:#aaa;
+--glass:rgba(0,0,0,.4);
+--accent-color:#25d366;
 }
 
 body{
-background:var(--bg);
-color:var(--txt);
+background:var(--bg-color);
+color:var(--text-color);
 font-family:'Inter',sans-serif;
 min-height:100dvh;
 display:flex;
@@ -38,7 +40,8 @@ overflow-x:hidden;
 position:fixed;
 inset:0;
 z-index:1;
-filter:blur(90px) saturate(150%);
+filter:blur(80px) saturate(150%);
+transform:scale(1.1);
 pointer-events:none;
 }
 
@@ -49,7 +52,7 @@ width:100%;
 max-width:380px;
 background:var(--glass);
 backdrop-filter:blur(40px);
-border:1px solid var(--border);
+border:1px solid var(--btn-border);
 border-radius:35px;
 padding:30px 20px;
 text-align:center;
@@ -60,42 +63,46 @@ font-size:2.2rem;
 font-weight:900;
 letter-spacing:12px;
 margin-bottom:25px;
-background:linear-gradient(180deg,#fff,#777);
+background:linear-gradient(180deg,#fff,rgba(150,150,150,.5));
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
 .soundcloud-frame{
 width:100%;
-height:110px;
+height:100px;
 border:none;
 border-radius:15px;
-margin-bottom:20px;
+margin-bottom:18px;
 }
 
 .section-title{
+color:var(--section-title);
 font-size:11px;
 letter-spacing:2.5px;
-color:#aaa;
-margin:20px 0 10px;
+margin:20px 0 8px;
 text-transform:uppercase;
+font-weight:600;
+display:flex;
+justify-content:center;
+gap:8px;
 }
 
 .btn{
 display:flex;
 justify-content:center;
 align-items:center;
+background:var(--btn-bg);
+border:1px solid var(--btn-border);
 padding:14px;
-margin-bottom:8px;
-border-radius:12px;
-background:var(--btn);
-border:1px solid var(--border);
-color:var(--txt);
+color:var(--text-color);
 text-decoration:none;
 font-size:.8rem;
 font-weight:600;
 letter-spacing:1.5px;
+border-radius:12px;
 transition:.3s;
+margin-bottom:8px;
 }
 
 .btn:hover{
@@ -103,36 +110,21 @@ background:#fff;
 color:#000;
 }
 
-.socials{
-display:flex;
-justify-content:center;
-gap:25px;
-margin-top:25px;
-}
-
-.socials a{
-color:#fff;
-font-size:22px;
-}
-
-/* ===== GALLERY ===== */
-
 .gallery-container{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:8px;
-margin-bottom:25px;
+margin:8px 0 20px;
 }
 
 .gallery-item{
 position:relative;
 aspect-ratio:1;
-border-radius:14px;
+border-radius:12px;
 overflow:hidden;
-background:var(--btn);
-border:1px solid var(--border);
+background:var(--btn-bg);
+border:1px solid var(--btn-border);
 cursor:pointer;
-transition:.35s ease;
 }
 
 .gallery-item.large{
@@ -140,20 +132,8 @@ grid-column:span 2;
 aspect-ratio:16/9;
 }
 
-.gallery-item:hover{
-transform:scale(1.03);
-}
-
-.slide{
-display:none;
-width:100%;
-height:100%;
-}
-
-.slide.active{
-display:block;
-animation:fade .4s ease;
-}
+.slide{display:none;width:100%;height:100%}
+.slide.active{display:block}
 
 .slide img,
 .slide video{
@@ -165,13 +145,6 @@ object-fit:cover;
 .slide video{
 pointer-events:none;
 }
-
-@keyframes fade{
-from{opacity:0}
-to{opacity:1}
-}
-
-/* indicators */
 
 .slide-indicators{
 position:absolute;
@@ -195,16 +168,15 @@ border-radius:3px;
 background:#fff;
 }
 
-/* ===== MODAL ===== */
-
 .modal{
+display:none;
 position:fixed;
 inset:0;
 background:rgba(0,0,0,.95);
-display:none;
+backdrop-filter:blur(15px);
+z-index:1000;
 align-items:center;
 justify-content:center;
-z-index:999;
 padding:20px;
 }
 
@@ -214,12 +186,6 @@ padding:20px;
 max-width:90%;
 max-height:80vh;
 border-radius:15px;
-animation:zoom .35s ease;
-}
-
-@keyframes zoom{
-from{transform:scale(.85);opacity:0}
-to{transform:scale(1);opacity:1}
 }
 
 .modal-close{
@@ -227,11 +193,9 @@ position:absolute;
 top:25px;
 right:25px;
 font-size:35px;
-cursor:pointer;
 color:#fff;
+cursor:pointer;
 }
-
-/* ===== DESKTOP ===== */
 
 @media(min-width:1024px){
 .container{
@@ -265,17 +229,16 @@ src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/22
 </iframe>
 
 <p class="section-title">Identity</p>
-<a class="btn" href="pdf/presskit-dasto.pdf" target="_blank">📂 Press Kit 2026</a>
-<a class="btn" href="https://wa.me/393514090392" style="color:var(--accent)">📱 Booking</a>
+<a href="pdf/presskit-dasto.pdf" target="_blank" class="btn">📂 Press Kit 2026</a>
+<a href="https://wa.me/393514090392" class="btn" style="color:var(--accent-color)">📱 Booking</a>
 
-<div class="socials">
-<a href="https://instagram.com/dastodj" target="_blank"><i class="fab fa-instagram"></i></a>
-<a href="https://soundcloud.com/dastodj" target="_blank"><i class="fab fa-soundcloud"></i></a>
+<div style="display:flex;justify-content:center;gap:25px;margin-top:25px">
+<a href="https://instagram.com/dastodj" target="_blank" style="color:#fff;font-size:22px"><i class="fab fa-instagram"></i></a>
+<a href="https://soundcloud.com/dastodj" target="_blank" style="color:#fff;font-size:22px"><i class="fab fa-soundcloud"></i></a>
 </div>
 </div>
 
 <div class="right-column">
-
 <p class="section-title">Highlights</p>
 <div class="gallery-container" id="highlightsGrid"></div>
 
@@ -284,18 +247,16 @@ src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/22
 
 <p class="section-title">Life</p>
 <div class="gallery-container" id="lifeGrid"></div>
-
 </div>
+
 </main>
 
-<div class="modal" id="modal" onclick="closeModal()">
+<div id="modal" class="modal" onclick="closeModal()">
 <span class="modal-close">&times;</span>
 <div id="modalContent" onclick="event.stopPropagation()"></div>
 </div>
 
 <script>
-// ===== DATA =====
-
 const highlightsData=[
 {type:'large',media:[
 {type:'image',src:'img/dasto_dj_napoli_live_1.jpg'},
@@ -312,8 +273,6 @@ const lifeData=[
 {type:'normal',media:[{type:'image',src:'img/foto_me_2.jpg'}]}
 ];
 
-// ===== GALLERY BUILDER =====
-
 function buildGallery(data,id){
 const c=document.getElementById(id);
 
@@ -328,8 +287,7 @@ ${m.type==='video'
 ?`<video muted loop playsinline preload="metadata"><source src="${m.src}"></video>`
 :`<img src="${m.src}" loading="lazy">`}
 </div>`).join('')
-+
-(item.media.length>1?`
++(item.media.length>1?`
 <div class="slide-indicators">
 ${item.media.map((_,i)=>`<div class="indicator-dot ${i===0?'active':''}"></div>`).join('')}
 </div>`:'');
@@ -341,13 +299,13 @@ openModal(item.media[idx]);
 
 c.appendChild(box);
 
-const playVisible=()=>{
+const syncVideo=()=>{
 box.querySelectorAll('video').forEach((v,i)=>{
 i===idx?v.play():v.pause();
 });
 };
 
-playVisible();
+syncVideo();
 
 if(item.media.length>1){
 setInterval(()=>{
@@ -358,13 +316,11 @@ dots[idx].classList.remove('active');
 idx=(idx+1)%item.media.length;
 slides[idx].classList.add('active');
 dots[idx].classList.add('active');
-playVisible();
+syncVideo();
 },3500);
 }
 });
 }
-
-// ===== MODAL =====
 
 function openModal(media){
 const modal=document.getElementById('modal');
@@ -382,8 +338,7 @@ document.getElementById('modal').classList.remove('active');
 document.getElementById('modalContent').innerHTML='';
 }
 
-// ===== BACKGROUND =====
-
+// BACKGROUND
 const canvas=document.getElementById('canvas-bg');
 const ctx=canvas.getContext('2d');
 let w,h,blobs=[];
