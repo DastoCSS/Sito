@@ -1,266 +1,427 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="language" content="Italian">
-    
-    <title>DASTO | DJ & Producer Napoli - Official Site</title>
-    <meta name="description" content="Sito ufficiale di DASTO, DJ e Producer napoletano. Scopri i set, i prossimi eventi a Napoli, i corsi DJ professionali e il Press Kit ufficiale.">
-    <meta name="keywords" content="DASTO, DJ Napoli, Producer Napoli, Musica Elettronica, Eventi Napoli, Corsi DJ, SoundCloud DASTO">
-    <meta name="author" content="DASTO">
-    <link rel="canonical" href="https://dastocss.github.io/Sito/"> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DASTO | DJ & Producer Napoli</title>
 
-    <meta property="og:title" content="DASTO | Official Site">
-    <meta property="og:description" content="Esplora la musica e i prossimi DJ set di DASTO.">
-    <meta property="og:image" content="img/cover_social.webp">
-    <meta property="og:type" content="website">
+<meta name="description" content="Sito ufficiale di DASTO, DJ & Producer napoletano.">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22%3E%3Ctext%20y=%22.9em%22%20font-size=%2290%22%3E🎧%3C/text%3E%3C/svg%3E">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
-    
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { 
-            --bg-color: #000; --text-color: #fff; --btn-bg: rgba(255,255,255,0.08); 
-            --btn-border: rgba(255,255,255,0.15); --section-title: #aaa; --glass: rgba(0, 0, 0, 0.4); 
-            --accent-color: #25d366; 
-        }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: 'Inter', sans-serif; min-height: 100dvh; display: flex; justify-content: center; align-items: center; overflow-x: hidden; padding: 20px; transition: background-color 0.8s ease; }
-        #canvas-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; filter: blur(80px) saturate(150%); transform: scale(1.1); pointer-events: none; }
-        
-        .container { 
-            position: relative; z-index: 10; width: 100%; max-width: 380px; background: var(--glass); 
-            backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); border: 1px solid var(--btn-border); 
-            border-radius: 35px; padding: 30px 20px; text-align: center; margin: 20px auto; 
-        }
-        
-        .logo { font-size: 2.2rem; font-weight: 900; letter-spacing: 12px; margin-bottom: 25px; background: linear-gradient(180deg, var(--text-color) 0%, rgba(150,150,150,0.5) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-        .soundcloud-frame { width: 100%; height: 100px; border-radius: 15px; margin-bottom: 18px; border: none; }
-        .links-container { display: flex; flex-direction: column; gap: 8px; }
-        .section-title { color: var(--section-title); font-size: 11px; letter-spacing: 2.5px; margin-top: 20px; margin-bottom: 8px; text-transform: uppercase; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px; }
-        
-        .pulse-dot { width: 6px; height: 6px; background: #ff3b30; border-radius: 50%; animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.2); } 100% { opacity: 1; transform: scale(1); } }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
 
-        .btn { display: flex; align-items: center; justify-content: center; background: var(--btn-bg); border: 1px solid var(--btn-border); padding: 14px; color: var(--text-color); text-decoration: none; font-size: 0.8rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 12px; transition: 0.3s ease; }
-        .btn:hover { background: var(--text-color); color: var(--bg-color); transform: translateY(-2px); }
-        #btn-booking { color: var(--accent-color); border-color: rgba(37, 211, 102, 0.4); }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
 
-        .events-container { width: 100%; background: rgba(255, 255, 255, 0.03); border-radius: 18px; margin-top: 5px; overflow: hidden; border: 1px solid var(--btn-border); }
+:root{
+--bg:#000;
+--txt:#fff;
+--glass:rgba(0,0,0,.45);
+--border:rgba(255,255,255,.15);
+--btn:rgba(255,255,255,.08);
+--accent:#25d366;
+}
 
-        .gallery-container { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; margin-bottom: 20px; }
-        .gallery-item { position: relative; aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: var(--btn-bg); border: 1px solid var(--btn-border); cursor: pointer; }
-        .gallery-item.large { grid-column: span 2; aspect-ratio: 16/9; }
-        .slide { display: none; width: 100%; height: 100%; }
-        .slide.active { display: block; animation: fadeIn 0.5s; }
-        .slide img, .slide video { width: 100%; height: 100%; object-fit: cover; }
-        
-        .slide-indicators { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 6; }
-        .indicator-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255, 255, 255, 0.3); position: relative; overflow: hidden; }
-        .indicator-dot.active { width: 20px; border-radius: 3px; background: rgba(255, 255, 255, 0.2); }
-        .indicator-dot.active::after { content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 0; background: #fff; animation: progress 3s linear forwards; }
-        
-        @keyframes progress { from { width: 0%; } to { width: 100%; } }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+body{
+background:var(--bg);
+color:var(--txt);
+font-family:'Inter',sans-serif;
+min-height:100dvh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+overflow-x:hidden;
+}
 
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); backdrop-filter: blur(15px); align-items: center; justify-content: center; padding: 20px; }
-        .modal.active { display: flex; }
-        .modal-content { max-width: 90%; max-height: 80vh; border-radius: 15px; }
-        .modal-close { position: absolute; top: 25px; right: 25px; color: white; font-size: 35px; cursor: pointer; opacity: 0.7; }
+#canvas-bg{
+position:fixed;
+inset:0;
+z-index:1;
+filter:blur(90px) saturate(150%);
+pointer-events:none;
+}
 
-        .call-float { position: fixed; bottom: 20px; right: 20px; width: 55px; height: 55px; background: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; z-index: 999; box-shadow: 0 10px 20px rgba(37,211,102,0.3); text-decoration: none; }
+.container{
+position:relative;
+z-index:10;
+width:100%;
+max-width:380px;
+background:var(--glass);
+backdrop-filter:blur(40px);
+border:1px solid var(--border);
+border-radius:35px;
+padding:30px 20px;
+text-align:center;
+}
 
-        @media (min-width: 1024px) {
-            .container { max-width: 1100px; flex-direction: row; display: flex; gap: 50px; text-align: left; align-items: flex-start; }
-            .left-column { flex: 0 0 420px; }
-            .right-column { flex: 1; height: 85vh; overflow-y: auto; padding-right: 15px; }
-            .right-column::-webkit-scrollbar { width: 4px; }
-            .right-column::-webkit-scrollbar-thumb { background: var(--btn-border); border-radius: 10px; }
-            .logo { text-align: left; font-size: 3.5rem; }
-            .section-title { justify-content: flex-start; }
-        }
-    </style>
+.logo{
+font-size:2.2rem;
+font-weight:900;
+letter-spacing:12px;
+margin-bottom:25px;
+background:linear-gradient(180deg,#fff,#777);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.soundcloud-frame{
+width:100%;
+height:110px;
+border:none;
+border-radius:15px;
+margin-bottom:20px;
+}
+
+.section-title{
+font-size:11px;
+letter-spacing:2.5px;
+color:#aaa;
+margin:20px 0 10px;
+text-transform:uppercase;
+}
+
+.btn{
+display:flex;
+justify-content:center;
+align-items:center;
+padding:14px;
+margin-bottom:8px;
+border-radius:12px;
+background:var(--btn);
+border:1px solid var(--border);
+color:var(--txt);
+text-decoration:none;
+font-size:.8rem;
+font-weight:600;
+letter-spacing:1.5px;
+transition:.3s;
+}
+
+.btn:hover{
+background:#fff;
+color:#000;
+}
+
+.socials{
+display:flex;
+justify-content:center;
+gap:25px;
+margin-top:25px;
+}
+
+.socials a{
+color:#fff;
+font-size:22px;
+}
+
+/* ===== GALLERY ===== */
+
+.gallery-container{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px;
+margin-bottom:25px;
+}
+
+.gallery-item{
+position:relative;
+aspect-ratio:1;
+border-radius:14px;
+overflow:hidden;
+background:var(--btn);
+border:1px solid var(--border);
+cursor:pointer;
+transition:.35s ease;
+}
+
+.gallery-item.large{
+grid-column:span 2;
+aspect-ratio:16/9;
+}
+
+.gallery-item:hover{
+transform:scale(1.03);
+}
+
+.slide{
+display:none;
+width:100%;
+height:100%;
+}
+
+.slide.active{
+display:block;
+animation:fade .4s ease;
+}
+
+.slide img,
+.slide video{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.slide video{
+pointer-events:none;
+}
+
+@keyframes fade{
+from{opacity:0}
+to{opacity:1}
+}
+
+/* indicators */
+
+.slide-indicators{
+position:absolute;
+bottom:8px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+gap:6px;
+}
+
+.indicator-dot{
+width:6px;
+height:6px;
+border-radius:50%;
+background:rgba(255,255,255,.3);
+}
+
+.indicator-dot.active{
+width:20px;
+border-radius:3px;
+background:#fff;
+}
+
+/* ===== MODAL ===== */
+
+.modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.95);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:999;
+padding:20px;
+}
+
+.modal.active{display:flex}
+
+.modal-content{
+max-width:90%;
+max-height:80vh;
+border-radius:15px;
+animation:zoom .35s ease;
+}
+
+@keyframes zoom{
+from{transform:scale(.85);opacity:0}
+to{transform:scale(1);opacity:1}
+}
+
+.modal-close{
+position:absolute;
+top:25px;
+right:25px;
+font-size:35px;
+cursor:pointer;
+color:#fff;
+}
+
+/* ===== DESKTOP ===== */
+
+@media(min-width:1024px){
+.container{
+max-width:1100px;
+display:flex;
+gap:50px;
+text-align:left;
+}
+.left-column{flex:0 0 420px}
+.right-column{
+flex:1;
+height:85vh;
+overflow-y:auto;
+padding-right:15px;
+}
+}
+</style>
 </head>
+
 <body>
 
-    <canvas id="canvas-bg"></canvas>
+<canvas id="canvas-bg"></canvas>
 
-    <main class="container">
-        <section style="display:none;" aria-hidden="true">
-            <h2>DASTO - DJ & Producer Napoli | Techno, House & Electronic Music</h2>
-            <p>
-                DASTO è un DJ e Producer di Napoli, figura emergente della scena elettronica campana. 
-                Specializzato in sonorità Techno e House. Offre DJ Courses professionali e produzione musicale. 
-                Disponibile per booking festival internazionali e club set.
-            </p>
-        </section>
+<main class="container">
 
-        <div class="left-column">
-            <h1 class="logo">DASTO</h1>
-            
-            <iframe class="soundcloud-frame" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2251688624&color=%23ff5500&auto_play=false&visual=true"></iframe>
-            
-            <p class="section-title"><span class="pulse-dot"></span> Next Events</p>
-            <div class="events-container">
-                <iframe src="https://www.eventbrite.it/checkout-external?eid=IL_TUO_ID" style="border:none; width:100%; height:250px;" allowtransparency="true"></iframe>
-            </div>
+<div class="left-column">
+<h1 class="logo">DASTO</h1>
 
-            <div class="links-container">
-                <p class="section-title">Identity</p>
-                <a href="pdf/presskit-dasto.pdf" target="_blank" class="btn">📂 Press Kit 2026</a>
-                
-                <p class="section-title">Training</p>
-                <a href="https://wa.me/393514090392?text=Info%20Corsi" class="btn">🎓 DJ Courses</a>
-                
-                <p class="section-title">Booking</p>
-                <a href="https://wa.me/393514090392?text=Booking" class="btn" id="btn-booking">📱 WhatsApp Booking</a>
-            </div>
+<iframe class="soundcloud-frame"
+src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2251688624&auto_play=false&visual=true">
+</iframe>
 
-            <div class="social-links" style="display:flex; justify-content:center; gap:25px; margin-top:25px;">
-                <a href="https://www.instagram.com/dastodj/" target="_blank" style="color:white; font-size:22px; opacity:0.8;"><i class="fab fa-instagram"></i></a>
-                <a href="https://soundcloud.com/dastodj" target="_blank" style="color:white; font-size:22px; opacity:0.8;"><i class="fab fa-soundcloud"></i></a>
-            </div>
-            <footer style="margin-top:25px; font-size:10px; opacity:0.4; letter-spacing:3px; text-align:center;">NAPLES • 2026</footer>
-        </div>
+<p class="section-title">Identity</p>
+<a class="btn" href="pdf/presskit-dasto.pdf" target="_blank">📂 Press Kit 2026</a>
+<a class="btn" href="https://wa.me/393514090392" style="color:var(--accent)">📱 Booking</a>
 
-        <div class="right-column">
-            <p class="section-title">Highlights</p>
-            <div class="gallery-container" id="highlightsGrid"></div>
+<div class="socials">
+<a href="https://instagram.com/dastodj" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="https://soundcloud.com/dastodj" target="_blank"><i class="fab fa-soundcloud"></i></a>
+</div>
+</div>
 
-            <p class="section-title">Video Reel</p>
-            <div class="gallery-container" id="videoGrid"></div>
+<div class="right-column">
 
-            <p class="section-title">Life</p>
-            <div class="gallery-container" id="lifeGrid"></div>
-        </div>
-    </main>
+<p class="section-title">Highlights</p>
+<div class="gallery-container" id="highlightsGrid"></div>
 
-    <a href="https://wa.me/393514090392" class="call-float"><i class="fab fa-whatsapp"></i></a>
+<p class="section-title">Video Reel</p>
+<div class="gallery-container" id="videoGrid"></div>
 
-    <div id="modal" class="modal" onclick="closeModal()">
-        <span class="modal-close">&times;</span>
-        <div id="modalContent"></div>
-    </div>
+<p class="section-title">Life</p>
+<div class="gallery-container" id="lifeGrid"></div>
 
-    <script>
-        // CONFIGURAZIONE DATI SEPARATA
-        const highlightsData = [
-            { 
-                type: 'large', 
-                media: [
-                    { type: 'image', src: 'img/dasto_dj_napoli_live_1.jpg' }, 
-                    { type: 'image', src: 'img/dasto_dj_napoli_live_2.jpg' }
-                ] 
-            }
-        ];
+</div>
+</main>
 
-        const videoReelData = [
-            { type: 'normal', media: [{ type: 'video', src: 'vid/video_promo_1.webp' }] },
-            { type: 'normal', media: [{ type: 'video', src: 'vid/video_promo_2.webp' }] }
-        ];
+<div class="modal" id="modal" onclick="closeModal()">
+<span class="modal-close">&times;</span>
+<div id="modalContent" onclick="event.stopPropagation()"></div>
+</div>
 
-        const lifeData = [
-            { type: 'normal', media: [{ type: 'image', src: 'img/foto_me_1.jpg' }] },
-            { type: 'normal', media: [{ type: 'image', src: 'img/foto_me_2.jpg' }] }
-        ];
+<script>
+// ===== DATA =====
 
-        function buildGallery(data, containerId) {
-            const container = document.getElementById(containerId);
-            data.forEach((item, idx) => {
-                const div = document.createElement('div');
-                div.className = `gallery-item ${item.type}`;
-                
-                let mediaHtml = item.media.map((m, mIdx) => {
-                    if(m.type === 'video') {
-                        return `<div class="slide ${mIdx===0?'active':''}">
-                                    <video muted loop playsinline>
-    <source src="vid/video_promo_1.webm" type="video/webm">
-    <source src="vid/video_promo_2.webp" type="video/webm">
-    <source src="vid/video_promo_3.mp4" type="video/mp4">
-</video>
-                                </div>`;
-                    } else {
-                        const webpSrc = m.src.replace('.jpg', '.webp').replace('.jpeg', '.webp');
-                        return `<div class="slide ${mIdx===0?'active':''}">
-                                    <picture>
-                                        <source srcset="${webpSrc}" type="image/webp">
-                                        <img src="${m.src}" alt="DASTO DJ Napoli" loading="lazy">
-                                    </picture>
-                                </div>`;
-                    }
-                }).join('');
+const highlightsData=[
+{type:'large',media:[
+{type:'image',src:'img/dasto_dj_napoli_live_1.jpg'},
+{type:'image',src:'img/dasto_dj_napoli_live_2.jpg'}
+]}];
 
-                let dotsHtml = item.media.length > 1 ? `
-                    <div class="slide-indicators">
-                        ${item.media.map((_, mIdx) => `<div class="indicator-dot ${mIdx===0?'active':''}"></div>`).join('')}
-                    </div>` : '';
+const videoReelData=[
+{type:'normal',media:[{type:'video',src:'vid/video_promo_1.mp4'}]},
+{type:'normal',media:[{type:'video',src:'vid/video_promo_2.mp4'}]}
+];
 
-                div.innerHTML = mediaHtml + dotsHtml;
-                div.onclick = (e) => { e.stopPropagation(); openModal(item.media[0]); };
-                container.appendChild(div);
+const lifeData=[
+{type:'normal',media:[{type:'image',src:'img/foto_me_1.jpg'}]},
+{type:'normal',media:[{type:'image',src:'img/foto_me_2.jpg'}]}
+];
 
-                if(item.media.length > 1) {
-                    let current = 0;
-                    setInterval(() => {
-                        const slides = div.querySelectorAll('.slide');
-                        const dots = div.querySelectorAll('.indicator-dot');
-                        if(slides[current]) {
-                            slides[current].classList.remove('active');
-                            dots[current].classList.remove('active');
-                            current = (current + 1) % item.media.length;
-                            slides[current].classList.add('active');
-                            dots[current].classList.add('active');
-                        }
-                    }, 3000);
-                }
-            });
-        }
+// ===== GALLERY BUILDER =====
 
-        // BACKGROUND ANIMATION
-        const canvas = document.getElementById('canvas-bg');
-        const ctx = canvas.getContext('2d');
-        let w, h, blobs = [];
-        const colors = ['#1a1a1a', '#4a00e0', '#ff0055'];
+function buildGallery(data,id){
+const c=document.getElementById(id);
 
-        function init() {
-            w = canvas.width = window.innerWidth;
-            h = canvas.height = window.innerHeight;
-            blobs = Array.from({length: 6}, () => ({
-                x: Math.random() * w, y: Math.random() * h,
-                r: Math.random() * 300 + 250,
-                vx: (Math.random() - 0.5) * 1.2, vy: (Math.random() - 0.5) * 1.2,
-                c: colors[Math.floor(Math.random() * colors.length)]
-            }));
-        }
+data.forEach(item=>{
+let idx=0;
+const box=document.createElement('div');
+box.className=`gallery-item ${item.type}`;
 
-        function animate() {
-            ctx.clearRect(0,0,w,h);
-            blobs.forEach(b => {
-                b.x += b.vx; b.y += b.vy;
-                if(b.x < -b.r || b.x > w + b.r) b.vx *= -1;
-                if(b.y < -b.r || b.y > h + b.r) b.vy *= -1;
-                ctx.beginPath(); ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
-                ctx.fillStyle = b.c; ctx.fill();
-            });
-            requestAnimationFrame(animate);
-        }
+box.innerHTML=item.media.map((m,i)=>`
+<div class="slide ${i===0?'active':''}">
+${m.type==='video'
+?`<video muted loop playsinline preload="metadata"><source src="${m.src}"></video>`
+:`<img src="${m.src}" loading="lazy">`}
+</div>`).join('')
++
+(item.media.length>1?`
+<div class="slide-indicators">
+${item.media.map((_,i)=>`<div class="indicator-dot ${i===0?'active':''}"></div>`).join('')}
+</div>`:'');
 
-        function openModal(m) {
-            const modal = document.getElementById('modal');
-            const content = document.getElementById('modalContent');
-            content.innerHTML = m.type === 'video' ? `<video controls autoplay class="modal-content"><source src="${m.src}"></video>` : `<img src="${m.src}" class="modal-content">`;
-            modal.classList.add('active');
-        }
+box.onclick=e=>{
+e.stopPropagation();
+openModal(item.media[idx]);
+};
 
-        function closeModal() { document.getElementById('modal').classList.remove('active'); document.getElementById('modalContent').innerHTML=''; }
+c.appendChild(box);
 
-        window.onresize = init;
-        init(); animate();
-        buildGallery(highlightsData, 'highlightsGrid');
-        buildGallery(videoReelData, 'videoGrid');
-        buildGallery(lifeData, 'lifeGrid');
-    </script>
+const playVisible=()=>{
+box.querySelectorAll('video').forEach((v,i)=>{
+i===idx?v.play():v.pause();
+});
+};
+
+playVisible();
+
+if(item.media.length>1){
+setInterval(()=>{
+const slides=box.querySelectorAll('.slide');
+const dots=box.querySelectorAll('.indicator-dot');
+slides[idx].classList.remove('active');
+dots[idx].classList.remove('active');
+idx=(idx+1)%item.media.length;
+slides[idx].classList.add('active');
+dots[idx].classList.add('active');
+playVisible();
+},3500);
+}
+});
+}
+
+// ===== MODAL =====
+
+function openModal(media){
+const modal=document.getElementById('modal');
+const content=document.getElementById('modalContent');
+
+content.innerHTML=media.type==='video'
+?`<video class="modal-content" controls autoplay><source src="${media.src}"></video>`
+:`<img src="${media.src}" class="modal-content">`;
+
+modal.classList.add('active');
+}
+
+function closeModal(){
+document.getElementById('modal').classList.remove('active');
+document.getElementById('modalContent').innerHTML='';
+}
+
+// ===== BACKGROUND =====
+
+const canvas=document.getElementById('canvas-bg');
+const ctx=canvas.getContext('2d');
+let w,h,blobs=[];
+
+function init(){
+w=canvas.width=innerWidth;
+h=canvas.height=innerHeight;
+blobs=Array.from({length:6},()=>({
+x:Math.random()*w,
+y:Math.random()*h,
+r:Math.random()*300+250,
+vx:(Math.random()-.5)*1.2,
+vy:(Math.random()-.5)*1.2,
+c:['#1a1a1a','#4a00e0','#ff0055'][Math.floor(Math.random()*3)]
+}));
+}
+
+function animate(){
+ctx.clearRect(0,0,w,h);
+blobs.forEach(b=>{
+b.x+=b.vx;b.y+=b.vy;
+if(b.x<-b.r||b.x>w+b.r)b.vx*=-1;
+if(b.y<-b.r||b.y>h+b.r)b.vy*=-1;
+ctx.beginPath();
+ctx.arc(b.x,b.y,b.r,0,Math.PI*2);
+ctx.fillStyle=b.c;
+ctx.fill();
+});
+requestAnimationFrame(animate);
+}
+
+window.onresize=init;
+init();animate();
+
+buildGallery(highlightsData,'highlightsGrid');
+buildGallery(videoReelData,'videoGrid');
+buildGallery(lifeData,'lifeGrid');
+</script>
+
 </body>
 </html>
