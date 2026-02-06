@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <meta name="google-site-verification" content="poRnRak5FyYH3XiC_CJy_SkXvi7v8-713vm2-VCcAcE" />
+
     <title>DASTO | DJ & Music Producer Napoli | Portfolio 2026</title>
     <meta name="description" content="Sito ufficiale di DASTO, DJ e Produttore Musicale a Napoli. Esplora i video reel, ascolta le ultime tracce su SoundCloud e scarica il Press Kit 2026.">
-    <link rel="canonical" href="https://www.dastodj.it/">
+    <link rel="canonical" href="https://dastocss.github.io/Sito/">
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "MusicGroup",
       "name": "DASTO",
-      "genre": "Electronic/Techno/House",
+      "genre": ["Electronic", "Techno", "House"],
       "location": {
         "@type": "Place",
         "name": "Napoli, Italia"
@@ -73,7 +75,6 @@
             padding:35px 25px;
         }
 
-        /* Ottimizzazione H1 per SEO */
         .logo-container { text-align: center; margin-bottom: 30px; }
         .logo{
             font-size:2.5rem;
@@ -136,7 +137,6 @@
             transform:translateY(-2px);
         }
 
-        /* HIGHLIGHTS SLIDER */
         .slider-container {
             position: relative;
             width: 100%;
@@ -165,7 +165,6 @@
             object-fit: cover;
         }
 
-        /* GALLERY GENERAL */
         .gallery{
             display:grid;
             grid-template-columns:repeat(2,1fr);
@@ -184,7 +183,6 @@
         .item.large{ grid-column:span 2; aspect-ratio:16/7; }
         .item img{ width:100%; height:100%; object-fit:cover; display: block; }
 
-        /* REELS */
         .reel{ aspect-ratio:9/16; background:#000; cursor: pointer; }
         .reel .embed{ position:relative; width:100%; height:100%; overflow:hidden; }
         .reel iframe{
@@ -200,7 +198,6 @@
         }
         .reel:hover::after{ opacity:1; }
 
-        /* LIGHTBOX */
         .lightbox-overlay {
             position: fixed; inset: 0; background: rgba(0, 0, 0, 0.9);
             z-index: 9999; display: none; justify-content: center; align-items: center;
@@ -317,7 +314,6 @@
     </main>
 
     <script>
-        /* BACKGROUND ANIMATION */
         const canvas=document.getElementById('canvas-bg');
         const ctx=canvas.getContext('2d');
         let w,h,blobs=[];
@@ -342,7 +338,6 @@
             requestAnimationFrame(animate);
         }
 
-        /* SLIDER LOGIC */
         let currentSlide = 0;
         const track = document.getElementById('sliderTrack');
         const slides = document.querySelectorAll('.slide');
@@ -354,7 +349,6 @@
         }
         setInterval(nextSlide, 3000);
 
-        /* LIGHTBOX FUNCTIONALITY */
         function openReel(id) {
             const lb = document.getElementById('lightbox');
             const iframe = document.getElementById('lightbox-iframe');
