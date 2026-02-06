@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <meta name="google-site-verification" content="poRnRak5FyYH3XiC_CJy_SkXvi7v8-713vm2-VCcAcE" />
+    <meta name="google-site-verification" content="poRnRak5FyYH3XiC_CJy_SkXvi7v8-713vm2-VCcAcE">
 
     <title>DASTO | DJ & Music Producer Napoli | Portfolio 2026</title>
     <meta name="description" content="Sito ufficiale di DASTO, DJ e Produttore Musicale a Napoli. Esplora i video reel, ascolta le ultime tracce su SoundCloud e scarica il Press Kit 2026.">
@@ -87,12 +87,14 @@
         }
         .subtitle { font-size: 10px; letter-spacing: 4px; color: #888; text-transform: uppercase; margin-top: 5px; }
 
+        /* Gestione via CSS degli attributi obsoleti (frameborder e scrolling) */
         .soundcloud-frame{
             width:100%;
             height:120px;
             border-radius:20px;
             border:1px solid var(--border);
             margin-bottom:20px;
+            overflow: hidden; /* Sostituisce scrolling=no */
         }
 
         .section-title{
@@ -183,11 +185,11 @@
         .item.large{ grid-column:span 2; aspect-ratio:16/7; }
         .item img{ width:100%; height:100%; object-fit:cover; display: block; }
 
-        .reel{ aspect-ratio:9/16; background:#000; cursor: pointer; }
-        .reel .embed{ position:relative; width:100%; height:100%; overflow:hidden; }
+        .reel{ aspect-ratio:9/16; background:#000; cursor: pointer; border: none; padding: 0; }
+        .reel .embed{ position:relative; width:100%; height:100%; overflow:hidden; pointer-events: none; }
         .reel iframe{
             position:absolute; top:-15%; left:-25%; width:150%; height:130%;
-            border:0; pointer-events:none; transition:transform .6s ease;
+            border:0; transition:transform .6s ease;
         }
         .reel:hover iframe{ transform:scale(1.1); }
         .reel::after{
@@ -195,6 +197,7 @@
             display:flex; align-items:center; justify-content:center;
             background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,0.7));
             opacity:0; font-size:11px; letter-spacing:2px; font-weight:900; transition:.4s; z-index:2;
+            color: white;
         }
         .reel:hover::after{ opacity:1; }
 
@@ -230,9 +233,9 @@
     <canvas id="canvas-bg"></canvas>
 
     <div id="lightbox" class="lightbox-overlay" aria-hidden="true">
-        <span class="close-lightbox" onclick="closeReel()" role="button" aria-label="Chiudi Video">&times;</span>
+        <button class="close-lightbox" onclick="closeReel()" aria-label="Chiudi Video" style="background:none; border:none;">&times;</button>
         <div class="lightbox-content">
-            <iframe id="lightbox-iframe" src="" allow="autoplay; fullscreen"></iframe>
+            <iframe id="lightbox-iframe" title="Video Lightbox" allow="autoplay; fullscreen"></iframe>
         </div>
     </div>
 
@@ -240,14 +243,14 @@
 
         <header class="left">
             <div class="logo-container">
-                <h1 class="logo">DASTO</h1>
-                <p class="subtitle">DJ & Producer</p>
+                <p class="logo">DASTO</p>
+                <h1 class="subtitle">DJ & Producer</h1>
             </div>
 
             <iframe class="soundcloud-frame" 
                 title="DASTO Featured Track"
                 src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2251688624&visual=true" 
-                frameborder="no" scrolling="no" loading="lazy">
+                loading="lazy">
             </iframe>
 
             <nav aria-label="Press and Booking">
@@ -280,14 +283,14 @@
             <section id="reels">
                 <h2 class="section-title">Video Reel</h2>
                 <div class="gallery">
-                    <div class="item reel" onclick="openReel('DKIOE1XIEEb')" role="button" aria-label="Guarda Video Reel 1">
-                        <div class="embed"><iframe src="https://www.instagram.com/reel/DKIOE1XIEEb/embed" title="Instagram Reel"></iframe></div>
+                    <div class="item reel" onclick="openReel('DKIOE1XIEEb')" role="button" tabindex="0" aria-label="Guarda Video Reel 1">
+                        <div class="embed"><iframe src="https://www.instagram.com/reel/DKIOE1XIEEb/embed" title="Instagram Reel 1"></iframe></div>
                     </div>
-                    <div class="item reel" onclick="openReel('DKIOE1XIEEb')" role="button" aria-label="Guarda Video Reel 2">
-                        <div class="embed"><iframe src="https://www.instagram.com/reel/DKIOE1XIEEb/embed" title="Instagram Reel"></iframe></div>
+                    <div class="item reel" onclick="openReel('DKIOE1XIEEb')" role="button" tabindex="0" aria-label="Guarda Video Reel 2">
+                        <div class="embed"><iframe src="https://www.instagram.com/reel/DKIOE1XIEEb/embed" title="Instagram Reel 2"></iframe></div>
                     </div>
-                    <div class="item reel" onclick="openReel('DAvzNiBoFF-')" role="button" aria-label="Guarda Video Reel 3">
-                        <div class="embed"><iframe src="https://www.instagram.com/reel/DAvzNiBoFF-/embed" title="Instagram Reel"></iframe></div>
+                    <div class="item reel" onclick="openReel('DAvzNiBoFF-')" role="button" tabindex="0" aria-label="Guarda Video Reel 3">
+                        <div class="embed"><iframe src="https://www.instagram.com/reel/DAvzNiBoFF-/embed" title="Instagram Reel 3"></iframe></div>
                     </div>
                 </div>
             </section>
@@ -343,7 +346,7 @@
         const slides = document.querySelectorAll('.slide');
         
         function nextSlide() {
-            if(!track) return;
+            if(!track || slides.length === 0) return;
             currentSlide = (currentSlide + 1) % slides.length;
             track.style.transform = `translateX(-${currentSlide * 100}%)`;
         }
@@ -361,7 +364,7 @@
         function closeReel() {
             const lb = document.getElementById('lightbox');
             const iframe = document.getElementById('lightbox-iframe');
-            iframe.src = '';
+            iframe.src = 'about:blank'; // Evita l'errore src vuoto e ferma il video
             lb.style.display = 'none';
             lb.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = 'auto';
