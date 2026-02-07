@@ -73,11 +73,25 @@
             border:1px solid var(--border); border-radius:40px; padding:35px 25px;
         }
         .logo-container { text-align: center; margin-bottom: 30px; }
-        .logo{
-            font-size:2.8rem; font-weight:900; letter-spacing:8px;
-            background:linear-gradient(180deg,#fff,rgba(255,255,255,.4));
-            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+        
+        /* CORREZIONE LOGO QUI */
+        .logo {
+            font-size: 2.8rem;
+            font-weight: 900;
+            letter-spacing: 8px;
+            background-image: linear-gradient(180deg, #fff, rgba(255, 255, 255, 0.4));
+            
+            /* Proprietà Standard */
+            background-clip: text;
+            
+            /* Prefissi Webkit per compatibilità browser */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
+            /* Fallback per browser vecchi */
+            color: #fff; 
         }
+
         .subtitle { font-size: 11px; letter-spacing: 3px; color: #aaa; text-transform: uppercase; margin-top: 8px; font-weight: 600; }
         .soundcloud-frame{ width:100%; height:120px; border-radius:20px; border:1px solid var(--border); margin-bottom:20px; }
         .section-title{
@@ -133,8 +147,7 @@
     <main class="container">
         <header class="left">
             <div class="logo-container">
-                <h1 class="logo">DASTO</h1>
-                <p class="subtitle">DJ Napoli & Producer</p>
+                <h2 class="logo">DASTO</h2> <p class="subtitle">DJ Napoli & Producer</p>
             </div>
 
             <iframe class="soundcloud-frame" title="Mix Cloud" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2251688624&color=%23050505&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true" loading="lazy"></iframe>
@@ -190,14 +203,13 @@
     </main>
 
     <script>
-        // BACKGROUND OTTIMIZZATO (BASSO CONSUMO CPU)
         const canvas = document.getElementById('canvas-bg');
         const ctx = canvas.getContext('2d');
         let w, h;
         const particles = [];
 
         function init() {
-            w = canvas.width = window.innerWidth / 2; // Risoluzione dimezzata per performance
+            w = canvas.width = window.innerWidth / 2;
             h = canvas.height = window.innerHeight / 2;
             particles.length = 0;
             for(let i=0; i<3; i++) {
@@ -225,16 +237,16 @@
             requestAnimationFrame(draw);
         }
 
-        // SLIDER
         let current = 0;
         setInterval(() => {
             const track = document.getElementById('sliderTrack');
             const slides = document.querySelectorAll('.slide');
-            current = (current + 1) % slides.length;
-            if(track) track.style.transform = `translateX(-${current * 100}%)`;
+            if(slides.length > 0) {
+                current = (current + 1) % slides.length;
+                if(track) track.style.transform = `translateX(-${current * 100}%)`;
+            }
         }, 4000);
 
-        // LIGHTBOX
         function openReel(id) {
             document.getElementById('lightbox-iframe').src = `https://www.instagram.com/reel/${id}/embed`;
             document.getElementById('lightbox').style.display = 'flex';
