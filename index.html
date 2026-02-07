@@ -1,19 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7E2MJ7PNF5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-7E2MJ7PNF5');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7E2MJ7PNF5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7E2MJ7PNF5');
+    </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <meta name="google-site-verification" content="8QxVR7EjYqVvYiZ_bkOa-c2OrMp1A8rxfiR7IwDKP5Q" />
 
     <title>DASTO | DJ & Music Producer Napoli | Portfolio 2026</title>
@@ -104,6 +101,7 @@
             border:1px solid var(--border);
             margin-bottom:20px;
             overflow: hidden;
+            background: transparent !important;
         }
 
         .section-title{
@@ -148,6 +146,7 @@
             transform:translateY(-2px);
         }
 
+        /* --- SLIDER --- */
         .slider-container {
             position: relative;
             width: 100%;
@@ -176,6 +175,7 @@
             object-fit: cover;
         }
 
+        /* --- GALLERY & REELS --- */
         .gallery{
             display:grid;
             grid-template-columns:repeat(2,1fr);
@@ -194,24 +194,66 @@
         .item.large{ grid-column:span 2; aspect-ratio:16/7; }
         .item img{ width:100%; height:100%; object-fit:cover; display: block; }
 
-        .reel{ aspect-ratio:9/16; background:#000; cursor: pointer; border: none; padding: 0; }
-        .reel .embed{ position:relative; width:100%; height:100%; overflow:hidden; pointer-events: none; }
-        .reel iframe{
-            position:absolute; top:-15%; left:-25%; width:150%; height:130%;
-            border:0; transition:transform .6s ease;
+        /* FIX CORNICI BIANCHE REEL */
+        .reel{ 
+            aspect-ratio:9/16; 
+            background:#000; 
+            cursor: pointer; 
+            border: 1px solid var(--border); 
+            padding: 0;
+            position: relative;
         }
-        .reel:hover iframe{ transform:scale(1.1); }
+        
+        .reel .embed{ 
+            position:relative; 
+            width:100%; 
+            height:100%; 
+            overflow:hidden; 
+            pointer-events: none;
+            background: #000; /* Copre il bianco di caricamento */
+        }
+
+        .reel iframe{
+            position:absolute; 
+            top:-20%; left: -20px;%; width:120%; height:100%;
+            border: 10px;; 
+            transition:transform .6s ease, opacity 0.4s;
+            background: transparent !important;
+            filter: contrast(1.1);
+        }
+
+        /* Overlay scuro per coprire il footer bianco di Instagram nelle anteprime */
+        .reel::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 70%, #000 100%);
+            z-index: 1;
+        }
+
+        .reel:hover iframe{ transform:scale(1.05); }
+
         .reel::after{
-            content:"WATCH REEL"; position:absolute; inset:0;
-            display:flex; align-items:center; justify-content:center;
-            background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,0.7));
-            opacity:0; font-size:11px; letter-spacing:2px; font-weight:900; transition:.4s; z-index:2;
+            content:"WATCH REEL"; 
+            position:absolute; 
+            inset:0;
+            display:flex; 
+            align-items:center; 
+            justify-content:center;
+            background: rgba(0,0,0,0.5);
+            opacity:0; 
+            font-size:11px; 
+            letter-spacing:2px; 
+            font-weight:900; 
+            transition:.4s; 
+            z-index:2;
             color: white;
         }
         .reel:hover::after{ opacity:1; }
 
+        /* --- LIGHTBOX --- */
         .lightbox-overlay {
-            position: fixed; inset: 0; background: rgba(0, 0, 0, 0.9);
+            position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95);
             z-index: 9999; display: none; justify-content: center; align-items: center;
             backdrop-filter: blur(15px); animation: fadeIn 0.3s ease;
         }
@@ -219,11 +261,12 @@
         .lightbox-content {
             position: relative; width: 90%; max-width: 380px; aspect-ratio: 9/16;
             background: #000; border-radius: 20px; overflow: hidden;
+            border: 1px solid var(--border);
         }
-        .lightbox-content iframe { width: 100%; height: 100%; border: none; }
+        .lightbox-content iframe { width: 100%; height: 100%; border: none; background: #000; }
         .close-lightbox {
             position: absolute; top: 20px; right: 20px; color: #fff;
-            font-size: 35px; cursor: pointer; z-index: 10000; opacity: 0.5;
+            font-size: 35px; cursor: pointer; z-index: 10000; opacity: 0.7;
         }
 
         @media(min-width:1024px){
@@ -258,7 +301,7 @@
 
             <iframe class="soundcloud-frame" 
                 title="DASTO Featured Track"
-                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2251688624&visual=true" 
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2251688624&color=%23050505&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true" 
                 loading="lazy">
             </iframe>
 
@@ -292,14 +335,14 @@
             <section id="reels">
                 <h2 class="section-title">Video Reel</h2>
                 <div class="gallery">
-                    <div class="item reel" onclick="openReel('DKIOE1XIEEb')" role="button" tabindex="0" aria-label="Guarda Video Reel 1">
-                        <div class="embed"><iframe src="https://www.instagram.com/reel/DKIOE1XIEEb/embed" title="Instagram Reel 1"></iframe></div>
+                    <div class="item reel" onclick="openReel('DKIOE1XIEEb')" role="button" tabindex="0">
+                        <div class="embed"><iframe src="https://www.instagram.com/reel/DKIOE1XIEEb/embed/?cr=1&v=12&wp=1080&rd=http%3A%2F%2Flocalhost&rp=%2F#%7B%22ci%22%3A0%2C%22os%22%3A123%7D" title="Instagram Reel 1"></iframe></div>
                     </div>
-                    <div class="item reel" onclick="openReel('DKIOE1XIEEb')" role="button" tabindex="0" aria-label="Guarda Video Reel 2">
-                        <div class="embed"><iframe src="https://www.instagram.com/reel/DKIOE1XIEEb/embed" title="Instagram Reel 2"></iframe></div>
+                    <div class="item reel" onclick="openReel('DAvzNiBoFF-')" role="button" tabindex="0">
+                        <div class="embed"><iframe src="https://www.instagram.com/reel/DAvzNiBoFF-/embed/?cr=1&v=12&wp=1080&rd=http%3A%2F%2Flocalhost&rp=%2F#%7B%22ci%22%3A0%2C%22os%22%3A123%7D" title="Instagram Reel 2"></iframe></div>
                     </div>
-                    <div class="item reel" onclick="openReel('DAvzNiBoFF-')" role="button" tabindex="0" aria-label="Guarda Video Reel 3">
-                        <div class="embed"><iframe src="https://www.instagram.com/reel/DAvzNiBoFF-/embed" title="Instagram Reel 3"></iframe></div>
+                    <div class="item reel" onclick="openReel('DUQYEOwDJAK')" role="button" tabindex="0">
+                        <div class="embed"><iframe src="https://www.instagram.com/p/DUQYEOwDJAK/embed/?cr=1&v=12&wp=1080&rd=http%3A%2F%2Flocalhost&rp=%2F#%7B%22ci%22%3A0%2C%22os%22%3A123%7D" title="Instagram Reel 3"></iframe></div>
                     </div>
                 </div>
             </section>
@@ -326,6 +369,7 @@
     </main>
 
     <script>
+        // Sfondo Animato
         const canvas=document.getElementById('canvas-bg');
         const ctx=canvas.getContext('2d');
         let w,h,blobs=[];
@@ -350,6 +394,7 @@
             requestAnimationFrame(animate);
         }
 
+        // Slider Logic
         let currentSlide = 0;
         const track = document.getElementById('sliderTrack');
         const slides = document.querySelectorAll('.slide');
@@ -361,10 +406,12 @@
         }
         setInterval(nextSlide, 3000);
 
+        // Lightbox Logic
         function openReel(id) {
             const lb = document.getElementById('lightbox');
             const iframe = document.getElementById('lightbox-iframe');
-            iframe.src = `https://www.instagram.com/reel/${id}/embed`;
+            // Embed pulito per il lightbox
+            iframe.src = `https://www.instagram.com/p/${id}/embed/captioned=0`;
             lb.style.display = 'flex';
             lb.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
