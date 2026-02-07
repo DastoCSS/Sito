@@ -117,20 +117,32 @@
         .item{ position:relative; border-radius:18px; overflow:hidden; background:var(--btn); border:1px solid var(--border); }
         .item img{ width:100%; height:100%; object-fit:cover; display: block; }
         
-        /* FIX: Aggiunto cursor:pointer e position:relative per i div interattivi */
-        .reel{ aspect-ratio:9/16; background:#000; cursor: pointer; border: none; padding: 0; position: relative; }
-        .reel .embed{ position:relative; width:100%; height:100%; overflow:hidden; pointer-events: none; }
-        .reel iframe{ position:absolute; top:-15%; left:-25%; width:150%; height:130%; border:0; transition:transform .6s ease; }
-        .reel:hover::after{ content:"WATCH REEL"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.6); font-size:11px; font-weight:900; color: white; }
-        
+        /* --- CORREZIONE REELS --- */
+        .reel-item { 
+            aspect-ratio: 9/16; background: #000; cursor: pointer; border: none; padding: 0; position: relative; 
+            width: 100%; border-radius: 18px; overflow: hidden; border: 1px solid var(--border);
+        }
+        .reel-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: .5s ease; }
+        .reel-item:hover .reel-img { opacity: 0.4; transform: scale(1.1); }
+        .play-icon { 
+            position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; 
+            color: #fff; font-size: 24px; opacity: 0.8; transition: .3s; 
+        }
+        .reel-item:hover .play-icon { opacity: 1; transform: scale(1.2); }
+        .reel-item:hover::after {
+            content: "WATCH REEL"; position: absolute; bottom: 15px; width: 100%; text-align: center;
+            font-size: 9px; font-weight: 900; letter-spacing: 2px; color: #fff;
+        }
+        /* ------------------------ */
+
         .lightbox-overlay {
-            position: fixed; inset: 0; background: rgba(0, 0, 0, 0.9);
+            position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95);
             z-index: 9999; display: none; justify-content: center; align-items: center;
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(20px);
         }
         .lightbox-content { position: relative; width: 90%; max-width: 380px; aspect-ratio: 9/16; }
-        .lightbox-content iframe { width: 100%; height: 100%; border: none; }
-        .close-lightbox { position: absolute; top: 20px; right: 20px; color: #fff; font-size: 35px; cursor: pointer; }
+        .lightbox-content iframe { width: 100%; height: 100%; border: none; border-radius: 20px; }
+        .close-lightbox { position: absolute; top: -40px; right: 0; color: #fff; font-size: 30px; cursor: pointer; }
         
         .text-content { font-size: 14px; line-height: 1.8; color: #ccc; margin-bottom: 25px; }
         .text-content p { margin-bottom: 15px; }
@@ -150,9 +162,9 @@
     <canvas id="canvas-bg"></canvas>
 
     <div id="lightbox" class="lightbox-overlay" aria-hidden="true">
-        <span class="close-lightbox" onclick="closeReel()">&times;</span>
         <div class="lightbox-content">
-            <iframe id="lightbox-iframe" title="Video Reel DASTO"></iframe>
+            <span class="close-lightbox" onclick="closeReel()">&times;</span>
+            <iframe id="lightbox-iframe" title="Instagram Reel Player"></iframe>
         </div>
     </div>
 
@@ -187,20 +199,7 @@
             <section id="about">
                 <h2 class="section-title">DJ a Napoli per Eventi Esclusivi</h2>
                 <div class="text-content">
-                    <p>Se stai cercando un <strong>DJ a Napoli</strong> per trasformare il tuo evento in un'esperienza sonora indimenticabile, <strong>DASTO</strong> è il nome di riferimento nella scena campana. Specializzato in sonorità <strong>Techno, House ed Elettronica</strong>, DASTO unisce tecnica impeccabile e una <a href="#music-style">selezione musicale</a> d'avanguardia che ha conquistato i dancefloor più esigenti del Sud Italia.</p>
-                    
-                    <p>Con anni di esperienza come <strong>DJ professionista a Napoli</strong>, DASTO offre <a href="#services">servizi completi</a> per ogni tipologia di evento: dai <strong>DJ set in club</strong> e discoteche alle performance per eventi aziendali di alto profilo, dai matrimoni eleganti ai party privati più esclusivi. Ogni esibizione è curata nei minimi dettagli, con attrezzature professionali di ultima generazione e un approccio personalizzato che si adatta perfettamente all'atmosfera desiderata.</p>
-                    
-                    <p>La filosofia di DASTO si basa sulla capacità di leggere il pubblico e creare un viaggio musicale coinvolgente, mixando brani selezionati con precisione chirurgica. Che si tratti di un <strong>evento corporate a Napoli</strong>, una festa di compleanno indimenticabile o l'apertura di un nuovo locale, DASTO garantisce energia pura, professionalità assoluta e un sound ricercato che spazia dalla Deep House alla Techno più ipnotica. Scopri le <a href="#highlights">performance live</a> e i <a href="#reels">video reel</a> per vedere DASTO in azione.</p>
-                </div>
-            </section>
-
-            <section id="services">
-                <h2 class="section-title">Servizi DJ Professionali</h2>
-                <div class="text-content">
-                    <p><strong>DASTO</strong> offre una gamma completa di servizi per eventi in tutta la Campania. Specializzato in <strong>musica elettronica per eventi</strong>, garantisce performance di altissimo livello con attrezzatura professionale Pioneer e sistema audio di qualità superiore. Ogni <a href="#about">DJ set</a> è studiato su misura per il cliente, con la possibilità di personalizzare scalette, generi musicali e atmosfere.</p>
-                    
-                    <p>I servizi includono: <strong>DJ set per matrimoni</strong> con selezione musicale elegante e raffinata, <strong>eventi aziendali e corporate</strong> con professionalità e discrezione, <strong>private party esclusivi</strong> a Napoli e provincia, <strong>inaugurazioni club</strong> e locali notturni, <strong>feste di compleanno</strong> con sound personalizzato, e <strong>DJ resident per club</strong> con residenze fisse. Disponibile per eventi sia indoor che outdoor, DASTO porta la sua esperienza ovunque sia necessario, da Napoli centro fino alla Costiera Amalfitana e Sorrento. Per maggiori informazioni, consulta la sezione <a href="#booking">booking e contatti</a>.</p>
+                    <p>Se stai cercando un <strong>DJ a Napoli</strong>, <strong>DASTO</strong> è il nome di riferimento per sonorità <strong>Techno e House</strong> d'avanguardia.</p>
                 </div>
             </section>
 
@@ -215,36 +214,21 @@
                 </div>
             </section>
 
-            <section id="music-style">
-                <h2 class="section-title">Generi Musicali & Stile</h2>
-                <div class="text-content">
-                    <p>Il sound di <strong>DASTO</strong> è caratterizzato da una profonda conoscenza della <strong>musica elettronica contemporanea</strong>. La sua selezione spazia dalla Techno melodica e ipnotica alla Progressive House, passando per la Deep House più sofisticata e le sonorità Tech House più groovy. Ogni DJ set è un viaggio sonoro costruito con cura, dove bassi profondi, sintetizzatori evoluti e beat incalzanti si fondono per creare un'esperienza immersiva.</p>
-                    
-                    <p>Influenzato dai grandi nomi della scena internazionale ma con un'identità artistica ben definita, DASTO sa adattare il proprio stile a ogni tipo di pubblico mantenendo sempre un'impronta autoriale riconoscibile. La sua versatilità gli permette di passare da set più intimi e profondi perfetti per aperitivi eleganti, fino a <a href="#highlights">performance ad alta energia</a> per far esplodere il dancefloor nei momenti di punta della serata. Guarda i <a href="#reels">video reel</a> per scoprire il sound unico di DASTO.</p>
-                </div>
-            </section>
-
             <section id="reels">
                 <h2 class="section-title">Video Reel</h2>
                 <div class="gallery">
-                    <div class="item reel" onclick="openReel('DKIOE1XIEEb')" role="button" tabindex="0" aria-label="Guarda Reel 1">
-                        <div class="embed"><iframe src="https://www.instagram.com/reel/DKIOE1XIEEb/embed" title="Instagram Reel 1"></iframe></div>
+                    <div class="item reel-item" onclick="openReel('DKIOE1XIEEb')" role="button" tabindex="0" aria-label="Guarda Reel Instagram 1">
+                        <img src="img/dasto_dj_napoli_live_1.webp" alt="Anteprima Reel 1" class="reel-img">
+                        <div class="play-icon"><i class="fas fa-play"></i></div>
                     </div>
-                    <div class="item reel" onclick="openReel('DAvzNiBoFF-')" role="button" tabindex="0" aria-label="Guarda Reel 2">
-                        <div class="embed"><iframe src="https://www.instagram.com/reel/DAvzNiBoFF-/embed" title="Instagram Reel 2"></iframe></div>
+                    <div class="item reel-item" onclick="openReel('DAvzNiBoFF-')" role="button" tabindex="0" aria-label="Guarda Reel Instagram 2">
+                        <img src="img/dasto_dj_napoli_live_2.webp" alt="Anteprima Reel 2" class="reel-img">
+                        <div class="play-icon"><i class="fas fa-play"></i></div>
                     </div>
-                    <div class="item reel" onclick="openReel('DUQYEOwDJAK')" role="button" tabindex="0" aria-label="Guarda Reel 3">
-                        <div class="embed"><iframe src="https://www.instagram.com/reel/DUQYEOwDJAK/embed" title="Instagram Reel 3"></iframe></div>
+                    <div class="item reel-item" onclick="openReel('DUQYEOwDJAK')" role="button" tabindex="0" aria-label="Guarda Reel Instagram 3">
+                        <img src="img/dasto_dj_napoli_live_3.webp" alt="Anteprima Reel 3" class="reel-img">
+                        <div class="play-icon"><i class="fas fa-play"></i></div>
                     </div>
-                </div>
-            </section>
-
-            <section id="booking">
-                <h2 class="section-title">Booking & Contatti</h2>
-                <div class="text-content">
-                    <p>Per <strong>prenotare DASTO come DJ per il tuo evento a Napoli</strong>, il processo è semplice e diretto. Contattaci via <a href="https://wa.me/393514090392" target="_blank" rel="noopener">WhatsApp</a> o email per discutere le tue esigenze: tipologia di evento, location, numero di ospiti, durata del DJ set e <a href="#music-style">genere musicale</a> preferito. DASTO fornirà un preventivo personalizzato e tutti i dettagli tecnici necessari.</p>
-                    
-                    <p>Il servizio è disponibile su <strong>Napoli e tutta la Campania</strong>, con possibilità di trasferte anche fuori regione per eventi di particolare rilievo. Ogni booking include consulenza musicale pre-evento, attrezzatura professionale certificata, allestimento e smontaggio, assistenza tecnica durante l'evento e, su richiesta, servizio luci sincronizzate. Per eventi corporate sono disponibili pacchetti speciali con fatturazione e massima riservatezza. Scopri tutti i <a href="#services">servizi disponibili</a> e contatta DASTO oggi stesso per rendere il tuo evento indimenticabile.</p>
                 </div>
             </section>
 
@@ -282,6 +266,7 @@
             });
             requestAnimationFrame(animate);
         }
+
         // Slider
         let currentSlide = 0;
         const track = document.getElementById('sliderTrack');
@@ -292,20 +277,24 @@
             track.style.transform = `translateX(-${currentSlide * 100}%)`;
         }
         setInterval(nextSlide, 4000);
-        // Lightbox
+
+        // Funzioni Lightbox Reel
         function openReel(id) {
             const lb = document.getElementById('lightbox');
             const iframe = document.getElementById('lightbox-iframe');
             iframe.src = `https://www.instagram.com/reel/${id}/embed`;
             lb.style.display = 'flex';
             lb.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden'; // Blocca lo scroll
         }
         function closeReel() {
             const lb = document.getElementById('lightbox');
             document.getElementById('lightbox-iframe').src = '';
             lb.style.display = 'none';
             lb.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = 'auto'; // Riattiva lo scroll
         }
+
         window.onresize=init;
         init(); animate();
     </script>
