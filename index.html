@@ -14,46 +14,46 @@
     <meta name="google-site-verification" content="8QxVR7EjYqVvYiZ_bkOa-c2OrMp1A8rxfiR7IwDKP5Q" />
 
     <title>DJ Napoli | DASTO | DJ Set per Eventi, Club e Private Party</title>
-    <meta name="description" content="Cerchi un DJ a Napoli? DASTO è specializzato in musica Techno e House per eventi esclusivi, club e party privati. Sound ricercato e professionalità in tutta la Campania.">
+    <meta name="description" content="Cerchi un DJ a Napoli? DASTO è specializzato in musica Techno e House per eventi esclusivi, club e party privati a Napoli e provincia. Prenota ora il tuo DJ set.">
     <link rel="canonical" href="https://dastocss.github.io/Sito/">
-    <meta name="keywords" content="DJ Napoli, DJ per eventi Napoli, DJ Techno Napoli, DJ House Napoli, Musica eventi Campania, DASTO DJ">
-
+    
     <script type="application/ld+json">
-    [
-      {
-        "@context": "https://schema.org",
-        "@type": "MusicGroup",
-        "name": "DASTO",
-        "genre": ["Electronic", "Techno", "House"],
-        "location": {
-          "@type": "Place",
-          "name": "Napoli, Italia"
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "name": "DASTO DJ Napoli",
+          "image": "https://dastocss.github.io/Sito/img/dasto_dj_napoli_live_1.webp",
+          "@id": "https://dastocss.github.io/Sito/#service",
+          "url": "https://dastocss.github.io/Sito/",
+          "telephone": "+393514090392",
+          "priceRange": "$$",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Napoli",
+            "addressRegion": "NA",
+            "addressCountry": "IT"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 40.8518,
+            "longitude": 14.2681
+          },
+          "description": "DJ professionista a Napoli specializzato in Techno e House per eventi, club e feste private."
         },
-        "sameAs": [
-          "https://instagram.com/dastodj",
-          "https://soundcloud.com/dasto"
-        ]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "DASTO DJ Napoli",
-        "description": "Servizi professionali di DJ Set per eventi, club e party privati a Napoli.",
-        "url": "https://dastocss.github.io/Sito/",
-        "telephone": "+393514090392",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Napoli",
-          "addressRegion": "Campania",
-          "addressCountry": "IT"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 40.8518,
-          "longitude": 14.2681
+        {
+          "@type": "MusicGroup",
+          "@id": "https://dastocss.github.io/Sito/#musicgroup",
+          "name": "DASTO",
+          "genre": ["Techno", "House", "Electronic"],
+          "sameAs": [
+            "https://instagram.com/dastodj",
+            "https://soundcloud.com/dasto"
+          ]
         }
-      }
-    ]
+      ]
+    }
     </script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -82,27 +82,34 @@
             font-size:2.5rem; font-weight:900; letter-spacing:10px;
             background:linear-gradient(180deg,#fff,rgba(255,255,255,.3));
             -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+            display: block; margin-bottom: 5px;
         }
-        .subtitle { font-size: 10px; letter-spacing: 4px; color: #888; text-transform: uppercase; margin-top: 5px; }
+        .subtitle { font-size: 10px; letter-spacing: 4px; color: #888; text-transform: uppercase; }
+        
         .soundcloud-frame{ width:100%; height:120px; border-radius:20px; border:1px solid var(--border); margin-bottom:20px; overflow: hidden; }
+        
         .section-title{
             color:#888; font-size:10px; letter-spacing:3px; margin:25px 0 12px;
             text-transform:uppercase; font-weight:600; display:flex; align-items:center; gap:10px;
         }
         .section-title::after{ content:''; flex:1; height:1px; background:var(--border); }
+        
         .btn{
             display:flex; justify-content:center; align-items:center; gap:10px;
             padding:16px; border-radius:15px; background:var(--btn); border:1px solid var(--border);
             color:#fff; text-decoration:none; font-size:13px; font-weight:600; margin-bottom:10px; transition:.3s;
         }
         .btn:hover{ background:#fff; color:#000; transform:translateY(-2px); }
+        
         .slider-container { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 25px; }
         .slider-track { display: flex; width: 100%; height: 100%; transition: transform 0.6s cubic-bezier(0.45, 0, 0.55, 1); }
         .slide { min-width: 100%; height: 100%; }
         .slide img { width: 100%; height: 100%; object-fit: cover; }
+        
         .gallery{ display:grid; grid-template-columns:repeat(2,1fr); gap:var(--gap); margin-bottom:25px; }
         .item{ position:relative; border-radius:18px; overflow:hidden; background:var(--btn); border:1px solid var(--border); }
         .item img{ width:100%; height:100%; object-fit:cover; display: block; }
+        
         .reel{ aspect-ratio:9/16; background:#000; cursor: pointer; border: none; padding: 0; }
         .reel .embed{ position:relative; width:100%; height:100%; overflow:hidden; pointer-events: none; }
         .reel iframe{ position:absolute; top:-15%; left:-25%; width:150%; height:130%; border:0; transition:transform .6s ease; }
@@ -143,74 +150,72 @@
             </div>
 
             <iframe class="soundcloud-frame" 
-                title="DASTO Ascolta l'ultimo set"
+                title="DASTO - Featured Mix"
                 src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2251688624&visual=true" 
                 loading="lazy">
             </iframe>
 
-            <nav aria-label="Contatti e Social">
+            <nav aria-label="Contatti">
                 <p class="section-title">Identity</p>
-                <a href="pdf/dasto-dj-producer-press-kit-2026.pdf" class="btn" title="Scarica Press Kit DASTO 2026"><i class="far fa-file-pdf"></i> PRESS KIT 2026</a>
-                <a href="https://wa.me/393514090392" class="btn" style="border-color:var(--accent);color:var(--accent)" title="Contatta DASTO per booking">
+                <a href="pdf/dasto-dj-producer-press-kit-2026.pdf" class="btn" title="Download Press Kit DASTO 2026"><i class="far fa-file-pdf"></i> PRESS KIT 2026</a>
+                <a href="https://wa.me/393514090392" class="btn" style="border-color:var(--accent);color:var(--accent)" title="Contatta DASTO Booking">
                     <i class="fab fa-whatsapp"></i> BOOKING NAPOLI
                 </a>
             </nav>
 
             <div class="social-links" style="display:flex;justify-content:center;gap:30px;margin-top:30px; font-size: 1.2rem; opacity: 0.6;">
-                <a href="https://instagram.com/dastodj" target="_blank" rel="noopener" style="color:#fff" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://soundcloud.com/dasto" target="_blank" rel="noopener" style="color:#fff" aria-label="SoundCloud"><i class="fab fa-soundcloud"></i></a>
+                <a href="https://instagram.com/dastodj" target="_blank" rel="noopener" style="color:#fff" aria-label="Segui DASTO su Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://soundcloud.com/dasto" target="_blank" rel="noopener" style="color:#fff" aria-label="Ascolta DASTO su SoundCloud"><i class="fab fa-soundcloud"></i></a>
             </div>
         </header>
 
         <div class="right">
             <section id="about">
-                <h2 class="section-title">Esperienza DJ a Napoli</h2>
+                <h2 class="section-title">Servizi DJ a Napoli</h2>
                 <div style="font-size: 14px; line-height: 1.8; color: #ccc; margin-bottom: 25px;">
-                    <p>Se stai cercando un <strong>DJ a Napoli</strong> per trasformare il tuo evento in un'esperienza sonora indimenticabile, <strong>DASTO</strong> è il nome di riferimento nella scena campana. Specializzato in sonorità <strong>Techno, House ed Elettronica</strong>, DASTO unisce tecnica impeccabile e una selezione musicale d'avanguardia.</p>
-                    <br>
-                    <p>Disponibile per <strong>DJ set in club</strong>, eventi aziendali esclusivi e <strong>private party a Napoli e provincia</strong>. La sua missione è curare l'atmosfera perfetta per ogni dancefloor, garantendo energia e professionalità in ogni performance dal vivo.</p>
+                    <p>Cerchi un <strong>DJ a Napoli</strong>? <strong>DASTO</strong> è la scelta ideale per chi desidera un sound ricercato tra <strong>Techno e House</strong>. Con anni di esperienza nei migliori club campani, DASTO offre performance energiche per eventi aziendali, <strong>private party</strong> e club set esclusivi a Napoli e provincia.</p>
                 </div>
             </section>
 
             <section id="highlights">
-                <h2 class="section-title">Performance Live</h2>
+                <h2 class="section-title">Live Highlights</h2>
                 <div class="slider-container">
                     <div class="slider-track" id="sliderTrack">
-                        <div class="slide"><img src="img/dasto_dj_napoli_live_1.webp" alt="DASTO DJ Set Live Napoli"></div>
-                        <div class="slide"><img src="img/dasto_dj_napoli_live_2.webp" alt="DASTO Performance Club Campania"></div>
-                        <div class="slide"><img src="img/dasto_dj_napoli_live_3.webp" alt="DJ per eventi esclusivi Napoli"></div>
+                        <div class="slide"><img src="img/dasto_dj_napoli_live_1.webp" alt="DASTO DJ Set Live a Napoli"></div>
+                        <div class="slide"><img src="img/dasto_dj_napoli_live_2.webp" alt="Performance Techno DASTO DJ"></div>
+                        <div class="slide"><img src="img/dasto_dj_napoli_live_3.webp" alt="DJ Set House Napoli DASTO"></div>
                     </div>
                 </div>
             </section>
 
             <section id="reels">
-                <h2 class="section-title">Video Reel</h2>
+                <h2 class="section-title">Video Experience</h2>
                 <div class="gallery">
-                    <div class="item reel" onclick="openReel('DKIOE1XIEEb')" role="button" aria-label="Guarda Reel 1">
+                    <div class="item reel" onclick="openReel('DKIOE1XIEEb')" role="button" aria-label="Guarda Video Reel 1">
                         <div class="embed"><iframe src="https://www.instagram.com/reel/DKIOE1XIEEb/embed" title="Instagram Reel"></iframe></div>
                     </div>
-                    <div class="item reel" onclick="openReel('DAvzNiBoFF-')" role="button" aria-label="Guarda Reel 2">
+                    <div class="item reel" onclick="openReel('DAvzNiBoFF-')" role="button" aria-label="Guarda Video Reel 2">
                         <div class="embed"><iframe src="https://www.instagram.com/reel/DAvzNiBoFF-/embed" title="Instagram Reel"></iframe></div>
                     </div>
-                     <div class="item reel" onclick="openReel('DUQYEOwDJAK')" role="button" aria-label="Guarda Reel 3">
-                        <div class="embed"><iframe src="https://www.instagram.com/p/DUQYEOwDJAK/embed" title="Instagram Reel"></iframe></div>
+                     <div class="item reel" onclick="openReel('DUQYEOwDJAK')" role="button" aria-label="Guarda Video Reel 3">
+                        <div class="embed"><iframe src="https://www.instagram.com/p/DUQYEOwDJAK/embed" title="Instagram Post"></iframe></div>
                     </div>
                 </div>
             </section>
 
             <section id="life">
-                <h2 class="section-title">Life & Style</h2>
+                <h2 class="section-title">Gallery</h2>
                 <div class="gallery">
-                    <div class="item"><img src="img/foto_me_1.webp" alt="DASTO DJ Lifestyle 1" loading="lazy"></div>
-                    <div class="item"><img src="img/foto_me_2.webp" alt="DASTO DJ Lifestyle 2" loading="lazy"></div>
-                    <div class="item"><img src="img/foto_me_3.webp" alt="DASTO DJ Lifestyle 3" loading="lazy"></div>
+                    <div class="item"><img src="img/foto_me_1.webp" alt="DASTO DJ Napoli Lifestyle 1" loading="lazy"></div>
+                    <div class="item"><img src="img/foto_me_2.webp" alt="DASTO DJ Napoli Lifestyle 2" loading="lazy"></div>
+                    <div class="item"><img src="img/foto_me_3.webp" alt="DASTO DJ Napoli Lifestyle 3" loading="lazy"></div>
                 </div>
             </section>
         </div>
     </main>
 
     <script>
-        // Sfondo animato
+        // Sfondo animato blobs
         const canvas=document.getElementById('canvas-bg');
         const ctx=canvas.getContext('2d');
         let w,h,blobs=[];
@@ -232,7 +237,8 @@
             });
             requestAnimationFrame(animate);
         }
-        // Slider
+        
+        // Slider automatico
         let currentSlide = 0;
         const track = document.getElementById('sliderTrack');
         function nextSlide() {
@@ -242,7 +248,8 @@
             track.style.transform = `translateX(-${currentSlide * 100}%)`;
         }
         setInterval(nextSlide, 4000);
-        // Lightbox
+        
+        // Lightbox Reel
         function openReel(id) {
             const lb = document.getElementById('lightbox');
             const iframe = document.getElementById('lightbox-iframe');
@@ -254,6 +261,7 @@
             document.getElementById('lightbox-iframe').src = '';
             lb.style.display = 'none';
         }
+
         window.onresize=init;
         init(); animate();
     </script>
