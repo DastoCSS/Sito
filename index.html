@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7E2MJ7PNF5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-7E2MJ7PNF5');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -87,14 +96,13 @@
         }
         .subtitle { font-size: 10px; letter-spacing: 4px; color: #888; text-transform: uppercase; margin-top: 5px; }
 
-        /* Gestione via CSS degli attributi obsoleti (frameborder e scrolling) */
         .soundcloud-frame{
             width:100%;
             height:120px;
             border-radius:20px;
             border:1px solid var(--border);
             margin-bottom:20px;
-            overflow: hidden; /* Sostituisce scrolling=no */
+            overflow: hidden;
         }
 
         .section-title{
@@ -364,7 +372,7 @@
         function closeReel() {
             const lb = document.getElementById('lightbox');
             const iframe = document.getElementById('lightbox-iframe');
-            iframe.src = 'about:blank'; // Evita l'errore src vuoto e ferma il video
+            iframe.src = 'about:blank';
             lb.style.display = 'none';
             lb.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = 'auto';
