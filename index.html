@@ -26,37 +26,85 @@
     
     <meta name="theme-color" content="#050505">
 
-    <title>DJ Napoli | DASTO | DJ Set per Eventi, Club e Private Party</title>
-    <meta name="description" content="Cerchi un DJ a Napoli? DASTO è specializzato in musica Techno e House per eventi esclusivi, club e party privati. Sound ricercato e professionalità in tutta la Campania.">
+    <!-- SEO Internazionale Multi-lingua -->
+    <title>DASTO - Professional DJ | Techno & House Music | International Booking</title>
+    <meta name="description" content="DASTO - International DJ specializing in Techno and House music. Professional DJ sets for clubs, exclusive events, and private parties worldwide. Based in Naples, Italy. Book now for global events.">
     <link rel="canonical" href="https://dastocss.github.io/Sito/">
-    <meta name="keywords" content="DJ Napoli, DJ per eventi Napoli, DJ Techno Napoli, DJ House Napoli, Musica eventi Campania, DASTO DJ">
+    <meta name="keywords" content="DJ, International DJ, Techno DJ, House DJ, Electronic Music, Club DJ, Event DJ, Private Party DJ, DASTO, Naples DJ, Italy DJ, Professional DJ, DJ Booking, Worldwide DJ, DJ Iran, DJ Europe, DJ Asia">
+    
+    <!-- Hreflang per targeting internazionale -->
+    <link rel="alternate" hreflang="it" href="https://dastocss.github.io/Sito/" />
+    <link rel="alternate" hreflang="en" href="https://dastocss.github.io/Sito/" />
+    <link rel="alternate" hreflang="x-default" href="https://dastocss.github.io/Sito/" />
+    
+    <!-- Open Graph per condivisione social internazionale -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="DASTO - Professional DJ | Techno & House Music">
+    <meta property="og:description" content="International DJ specializing in Techno and House. Professional DJ sets worldwide.">
+    <meta property="og:url" content="https://dastocss.github.io/Sito/">
+    <meta property="og:image" content="https://dastocss.github.io/Sito/img/dasto_dj_napoli_live_1.webp">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="it_IT">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DASTO - Professional DJ | Techno & House Music">
+    <meta name="twitter:description" content="International DJ specializing in Techno and House. Professional DJ sets worldwide.">
+    <meta name="twitter:image" content="https://dastocss.github.io/Sito/img/dasto_dj_napoli_live_1.webp">
 
+    <!-- Schema.org potenziato per visibilità internazionale -->
     <script type="application/ld+json">
     [
       {
         "@context": "https://schema.org",
         "@type": "MusicGroup",
         "name": "DASTO",
-        "genre": ["Electronic", "Techno", "House"],
+        "alternateName": "DASTO DJ",
+        "genre": ["Electronic Music", "Techno", "House Music", "Progressive House", "Deep House", "Melodic Techno"],
         "location": {
           "@type": "Place",
-          "name": "Napoli, Italia"
+          "name": "Naples, Italy",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Naples",
+            "addressRegion": "Campania",
+            "addressCountry": "IT"
+          }
         },
+        "areaServed": [
+          {
+            "@type": "Country",
+            "name": "Italy"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Europe"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Middle East"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Asia"
+          }
+        ],
         "sameAs": [
           "https://instagram.com/dastodj",
           "https://soundcloud.com/dasto"
-        ]
+        ],
+        "url": "https://dastocss.github.io/Sito/"
       },
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "DASTO DJ Napoli",
-        "description": "Servizi professionali di DJ Set per eventi, club e party privati a Napoli.",
+        "@type": "ProfessionalService",
+        "name": "DASTO DJ - International Booking",
+        "description": "Professional DJ services for clubs, events, and private parties worldwide. Specializing in Techno and House music.",
         "url": "https://dastocss.github.io/Sito/",
         "telephone": "+393514090392",
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "Napoli",
+          "addressLocality": "Naples",
           "addressRegion": "Campania",
           "addressCountry": "IT"
         },
@@ -64,7 +112,31 @@
           "@type": "GeoCoordinates",
           "latitude": 40.8518,
           "longitude": 14.2681
+        },
+        "priceRange": "€€€",
+        "serviceType": ["DJ Services", "Event Entertainment", "Club Performance", "Private Party DJ"],
+        "areaServed": {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": 40.8518,
+            "longitude": 14.2681
+          },
+          "geoRadius": "10000000"
         }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://dastocss.github.io/Sito/#person",
+        "name": "DASTO",
+        "jobTitle": "Professional DJ & Music Producer",
+        "description": "International DJ specializing in Techno and House music",
+        "url": "https://dastocss.github.io/Sito/",
+        "sameAs": [
+          "https://instagram.com/dastodj",
+          "https://soundcloud.com/dasto"
+        ]
       }
     ]
     </script>
@@ -84,7 +156,15 @@
             min-height:100vh; display:flex; justify-content:center; align-items:center;
             padding:20px; overflow-x:hidden;
         }
-        #canvas-bg{ position:fixed; inset:0; z-index:1; filter:blur(100px) saturate(140%); pointer-events:none; }
+        /* Performance ottimizzata per dispositivi deboli */
+        @media (prefers-reduced-motion: reduce) {
+            #canvas-bg { display: none; }
+            .btn, .slider-track, .reel iframe { transition: none !important; }
+        }
+        #canvas-bg{ 
+            position:fixed; inset:0; z-index:1; filter:blur(100px) saturate(140%); 
+            pointer-events:none; will-change: transform; 
+        }
         .container{
             position:relative; z-index:10; width:100%; max-width:400px;
             background:var(--glass); backdrop-filter:blur(50px);
@@ -95,6 +175,7 @@
             font-size:2.5rem; font-weight:900; letter-spacing:10px;
             background:linear-gradient(180deg,#fff,rgba(255,255,255,.3));
             -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+            background-clip:text;
         }
         .subtitle { font-size: 10px; letter-spacing: 4px; color: #888; text-transform: uppercase; margin-top: 5px; }
         .soundcloud-frame{ width:100%; height:120px; border-radius:20px; border:1px solid var(--border); margin-bottom:20px; overflow: hidden; }
@@ -106,9 +187,10 @@
         .btn{
             display:flex; justify-content:center; align-items:center; gap:10px;
             padding:16px; border-radius:15px; background:var(--btn); border:1px solid var(--border);
-            color:#fff; text-decoration:none; font-size:13px; font-weight:600; margin-bottom:10px; transition:.3s;
+            color:#fff; text-decoration:none; font-size:13px; font-weight:600; margin-bottom:10px; 
+            transition:background .3s, transform .3s, color .3s;
         }
-        .btn:hover{ background:#fff; color:#000; transform:translateY(-2px); }
+        .btn:hover, .btn:focus{ background:#fff; color:#000; transform:translateY(-2px); outline: 2px solid var(--accent); }
         .slider-container { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 25px; }
         .slider-track { display: flex; width: 100%; height: 100%; transition: transform 0.6s cubic-bezier(0.45, 0, 0.55, 1); }
         .slide { min-width: 100%; height: 100%; }
@@ -118,9 +200,10 @@
         .item img{ width:100%; height:100%; object-fit:cover; display: block; }
         
         .reel{ aspect-ratio:9/16; background:#000; cursor: pointer; border: none; padding: 0; position: relative; }
+        .reel:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
         .reel .embed{ position:relative; width:100%; height:100%; overflow:hidden; pointer-events: none; }
         .reel iframe{ position:absolute; top:-15%; left:-25%; width:150%; height:130%; border:0; transition:transform .6s ease; }
-        .reel:hover::after{ content:"WATCH REEL"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.6); font-size:11px; font-weight:900; color: white; }
+        .reel:hover::after, .reel:focus::after{ content:"WATCH REEL"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.6); font-size:11px; font-weight:900; color: white; }
         
         .lightbox-overlay {
             position: fixed; inset: 0; background: rgba(0, 0, 0, 0.9);
@@ -129,123 +212,147 @@
         }
         .lightbox-content { position: relative; width: 90%; max-width: 380px; aspect-ratio: 9/16; }
         .lightbox-content iframe { width: 100%; height: 100%; border: none; }
-        .close-lightbox { position: absolute; top: 20px; right: 20px; color: #fff; font-size: 35px; cursor: pointer; }
+        .close-lightbox { 
+            position: absolute; top: 20px; right: 20px; color: #fff; font-size: 35px; 
+            cursor: pointer; background: rgba(0,0,0,0.5); border-radius: 50%; 
+            width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
+        }
+        .close-lightbox:hover, .close-lightbox:focus { background: rgba(255,255,255,0.2); outline: 2px solid #fff; }
         
         .text-content { font-size: 14px; line-height: 1.8; color: #ccc; margin-bottom: 25px; }
         .text-content p { margin-bottom: 15px; }
         .text-content strong { color: #fff; }
         .text-content a { color: var(--accent); text-decoration: none; transition: .3s; }
-        .text-content a:hover { text-decoration: underline; }
+        .text-content a:hover, .text-content a:focus { text-decoration: underline; }
+        
+        /* Skip to content per accessibilità */
+        .skip-link {
+            position: absolute; top: -40px; left: 0; background: var(--accent);
+            color: #000; padding: 8px; text-decoration: none; z-index: 100;
+        }
+        .skip-link:focus { top: 0; }
 
         @media(min-width:1024px){
             .container{ max-width:1150px; display:grid; grid-template-columns:380px 1fr; gap:50px; padding:50px; height:90vh; }
             .right{ overflow-y:auto; padding-right:20px; }
             .gallery{ grid-template-columns:repeat(3,1fr); }
         }
+        
+        /* Loading state per performance */
+        .loading { opacity: 0; animation: fadeIn 0.5s forwards; }
+        @keyframes fadeIn { to { opacity: 1; } }
     </style>
 </head>
 <body>
+    <!-- Skip link per accessibilità -->
+    <a href="#main-content" class="skip-link" aria-label="Skip to main content">Skip to content</a>
 
-    <canvas id="canvas-bg"></canvas>
+    <canvas id="canvas-bg" aria-hidden="true" role="presentation"></canvas>
 
-    <div id="lightbox" class="lightbox-overlay" aria-hidden="true">
-        <span class="close-lightbox" onclick="closeReel()">&times;</span>
+    <div id="lightbox" class="lightbox-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+        <h2 id="lightbox-title" class="visually-hidden">Video Reel Player</h2>
+        <button class="close-lightbox" onclick="closeReel()" aria-label="Close video player">&times;</button>
         <div class="lightbox-content">
-            <iframe id="lightbox-iframe" title="Video Reel DASTO"></iframe>
+            <iframe id="lightbox-iframe" title="Instagram Reel Video Player" aria-label="Instagram video content"></iframe>
         </div>
     </div>
 
-    <main class="container">
+    <main class="container" id="main-content">
         <header class="left">
             <div class="logo-container">
-                <h1 class="logo">DASTO</h1>
-                <p id="ui-subtitle" class="subtitle">DJ Professionista Napoli - Techno & House Music</p>
+                <h1 class="logo" aria-label="DASTO DJ">DASTO</h1>
+                <p id="ui-subtitle" class="subtitle" aria-label="Professional DJ specializing in Techno and House Music">DJ Professionista Napoli - Techno & House Music</p>
             </div>
 
             <iframe class="soundcloud-frame" 
-                title="DASTO Ascolta l'ultimo set"
+                title="DASTO - Latest DJ Set on SoundCloud"
+                aria-label="Listen to DASTO's latest music set"
                 src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2251688624&visual=true" 
                 loading="lazy">
             </iframe>
 
-            <nav aria-label="Contatti e Social">
-                <p class="section-title">Identity</p>
-                <a href="pdf/dasto-dj-producer-press-kit-2026.pdf" class="btn" title="Scarica Press Kit DASTO 2026"><i class="far fa-file-pdf"></i> PRESS KIT 2026</a>
-                <a href="https://wa.me/393514090392" class="btn" style="border-color:var(--accent);color:var(--accent)" title="Contatta DASTO per booking">
-                    <i class="fab fa-whatsapp"></i> <span id="ui-booking-btn">BOOKING NAPOLI</span>
+            <nav aria-label="Main navigation - Contact and Social Links">
+                <h2 class="section-title" aria-label="Identity and Press Kit">Identity</h2>
+                <a href="pdf/dasto-dj-producer-press-kit-2026.pdf" class="btn" title="Download DASTO 2026 Press Kit PDF" aria-label="Download professional press kit"><i class="far fa-file-pdf" aria-hidden="true"></i> PRESS KIT 2026</a>
+                <a href="https://wa.me/393514090392" class="btn" style="border-color:var(--accent);color:var(--accent)" title="Contact DASTO for booking via WhatsApp" aria-label="Book DASTO for your event via WhatsApp">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i> <span id="ui-booking-btn">BOOKING NAPOLI</span>
                 </a>
             </nav>
 
-            <div class="social-links" style="display:flex;justify-content:center;gap:30px;margin-top:30px; font-size: 1.2rem; opacity: 0.6;">
-                <a href="https://instagram.com/dastodj" target="_blank" rel="noopener" style="color:#fff" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://soundcloud.com/dasto" target="_blank" rel="noopener" style="color:#fff" aria-label="SoundCloud"><i class="fab fa-soundcloud"></i></a>
+            <div class="social-links" style="display:flex;justify-content:center;gap:30px;margin-top:30px; font-size: 1.2rem; opacity: 0.6;" role="navigation" aria-label="Social Media Links">
+                <a href="https://instagram.com/dastodj" target="_blank" rel="noopener noreferrer" style="color:#fff" aria-label="Follow DASTO on Instagram" title="Instagram Profile"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://soundcloud.com/dasto" target="_blank" rel="noopener noreferrer" style="color:#fff" aria-label="Listen to DASTO on SoundCloud" title="SoundCloud Profile"><i class="fab fa-soundcloud" aria-hidden="true"></i></a>
             </div>
         </header>
 
         <div class="right">
-            <section id="about">
+            <article id="about">
                 <h2 id="title-about" class="section-title">DJ a Napoli per Eventi Esclusivi</h2>
                 <div id="text-about" class="text-content">
-                    </div>
-            </section>
+                    <p>Se stai cercando un <strong>DJ a Napoli</strong> per trasformare il tuo evento in un'esperienza sonora indimenticabile, <strong>DASTO</strong> è il nome di riferimento nella scena campana. Specializzato in sonorità <strong>Techno, House ed Elettronica</strong>, DASTO unisce tecnica impeccabile e una selezione musicale d'avanguardia.</p><p>Con anni di esperienza come <strong>DJ professionista</strong>, offre servizi completi per club, eventi aziendali e party privati esclusivi.</p>
+                </div>
+            </article>
 
-            <section id="services">
+            <article id="services">
                 <h2 id="title-services" class="section-title">Servizi DJ Professionali</h2>
                 <div id="text-services" class="text-content">
-                    </div>
-            </section>
+                    <p><strong>DASTO</strong> offre una gamma completa di servizi per eventi in tutta la Campania. I servizi includono: <strong>DJ set per matrimoni</strong>, eventi aziendali, private party, inaugurazioni club e residenze fisse. Ogni performance include attrezzatura professionale Pioneer e sistema audio di qualità.</p>
+                </div>
+            </article>
 
             <section id="highlights">
                 <h2 id="title-highlights" class="section-title">Performance Live</h2>
-                <div class="slider-container">
+                <div class="slider-container" role="region" aria-label="Live performance photo gallery" aria-live="polite">
                     <div class="slider-track" id="sliderTrack">
-                        <div class="slide"><img src="img/dasto_dj_napoli_live_1.webp" alt="DASTO DJ Set Live Napoli"></div>
-                        <div class="slide"><img src="img/dasto_dj_napoli_live_2.webp" alt="DASTO Performance Club Campania"></div>
-                        <div class="slide"><img src="img/dasto_dj_napoli_live_3.webp" alt="DJ per eventi esclusivi Napoli"></div>
+                        <div class="slide"><img src="img/dasto_dj_napoli_live_1.webp" alt="DASTO performing live DJ set in Naples club with professional equipment" loading="eager"></div>
+                        <div class="slide"><img src="img/dasto_dj_napoli_live_2.webp" alt="DASTO DJ performance at exclusive event in Campania with crowd" loading="lazy"></div>
+                        <div class="slide"><img src="img/dasto_dj_napoli_live_3.webp" alt="Professional DJ DASTO at private party in Naples, Italy" loading="lazy"></div>
                     </div>
                 </div>
             </section>
 
-            <section id="music-style">
+            <article id="music-style">
                 <h2 id="title-music" class="section-title">Generi Musicali & Stile</h2>
                 <div id="text-music" class="text-content">
-                    </div>
-            </section>
+                    <p>Il sound di <strong>DASTO</strong> spazia dalla Techno melodica alla Progressive House, passando per la Deep House più sofisticata. La sua versatilità gli permette di adattare lo stile a ogni tipo di pubblico, garantendo un'esperienza immersiva.</p>
+                </div>
+            </article>
 
-            <section id="reels">
+            <section id="reels" aria-label="Video Reels Gallery">
                 <h2 class="section-title">Video Reel</h2>
-                <div class="gallery">
-                    <div class="item reel" onclick="openReel('DKIOE1XIEEb')" role="button" tabindex="0" aria-label="Guarda Reel 1">
-                        <div class="embed"><iframe src="https://www.instagram.com/reel/DKIOE1XIEEb/embed" title="Instagram Reel 1"></iframe></div>
-                    </div>
-                    <div class="item reel" onclick="openReel('DAvzNiBoFF-')" role="button" tabindex="0" aria-label="Guarda Reel 2">
-                        <div class="embed"><iframe src="https://www.instagram.com/reel/DAvzNiBoFF-/embed" title="Instagram Reel 2"></iframe></div>
-                    </div>
-                    <div class="item reel" onclick="openReel('DUQYEOwDJAK')" role="button" tabindex="0" aria-label="Guarda Reel 3">
-                        <div class="embed"><iframe src="https://www.instagram.com/reel/DUQYEOwDJAK/embed" title="Instagram Reel 3"></iframe></div>
-                    </div>
+                <div class="gallery" role="list">
+                    <button class="item reel" onclick="openReel('DKIOE1XIEEb')" aria-label="Watch DASTO DJ performance video reel 1" title="Click to watch full video">
+                        <div class="embed"><iframe src="https://www.instagram.com/reel/DKIOE1XIEEb/embed" title="DASTO Instagram Reel 1 - DJ Performance Preview" loading="lazy"></iframe></div>
+                    </button>
+                    <button class="item reel" onclick="openReel('DAvzNiBoFF-')" aria-label="Watch DASTO DJ performance video reel 2" title="Click to watch full video">
+                        <div class="embed"><iframe src="https://www.instagram.com/reel/DAvzNiBoFF-/embed" title="DASTO Instagram Reel 2 - Club Set Preview" loading="lazy"></iframe></div>
+                    </button>
+                    <button class="item reel" onclick="openReel('DUQYEOwDJAK')" aria-label="Watch DASTO DJ performance video reel 3" title="Click to watch full video">
+                        <div class="embed"><iframe src="https://www.instagram.com/reel/DUQYEOwDJAK/embed" title="DASTO Instagram Reel 3 - Live Event Preview" loading="lazy"></iframe></div>
+                    </button>
                 </div>
             </section>
 
-            <section id="booking">
+            <article id="booking">
                 <h2 id="title-booking" class="section-title">Booking & Contatti</h2>
                 <div id="text-booking" class="text-content">
-                    </div>
-            </section>
+                    <p>Per prenotare DASTO per il tuo evento a Napoli, contattaci via WhatsApp o email. Disponibile su Napoli e tutta la Campania, include consulenza musicale, attrezzatura certificata e assistenza tecnica.</p>
+                </div>
+            </article>
 
-            <section id="life">
+            <section id="life" aria-label="Lifestyle Gallery">
                 <h2 class="section-title">Life & Style</h2>
-                <div class="gallery">
-                    <div class="item"><img src="img/foto_me_1.webp" alt="DASTO DJ Lifestyle 1" loading="lazy"></div>
-                    <div class="item"><img src="img/foto_me_2.webp" alt="DASTO DJ Lifestyle 2" loading="lazy"></div>
-                    <div class="item"><img src="img/foto_me_3.webp" alt="DASTO DJ Lifestyle 3" loading="lazy"></div>
+                <div class="gallery" role="list">
+                    <div class="item"><img src="img/foto_me_1.webp" alt="DASTO DJ lifestyle photo - professional artist portrait" loading="lazy"></div>
+                    <div class="item"><img src="img/foto_me_2.webp" alt="DASTO DJ lifestyle photo - behind the scenes" loading="lazy"></div>
+                    <div class="item"><img src="img/foto_me_3.webp" alt="DASTO DJ lifestyle photo - artistic portrait" loading="lazy"></div>
                 </div>
             </section>
         </div>
     </main>
 
     <script>
-        // TRADUZIONI DINAMICHE
+        // TRADUZIONI DINAMICHE POTENZIATE
         const content = {
             it: {
                 subtitle: "DJ Professionista Napoli - Techno & House Music",
@@ -264,7 +371,7 @@
                 subtitle: "Professional DJ - Techno & House Music",
                 bookingBtn: "WORLDWIDE BOOKING",
                 titleAbout: "International DJ for Exclusive Events",
-                textAbout: `<p>If you are looking for a <strong>Professional DJ</strong> to transform your event into an unforgettable sound experience, <strong>DASTO</strong> is the key name for electronic vibes. Specializing in <strong>Techno, House, and Electronic music</strong>, DASTO combines impeccable technique with a cutting-edge musical selection.</p><p>With years of experience as a <strong>pro DJ</strong>, he offers full services for clubs, corporate events, and exclusive private parties worldwide.</p>`,
+                textAbout: `<p>If you are looking for a <strong>Professional DJ</strong> to transform your event into an unforgettable sound experience, <strong>DASTO</strong> is the key name for electronic vibes. Specializing in <strong>Techno, House, and Electronic music</strong>, DASTO combines impeccable technique with a cutting-edge musical selection.</p><p>With years of experience as a <strong>professional DJ</strong>, he offers full services for clubs, corporate events, and exclusive private parties worldwide.</p>`,
                 titleServices: "Professional DJ Services",
                 textServices: `<p><strong>DASTO</strong> offers a full range of event services globally. Services include: <strong>Wedding DJ sets</strong>, corporate events, exclusive private parties, club openings, and fixed residencies. Every performance features professional Pioneer equipment and high-quality sound systems.</p>`,
                 titleHighlights: "Live Performances",
@@ -272,13 +379,59 @@
                 textMusic: `<p><strong>DASTO's</strong> sound ranges from Melodic Techno to Progressive House and sophisticated Deep House. His versatility allows him to adapt his style to any audience, ensuring an immersive and high-energy experience.</p>`,
                 titleBooking: "Booking & Contacts",
                 textBooking: `<p>To book DASTO for your event, contact us via WhatsApp or email. Available for international gigs and tours, providing music consultancy, certified professional equipment, and full technical support.</p>`
+            },
+            fa: {
+                subtitle: "دی‌جی حرفه‌ای - موسیقی تکنو و هاوس",
+                bookingBtn: "رزرو بین‌المللی",
+                titleAbout: "دی‌جی بین‌المللی برای رویدادهای منحصربه‌فرد",
+                textAbout: `<p>اگر به دنبال یک <strong>دی‌جی حرفه‌ای</strong> هستید که رویداد شما را به یک تجربه صوتی فراموش‌نشدنی تبدیل کند، <strong>DASTO</strong> نام کلیدی برای موسیقی الکترونیک است. متخصص در <strong>موسیقی تکنو، هاوس و الکترونیک</strong>، DASTO تکنیک بی‌عیب را با انتخاب موسیقی پیشرفته ترکیب می‌کند.</p><p>با سال‌ها تجربه به عنوان <strong>دی‌جی حرفه‌ای</strong>، او خدمات کامل برای کلاب‌ها، رویدادهای شرکتی و مهمانی‌های خصوصی منحصربه‌فرد در سراسر جهان ارائه می‌دهد.</p>`,
+                titleServices: "خدمات دی‌جی حرفه‌ای",
+                textServices: `<p><strong>DASTO</strong> طیف کاملی از خدمات رویداد را در سطح جهانی ارائه می‌دهد. خدمات شامل: <strong>ست دی‌جی برای عروسی</strong>، رویدادهای شرکتی، مهمانی‌های خصوصی منحصربه‌فرد، افتتاحیه کلاب‌ها و اقامت‌های ثابت است. هر اجرا شامل تجهیزات حرفه‌ای Pioneer و سیستم‌های صوتی با کیفیت بالا است.</p>`,
+                titleHighlights: "اجراهای زنده",
+                titleMusic: "ژانرهای موسیقی و سبک",
+                textMusic: `<p>صدای <strong>DASTO</strong> از تکنوی ملودیک تا Progressive House و Deep House پیچیده متغیر است. تطبیق‌پذیری او به او اجازه می‌دهد سبک خود را با هر مخاطبی تطبیق دهد و تجربه‌ای همه‌جانبه و پرانرژی را تضمین کند.</p>`,
+                titleBooking: "رزرو و تماس",
+                textBooking: `<p>برای رزرو DASTO برای رویداد خود، از طریق واتساپ یا ایمیل با ما تماس بگیرید. برای کنسرت‌ها و تورهای بین‌المللی در دسترس است و مشاوره موسیقی، تجهیزات حرفه‌ای تأییدشده و پشتیبانی فنی کامل را ارائه می‌دهد.</p>`
+            },
+            ar: {
+                subtitle: "دي جي محترف - موسيقى تكنو وهاوس",
+                bookingBtn: "حجز عالمي",
+                titleAbout: "دي جي عالمي للفعاليات الحصرية",
+                textAbout: `<p>إذا كنت تبحث عن <strong>دي جي محترف</strong> لتحويل حدثك إلى تجربة صوتية لا تُنسى، <strong>DASTO</strong> هو الاسم الأساسي للموسيقى الإلكترونية. متخصص في <strong>موسيقى التكنو والهاوس والإلكترونية</strong>، يجمع DASTO بين التقنية المثالية والاختيار الموسيقي المتطور.</p><p>مع سنوات من الخبرة كـ <strong>دي جي محترف</strong>، يقدم خدمات كاملة للنوادي والفعاليات المؤسسية والحفلات الخاصة الحصرية في جميع أنحاء العالم.</p>`,
+                titleServices: "خدمات دي جي محترفة",
+                textServices: `<p>يقدم <strong>DASTO</strong> مجموعة كاملة من خدمات الفعاليات عالمياً. تشمل الخدمات: <strong>مجموعات دي جي لحفلات الزفاف</strong>، الفعاليات المؤسسية، الحفلات الخاصة الحصرية، افتتاحات النوادي، والإقامات الثابتة. يتميز كل أداء بمعدات Pioneer احترافية وأنظمة صوت عالية الجودة.</p>`,
+                titleHighlights: "العروض المباشرة",
+                titleMusic: "أنواع الموسيقى والأسلوب",
+                textMusic: `<p>يتراوح صوت <strong>DASTO</strong> من التكنو الميلودي إلى Progressive House وDeep House المتطور. تتيح له مرونته تكييف أسلوبه مع أي جمهور، مما يضمن تجربة غامرة وعالية الطاقة.</p>`,
+                titleBooking: "الحجز والاتصال",
+                textBooking: `<p>لحجز DASTO لحدثك، اتصل بنا عبر واتساب أو البريد الإلكتروني. متاح للحفلات والجولات الدولية، ويوفر استشارات موسيقية ومعدات احترافية معتمدة ودعم فني كامل.</p>`
             }
         };
 
-        // LOGICA DI RILEVAMENTO LINGUA
+        // RILEVAMENTO LINGUA MIGLIORATO con supporto per più lingue
+        function detectLanguage() {
+            const userLang = navigator.language || navigator.userLanguage;
+            
+            // Controllo specifico per lingue
+            if (userLang.startsWith('it')) return 'it';
+            if (userLang.startsWith('fa')) return 'fa'; // Farsi/Persian
+            if (userLang.startsWith('ar')) return 'ar'; // Arabic
+            
+            // Default English per resto del mondo
+            return 'en';
+        }
+
         function applyLanguage() {
-            const userLang = navigator.language.startsWith('it') ? 'it' : 'en';
-            const lang = content[userLang];
+            const detectedLang = detectLanguage();
+            const lang = content[detectedLang];
+
+            // Aggiorna attributo lang del documento
+            document.documentElement.lang = detectedLang;
+            
+            // Aggiorna direzione testo per lingue RTL
+            if (detectedLang === 'fa' || detectedLang === 'ar') {
+                document.body.dir = 'rtl';
+            }
 
             document.getElementById('ui-subtitle').innerText = lang.subtitle;
             document.getElementById('ui-booking-btn').innerText = lang.bookingBtn;
@@ -295,54 +448,139 @@
 
         applyLanguage();
 
-        // Sfondo animato
-        const canvas=document.getElementById('canvas-bg');
-        const ctx=canvas.getContext('2d');
-        let w,h,blobs=[];
-        function init(){
-            w=canvas.width=innerWidth; h=canvas.height=innerHeight;
-            blobs=[...Array(5)].map(()=>({
-                x:Math.random()*w, y:Math.random()*h, r:Math.random()*250+200,
-                vx:(Math.random()-.5)*.8, vy:(Math.random()-.5)*.8,
-                c:['#0a0a0a','#1a0033','#440011'][Math.floor(Math.random()*3)]
+        // SFONDO ANIMATO CON PERFORMANCE OTTIMIZZATA
+        const canvas = document.getElementById('canvas-bg');
+        const ctx = canvas.getContext('2d', { alpha: false }); // Performance boost
+        let w, h, blobs = [];
+        let animationId;
+        let lastTime = 0;
+        const fps = 30; // Limita FPS per dispositivi deboli
+        const fpsInterval = 1000 / fps;
+
+        // Rileva se utente preferisce animazioni ridotte
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        // Rileva potenza dispositivo
+        const isLowPowerDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const blobCount = isLowPowerDevice ? 3 : 5; // Meno blob su mobile
+
+        function init() {
+            w = canvas.width = innerWidth;
+            h = canvas.height = innerHeight;
+            
+            blobs = [...Array(blobCount)].map(() => ({
+                x: Math.random() * w,
+                y: Math.random() * h,
+                r: Math.random() * (isLowPowerDevice ? 150 : 250) + (isLowPowerDevice ? 100 : 200),
+                vx: (Math.random() - 0.5) * (isLowPowerDevice ? 0.4 : 0.8),
+                vy: (Math.random() - 0.5) * (isLowPowerDevice ? 0.4 : 0.8),
+                c: ['#0a0a0a', '#1a0033', '#440011'][Math.floor(Math.random() * 3)]
             }));
         }
-        function animate(){
-            ctx.fillStyle='#050505'; ctx.fillRect(0,0,w,h);
-            blobs.forEach(b=>{
-                b.x+=b.vx; b.y+=b.vy;
-                if(b.x<0||b.x>w)b.vx*=-1; if(b.y<0||b.y>h)b.vy*=-1;
-                ctx.beginPath(); ctx.arc(b.x,b.y,b.r,0,Math.PI*2);
-                ctx.fillStyle=b.c; ctx.fill();
-            });
-            requestAnimationFrame(animate);
+
+        function animate(currentTime) {
+            if (!prefersReducedMotion) {
+                const elapsed = currentTime - lastTime;
+                
+                if (elapsed > fpsInterval) {
+                    lastTime = currentTime - (elapsed % fpsInterval);
+                    
+                    ctx.fillStyle = '#050505';
+                    ctx.fillRect(0, 0, w, h);
+                    
+                    blobs.forEach(b => {
+                        b.x += b.vx;
+                        b.y += b.vy;
+                        if (b.x < 0 || b.x > w) b.vx *= -1;
+                        if (b.y < 0 || b.y > h) b.vy *= -1;
+                        
+                        ctx.beginPath();
+                        ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+                        ctx.fillStyle = b.c;
+                        ctx.fill();
+                    });
+                }
+                
+                animationId = requestAnimationFrame(animate);
+            }
         }
-        // Slider
+
+        // SLIDER con controlli accessibilità
         let currentSlide = 0;
         const track = document.getElementById('sliderTrack');
+        
         function nextSlide() {
             const slides = document.querySelectorAll('.slide');
-            if(!track || slides.length === 0) return;
+            if (!track || slides.length === 0) return;
             currentSlide = (currentSlide + 1) % slides.length;
             track.style.transform = `translateX(-${currentSlide * 100}%)`;
         }
-        setInterval(nextSlide, 4000);
-        // Lightbox
+        
+        let sliderInterval = setInterval(nextSlide, 4000);
+        
+        // Pausa slider quando non visibile (performance)
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                clearInterval(sliderInterval);
+                if (animationId) cancelAnimationFrame(animationId);
+            } else {
+                sliderInterval = setInterval(nextSlide, 4000);
+                if (!prefersReducedMotion) animate(0);
+            }
+        });
+
+        // LIGHTBOX con accessibilità migliorata
         function openReel(id) {
             const lb = document.getElementById('lightbox');
             const iframe = document.getElementById('lightbox-iframe');
             iframe.src = `https://www.instagram.com/reel/${id}/embed`;
             lb.style.display = 'flex';
             lb.setAttribute('aria-hidden', 'false');
+            
+            // Focus trap
+            document.querySelector('.close-lightbox').focus();
+            
+            // Blocca scroll background
+            document.body.style.overflow = 'hidden';
         }
+
         function closeReel() {
             const lb = document.getElementById('lightbox');
             document.getElementById('lightbox-iframe').src = '';
             lb.style.display = 'none';
             lb.setAttribute('aria-hidden', 'true');
+            
+            // Ripristina scroll
+            document.body.style.overflow = '';
         }
-        window.onresize=init;
-        init(); animate();
+
+        // Chiudi lightbox con ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && document.getElementById('lightbox').style.display === 'flex') {
+                closeReel();
+            }
+        });
+
+        // Keyboard navigation per reel
+        document.querySelectorAll('.reel').forEach(reel => {
+            reel.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    reel.click();
+                }
+            });
+        });
+
+        window.onresize = init;
+        init();
+        if (!prefersReducedMotion) {
+            animate(0);
+        }
+
+        // Preload critico per performance
+        window.addEventListener('load', () => {
+            document.body.classList.add('loading');
+        });
     </script>
 </body>
 </html>
