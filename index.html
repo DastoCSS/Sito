@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DASTO DJ Napoli | Prezzi Matrimoni da €350</title>
-    <meta name="description" content="DJ professionista Napoli per matrimoni ed eventi. Prezzi trasparenti.">
+    <title>DASTO DJ Napoli | Matrimoni ed Eventi Exclusive</title>
+    <meta name="description" content="DJ professionista a Napoli. Techno, House e musica per matrimoni. Prezzi da €350. Attrezzatura Pioneer.">
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "DASTO DJ Napoli",
+      "telephone": "+393514090392",
+      "address": { "@type": "PostalAddress", "addressLocality": "Napoli", "addressRegion": "Campania" }
+    }
+    </script>
 
-    <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
-
 <body>
+
 <canvas id="canvas-bg"></canvas>
 
 <div id="lightbox" class="lightbox-overlay" onclick="closeReel()">
@@ -27,21 +34,19 @@
 <main class="container">
     <header class="left">
         <div class="logo-container">
-            <h1 class="logo">DASTO</h1>
-            <p class="subtitle">DJ Professionista Napoli</p>
+            <h1 class="logo">DASTO DJ</h1>
+            <p class="subtitle">Napoli • Techno • House • Wedding</p>
         </div>
 
-        <iframe class="soundcloud-frame" 
-                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2251688624&visual=true" 
-                loading="lazy"></iframe>
+        <iframe class="soundcloud-frame" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2251688624&visual=true" loading="lazy"></iframe>
 
         <nav>
-            <h2 class="section-title">Booking & Info</h2>
+            <h2 class="section-title">Identity</h2>
             <a href="https://wa.me/393514090392" class="btn whatsapp-btn" target="_blank">
-                <i class="fa-brands fa-whatsapp"></i> WHATSAPP BOOKING
+                <i class="fa-brands fa-whatsapp"></i> BOOKING DIRETTO
             </a>
-            <a href="pdf/Listino_Prezzi.pdf" class="btn" download><i class="fa-solid fa-euro-sign"></i> LISTINO 2026</a>
-            <a href="pdf/dasto-dj-press-kit.pdf" class="btn" download><i class="fa-regular fa-file-pdf"></i> PRESS KIT</a>
+            <a href="pdf/Listino_Prezzi.pdf" class="btn" download><i class="fa-solid fa-euro-sign"></i> LISTINO PREZZI</a>
+            <a href="pdf/press-kit.pdf" class="btn" download><i class="fa-regular fa-file-pdf"></i> PRESS KIT</a>
         </nav>
     </header>
 
@@ -50,8 +55,8 @@
             <h2 class="section-title">Live Performance</h2>
             <div class="slider-container">
                 <div class="slider-track" id="sliderTrack">
-                    <div class="slide"><img src="img/dasto_dj_napoli_live_1.webp" alt="Live"></div>
-                    <div class="slide"><img src="img/dasto_dj_napoli_live_2.webp" alt="Live"></div>
+                    <div class="slide"><img src="img/dasto_dj_napoli_live_1.webp" alt="Dasto DJ Live"></div>
+                    <div class="slide"><img src="img/dasto_dj_napoli_live_2.webp" alt="Dasto DJ Wedding"></div>
                 </div>
             </div>
         </section>
@@ -60,26 +65,23 @@
             <h2 class="section-title">Video Reels</h2>
             <div class="gallery">
                 <div class="item reel" onclick="openReel('DKIOE1XIEEb')">
-                    <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
-                    <p style="position:absolute; bottom:10px; font-size:10px; width:100%; text-align:center">Techno Set</p>
+                    <div class="play-overlay"><i class="fa-solid fa-play"></i><span>WATCH SET</span></div>
                 </div>
                 <div class="item reel" onclick="openReel('DAvzNiBoFF-')">
-                    <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
-                    <p style="position:absolute; bottom:10px; font-size:10px; width:100%; text-align:center">Wedding Party</p>
+                    <div class="play-overlay"><i class="fa-solid fa-play"></i><span>WEDDING</span></div>
                 </div>
             </div>
         </section>
 
         <section id="tour-map">
-            <h2 class="section-title">Gig Map</h2>
+            <h2 class="section-title">Locations</h2>
             <div id="map-container" class="map-placeholder" onclick="loadMap()">
-                <span><i class="fa-solid fa-map-location-dot"></i> Clicca per caricare la mappa</span>
+                <span>CARICA MAPPA EVENTI</span>
             </div>
         </section>
     </div>
 </main>
 
-<!-- JS -->
-<script src="JS/main.js" defer></script>
+<script src="JS/main.js"></script>
 </body>
 </html>
