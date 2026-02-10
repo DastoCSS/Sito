@@ -1,469 +1,132 @@
-/* DASTO DJ - Main Stylesheet */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* 1. RESET E VARIABILI */
 :root {
     --bg: #050505;
-    --text: #fff;
-    --glass: rgba(10, 10, 10, .6);
-    --border: rgba(255, 255, 255, .12);
-    --btn: rgba(255, 255, 255, .06);
+    --text: #ffffff;
     --accent: #25d366;
-    --gap: 14px;
+    --glass: rgba(10, 10, 10, 0.6);
+    --border: rgba(255, 255, 255, 0.12);
+    --btn: rgba(255, 255, 255, 0.06);
 }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     background: var(--bg);
     color: var(--text);
-    font-family: Inter, sans-serif;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
     overflow-x: hidden;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    #canvas-bg {
-        display: none;
-    }
-    .btn, .slider-track, .reel iframe {
-        transition: none !important;
-    }
-}
-
-/* CANVAS BACKGROUND */
+/* 2. BACKGROUND & LAYOUT */
 #canvas-bg {
     position: fixed;
     inset: 0;
-    z-index: 1;
-    filter: blur(100px) saturate(140%);
+    z-index: -1;
+    filter: blur(80px) saturate(140%);
     pointer-events: none;
-    will-change: transform;
 }
 
-/* CONTAINER */
 .container {
     position: relative;
     z-index: 10;
-    width: 100%;
-    max-width: 400px;
+    width: 95%;
+    max-width: 450px;
+    margin: 20px auto;
     background: var(--glass);
-    backdrop-filter: blur(50px);
+    backdrop-filter: blur(40px);
     border: 1px solid var(--border);
     border-radius: 40px;
-    padding: 35px 25px;
+    padding: 30px 20px;
 }
 
-/* LOGO */
-.logo-container {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.logo {
-    font-size: 2.5rem;
-    font-weight: 900;
-    letter-spacing: 10px;
-    background: linear-gradient(180deg, #fff, rgba(255, 255, 255, .3));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.subtitle {
-    font-size: 10px;
-    letter-spacing: 4px;
-    color: #888;
-    text-transform: uppercase;
-    margin-top: 5px;
-}
-
-/* SOUNDCLOUD */
-.soundcloud-frame {
-    width: 100%;
-    height: 120px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    margin-bottom: 20px;
-    overflow: hidden;
-}
-
-/* SECTION TITLE */
-.section-title {
-    color: #888;
-    font-size: 10px;
-    letter-spacing: 3px;
-    margin: 25px 0 12px;
-    text-transform: uppercase;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.section-title::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-}
-
-/* BUTTONS */
-.btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 16px;
-    border-radius: 15px;
-    background: var(--btn);
-    border: 1px solid var(--border);
-    color: #fff;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    transition: background .3s, transform .3s, color .3s;
-}
-
-.btn:hover, .btn:focus {
-    background: #fff;
-    color: #000;
-    transform: translateY(-2px);
-    outline: 2px solid var(--accent);
-}
-
-/* SLIDER */
-.slider-container {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16/9;
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    margin-bottom: 25px;
-}
-
-.slider-track {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s cubic-bezier(0.45, 0, 0.55, 1);
-}
-
-.slide {
-    min-width: 100%;
-    height: 100%;
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* GALLERY */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--gap);
-    margin-bottom: 25px;
-}
-
-.item {
-    position: relative;
-    border-radius: 18px;
-    overflow: hidden;
-    background: var(--btn);
-    border: 1px solid var(--border);
-}
-
-.item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* REELS */
-.reel {
-    aspect-ratio: 9/16;
-    background: #000;
-    cursor: pointer;
-    border: none;
-    padding: 0;
-    position: relative;
-}
-
-.reel:focus {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-}
-
-.reel .embed {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.reel iframe {
-    position: absolute;
-    top: -15%;
-    left: -25%;
-    width: 150%;
-    height: 130%;
-    border: 0;
-    transition: transform .6s ease;
-}
-
-.reel:hover::after, .reel:focus::after {
-    content: "WATCH REEL";
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.6);
-    font-size: 11px;
-    font-weight: 900;
-    color: white;
-}
-
-/* LIGHTBOX */
-.lightbox-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 9999;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(15px);
-}
-
-.lightbox-content {
-    position: relative;
-    width: 90%;
-    max-width: 380px;
-    aspect-ratio: 9/16;
-}
-
-.lightbox-content iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-.close-lightbox {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    color: #fff;
-    font-size: 35px;
-    cursor: pointer;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-}
-
-.close-lightbox:hover, .close-lightbox:focus {
-    background: rgba(255, 255, 255, 0.2);
-    outline: 2px solid #fff;
-}
-
-/* TEXT CONTENT */
-.text-content {
-    font-size: 14px;
-    line-height: 1.8;
-    color: #ccc;
-    margin-bottom: 25px;
-}
-
-.text-content p {
-    margin-bottom: 15px;
-}
-
-.text-content strong {
-    color: #fff;
-}
-
-.text-content a {
-    color: var(--accent);
-    text-decoration: none;
-    transition: .3s;
-}
-
-.text-content a:hover, .text-content a:focus {
-    text-decoration: underline;
-}
-
-.text-content ul {
-    list-style-type: none;
-}
-
-/* PRICING SECTION */
-.pricing-grid {
-    display: grid;
-    gap: 12px;
-    margin-bottom: 20px;
-}
-
-.price-card {
-    background: var(--btn);
-    border: 1px solid var(--border);
-    border-radius: 15px;
-    padding: 18px;
-    transition: all 0.3s ease;
-}
-
-.price-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-}
-
-.price-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.price-card-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: #fff;
-}
-
-.price-tag {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--accent);
-    white-space: nowrap;
-}
-
-.price-card-desc {
-    font-size: 12px;
-    color: #888;
-    line-height: 1.6;
-}
-
-.price-highlight {
-    background: linear-gradient(135deg, rgba(37, 211, 102, 0.15), rgba(37, 211, 102, 0.05));
-    border-color: var(--accent);
-}
-
-/* EQUIPMENT SECTION */
-.equipment-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.equipment-badge {
-    background: var(--btn);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 12px;
-    text-align: center;
-    font-size: 11px;
-    color: #aaa;
-    transition: all 0.3s;
-}
-
-.equipment-badge:hover {
-    border-color: var(--accent);
-    color: #fff;
-}
-
-.equipment-badge i {
-    font-size: 20px;
-    color: var(--accent);
-    display: block;
-    margin-bottom: 8px;
-}
-
-.equipment-badge strong {
-    display: block;
-    color: #fff;
-    font-size: 12px;
-    margin-bottom: 3px;
-}
-
-/* ACCESSIBILITY */
-.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: var(--accent);
-    color: #000;
-    padding: 8px;
-    text-decoration: none;
-    z-index: 100;
-}
-
-.skip-link:focus {
-    top: 0;
-}
-
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
-/* RESPONSIVE DESKTOP */
-@media(min-width: 1024px) {
+/* Layout Desktop */
+@media (min-width: 1024px) {
     .container {
-        max-width: 1150px;
+        max-width: 1100px;
         display: grid;
         grid-template-columns: 380px 1fr;
         gap: 50px;
-        padding: 50px;
         height: 90vh;
+        margin: 5vh auto;
+        padding: 50px;
     }
-    
-    .right {
-        overflow-y: auto;
-        padding-right: 20px;
-    }
-    
-    .gallery {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .equipment-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
+    .right { overflow-y: auto; padding-right: 15px; }
 }
 
-/* LOADING ANIMATION */
-.loading {
-    opacity: 0;
-    animation: fadeIn 0.5s forwards;
+/* 3. HEADER & LOGO */
+.logo-container { text-align: center; margin-bottom: 25px; }
+.logo { 
+    font-size: 2.8rem; font-weight: 900; letter-spacing: 10px;
+    background: linear-gradient(180deg, #fff, rgba(255,255,255,0.3));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.subtitle { font-size: 10px; letter-spacing: 4px; color: #888; text-transform: uppercase; }
+
+/* 4. ELEMENTI INTERATTIVI (Bottoni e Frame) */
+.soundcloud-frame { 
+    width: 100%; height: 120px; border-radius: 20px; 
+    border: 1px solid var(--border); margin-bottom: 20px; 
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
+.section-title {
+    color: #666; font-size: 10px; letter-spacing: 3px; 
+    text-transform: uppercase; margin: 30px 0 15px;
+    display: flex; align-items: center; gap: 10px;
+}
+.section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+.btn {
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+    padding: 16px; border-radius: 15px; background: var(--btn);
+    border: 1px solid var(--border); color: #fff; text-decoration: none;
+    font-size: 13px; font-weight: 600; margin-bottom: 12px; transition: 0.3s;
+}
+.btn:hover { background: #fff; color: #000; transform: translateY(-2px); }
+
+/* 5. MEDIA & GALLERY (Il cuore dell'ottimizzazione) */
+.slider-container { 
+    border-radius: 20px; overflow: hidden; border: 1px solid var(--border); 
+    aspect-ratio: 16/9; margin-bottom: 25px;
+}
+.slider-track { display: flex; transition: transform 0.6s cubic-bezier(0.45, 0, 0.55, 1); }
+.slide img { width: 100%; height: 100%; object-fit: cover; }
+
+.gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+
+/* Stile per Reel "Light" senza Iframe iniziale */
+.item.reel {
+    aspect-ratio: 9/16; background: #111; border-radius: 20px;
+    position: relative; cursor: pointer; border: 1px solid var(--border);
+    overflow: hidden; padding: 0;
+}
+.item.reel img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+
+.play-overlay {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 10px;
+    color: #fff; transition: 0.3s;
+}
+.play-overlay i { font-size: 24px; }
+.play-overlay span { font-size: 9px; letter-spacing: 1px; font-weight: 900; }
+.item.reel:hover .play-overlay { transform: scale(1.1); background: rgba(0,0,0,0.2); }
+
+/* 6. MAPPA & LIGHTBOX */
+.map-placeholder {
+    width: 100%; aspect-ratio: 16/9; border-radius: 20px;
+    background: var(--btn); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: var(--accent); font-size: 11px; font-weight: bold;
+}
+
+.lightbox-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.95);
+    z-index: 9999; display: none; align-items: center; justify-content: center;
+    backdrop-filter: blur(15px);
+}
+.lightbox-content { width: 90%; max-width: 380px; aspect-ratio: 9/16; }
+.lightbox-content iframe { width: 100%; height: 100%; border: none; border-radius: 15px; }
+.close-lightbox { 
+    position: absolute; top: 20px; right: 20px; color: #fff; 
+    font-size: 30px; background: none; border: none; cursor: pointer; 
 }

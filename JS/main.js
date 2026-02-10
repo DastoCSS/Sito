@@ -1,146 +1,66 @@
-// ===============================
-// LANGUAGE
-// ===============================
-function detectLanguage() {
-  const lang = navigator.language || 'en';
-  return lang.startsWith('it') ? 'it' : 'en';
-}
-
-function applyLanguage() {
-  const lang = content[detectLanguage()];
-  document.documentElement.lang = detectLanguage();
-
-  const textMap = {
-    'ui-subtitle': lang.subtitle,
-    'ui-booking-btn': lang.bookingBtn,
-    'title-about': lang.titleAbout,
-    'title-pricing': lang.titlePricing,
-    'title-equipment': lang.titleEquipment,
-    'title-services': lang.titleServices,
-    'title-highlights': lang.titleHighlights,
-    'title-music': lang.titleMusic,
-    'title-booking': lang.titleBooking
-  };
-
-  Object.keys(textMap).forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.textContent = textMap[id];
-  });
-
-  ['text-about', 'text-services', 'text-music', 'text-booking'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.innerHTML = lang[id.replace('text-', 'text')];
-  });
-}
-
-// ===============================
-// CANVAS (LIGHT VERSION)
-// ===============================
+// 1. OTTIMIZZAZIONE CANVAS (Risoluzione ridotta per velocità)
 const canvas = document.getElementById('canvas-bg');
-const ctx = canvas.getContext('2d');
-let blobs = [];
-let rafId;
-const isMobile = window.innerWidth < 768;
+const ctx = canvas.getContext('2d', { alpha: false });
+let w, h, blobs = [];
 
-function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+function initCanvas() {
+    w = canvas.width = window.innerWidth / 4; // Risoluzione 1/4 per fluidità
+    h = canvas.height = window.innerHeight / 4;
+    blobs = Array.from({ length: 4 }, () => ({
+        x: Math.random() * w, y: Math.random() * h,
+        r: Math.random() * 50 + 20,
+        vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
+        c: ['#0a0a0a', '#1a0033', '#440011'][Math.floor(Math.random() * 3)]
+    }));
 }
 
-function createBlobs() {
-  blobs = Array.from({ length: isMobile ? 2 : 3 }, () => ({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    r: isMobile ? 120 : 180,
-    vx: (Math.random() - 0.5) * 0.3,
-    vy: (Math.random() - 0.5) * 0.3
-  }));
+function animate() {
+    ctx.fillStyle = '#050505';
+    ctx.fillRect(0, 0, w, h);
+    blobs.forEach(b => {
+        b.x += b.vx; b.y += b.vy;
+        if (b.x < 0 || b.x > w) b.vx *= -1;
+        if (b.y < 0 || b.y > h) b.vy *= -1;
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+        ctx.fillStyle = b.c;
+        ctx.fill();
+    });
+    requestAnimationFrame(animate);
 }
 
-function drawCanvas() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = '#050505';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  ctx.fillStyle = '#111';
-  blobs.forEach(b => {
-    b.x += b.vx;
-    b.y += b.vy;
-
-    if (b.x < 0 || b.x > canvas.width) b.vx *= -1;
-    if (b.y < 0 || b.y > canvas.height) b.vy *= -1;
-
-    ctx.beginPath();
-    ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
-    ctx.fill();
-  });
-
-  rafId = requestAnimationFrame(drawCanvas);
-}
-
-// ===============================
-// SLIDER (VISIBILITY AWARE)
-// ===============================
-const track = document.getElementById('sliderTrack');
-let slideIndex = 0;
-let sliderTimer;
-
-function startSlider() {
-  if (!track) return;
-  sliderTimer = setInterval(() => {
-    const slides = track.children.length;
-    slideIndex = (slideIndex + 1) % slides;
-    track.style.transform = `translate3d(-${slideIndex * 100}%,0,0)`;
-  }, 4500);
-}
-
-function stopSlider() {
-  clearInterval(sliderTimer);
-}
-
-// ===============================
-// LIGHTBOX
-// ===============================
+// 2. GESTIONE REELS (On-Demand)
 function openReel(id) {
-  const lb = document.getElementById('lightbox');
-  const iframe = document.getElementById('lightbox-iframe');
-  iframe.src = `https://www.instagram.com/reel/${id}/embed`;
-  lb.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
+    const lb = document.getElementById('lightbox');
+    const iframe = document.getElementById('lightbox-iframe');
+    iframe.src = `https://www.instagram.com/reel/${id}/embed`;
+    lb.style.display = 'flex';
 }
 
 function closeReel() {
-  const lb = document.getElementById('lightbox');
-  document.getElementById('lightbox-iframe').src = '';
-  lb.style.display = 'none';
-  document.body.style.overflow = '';
+    const lb = document.getElementById('lightbox');
+    document.getElementById('lightbox-iframe').src = '';
+    lb.style.display = 'none';
 }
 
-// ===============================
-// VISIBILITY MANAGEMENT
-// ===============================
-document.addEventListener('visibilitychange', () => {
-  if (document.hidden) {
-    cancelAnimationFrame(rafId);
-    stopSlider();
-  } else {
-    drawCanvas();
-    startSlider();
-  }
-});
+// 3. CARICAMENTO MAPPA (On-Demand)
+function loadMap() {
+    const container = document.getElementById('map-container');
+    container.innerHTML = `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193123.456!2d14.2681!3d40.8518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133b08401f3ad57d%3A0x6d02a4fc4163c4a2!2sNapoli%20NA!5e0!3m2!1sit!2sit!4v1710000000000" width="100%" height="100%" style="border:0; border-radius:20px;" allowfullscreen="" loading="lazy"></iframe>`;
+}
 
-// ===============================
-// INIT
-// ===============================
-window.addEventListener('resize', () => {
-  resizeCanvas();
-  createBlobs();
-});
+// 4. SLIDER SEMPLICE
+let currentSlide = 0;
+setInterval(() => {
+    const track = document.getElementById('sliderTrack');
+    const slides = document.querySelectorAll('.slide');
+    if(track) {
+        currentSlide = (currentSlide + 1) % slides.length;
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+}, 4000);
 
-window.addEventListener('load', () => {
-  resizeCanvas();
-  createBlobs();
-  drawCanvas();
-  startSlider();
-  applyLanguage();
-});
+// Startup
+window.addEventListener('resize', initCanvas);
+initCanvas();
+animate();
