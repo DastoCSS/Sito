@@ -69,6 +69,16 @@ body { background: var(--bg); color: #fff; font-family: 'Inter', sans-serif; ove
     gap: 8px;
     z-index: 2;
 }
+
+.reel-img {
+    filter: brightness(0.6) grayscale(20%); /* Rende l'immagine più scura e meno satura */
+    transition: 0.3s;
+}
+
+.item.reel:hover .reel-img {
+    filter: brightness(1) grayscale(0%); /* Torna originale al passaggio del mouse */
+}
+
 .play-overlay span { font-size: 9px; font-weight: 900; }
 
 .map-placeholder { width: 100%; aspect-ratio: 16/9; border-radius: 20px; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--accent); font-size: 12px; font-weight: bold; }
