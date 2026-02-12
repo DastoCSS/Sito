@@ -1,25 +1,63 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7E2MJ7PNF5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7E2MJ7PNF5');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="8QxVR7EjYqVvYiZ_bkOa-c2OrMp1A8rxfiR7IwDKP5Q" />
     
-    <title>DASTO DJ Napoli | DJ per Matrimoni ed Eventi Exclusive Campania</title>
-    <meta name="description" content="DASTO DJ Napoli: professionista per matrimoni ed eventi esclusivi. Specialista in musica House e Techno a Napoli e provincia. Prezzi chiari e service incluso.">
+    <title>DASTO DJ Napoli | Matrimoni ed Eventi Exclusive Campania</title>
+    <meta name="description" content="DASTO DJ Napoli: professionista per matrimoni ed eventi esclusivi. Sound House e Techno a Napoli e provincia. Prezzi chiari, service incluso e massima qualità.">
+    <link rel="canonical" href="https://dastocss.github.io/Sito/">
     
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": "ProfessionalService",
       "name": "DASTO DJ Napoli",
-      "address": { "@type": "23", "addressLocality": "Napoli, Via salita vetriera", "addressRegion": "Campania, NA" },
+      "image": "https://dastocss.github.io/Sito/img/dasto_dj_napoli_live_1.webp",
+      "@id": "https://dastocss.github.io/Sito/#service",
       "url": "https://dastocss.github.io/Sito/",
-      "telephone": "+393514090392"
+      "telephone": "+393514090392",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Salita Vetriera",
+        "addressLocality": "Napoli",
+        "addressRegion": "NA",
+        "postalCode": "80132",
+        "addressCountry": "IT"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 40.8369,
+        "longitude": 14.2435
+      }
     }
     </script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS INLINE PER FIX RAPIDO LOGO */
+        .logo {
+            font-size: 2.5rem; font-weight: 900; letter-spacing: 5px;
+            color: #ffffff;
+            background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.4) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        #map-container iframe { filter: invert(90%) hue-rotate(180deg); } /* Effetto Dark Map */
+    </style>
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
@@ -27,24 +65,24 @@
 <canvas id="canvas-bg"></canvas>
 
 <div id="lightbox" class="lightbox-overlay" onclick="closeReel()">
-    <button class="close-lightbox">×</button>
+    <button class="close-lightbox" aria-label="Chiudi Video">×</button>
     <div class="lightbox-content" onclick="event.stopPropagation()">
-        <iframe id="lightbox-iframe" allowfullscreen></iframe>
+        <iframe id="lightbox-iframe" allowfullscreen title="Video DASTO DJ"></iframe>
     </div>
 </div>
 
 <main class="container">
     <header class="left">
         <div class="logo-container">
-            <h1 class="logo">DASTO DJ NAPOLI</h1>
-            <p class="subtitle">Musica per Matrimoni ed Eventi Exclusive</p>
+            <h1 class="logo">DASTO DJ</h1>
+            <p class="subtitle">Wedding & Exclusive Events Napoli</p>
         </div>
 
-        <iframe class="soundcloud-frame" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2251688624&visual=true" loading="lazy"></iframe>
+        <iframe class="soundcloud-frame" title="Mix DASTO" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2251688624&visual=true" loading="lazy"></iframe>
 
         <nav>
             <h2 class="section-title">Identity & Booking</h2>
-            <a href="https://wa.me/393514090392" class="btn whatsapp-btn" target="_blank">
+            <a href="https://wa.me/393514090392" class="btn whatsapp-btn" target="_blank" rel="noopener">
                 <i class="fa-brands fa-whatsapp"></i> PREVENTIVO DJ NAPOLI
             </a>
             <a href="pdf/Listino Prezzi.pdf" class="btn" download><i class="fa-solid fa-euro-sign"></i> LISTINO 2026</a>
@@ -54,22 +92,12 @@
 
     <div class="right">
         <article class="seo-content">
-            <h2 class="section-title">DJ Set per Eventi a Napoli</h2>
-            <p>Dasto è il <strong>DJ a Napoli</strong> ideale per chi cerca un'atmosfera ricercata. Dal <strong>matrimonio in Campania</strong> al party privato, offriamo una selezione musicale che spazia dalla House alla Techno.</p>
+            <h2 class="section-title">Esperienza DJ Matrimonio Napoli</h2>
+            <p>Se cerchi un <strong>DJ per matrimoni a Napoli</strong> o in Campania, Dasto offre un servizio professionale completo. Specializzati in eventi esclusivi, portiamo il sound dei migliori club (House e Techno) in location da sogno, con service audio-luci incluso.</p>
         </article>
 
-        <section>
-            <h2 class="section-title">Live Performance</h2>
-            <div class="slider-container">
-                <div class="slider-track" id="sliderTrack">
-                    <div class="slide"><img src="img/dasto_dj_napoli_live_1.webp" alt="DJ Matrimonio Napoli Dasto Live"></div>
-                    <div class="slide"><img src="img/dasto_dj_napoli_live_2.webp" alt="DJ Set Techno Napoli"></div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2 class="section-title">Video Reels</h2>
+        <section id="reels">
+            <h2 class="section-title">Video Reels & Wedding</h2>
             <div class="gallery">
                 <div class="item reel" onclick="openReel('DKIOE1XIEEb')">
                     <img src="img/copertina_GT.png" alt="DJ Napoli Techno Set" class="reel-img">
@@ -83,17 +111,14 @@
         </section>
 
         <section id="tour-map">
-    <h2 class="section-title">Location & Gig Map</h2>
-    <div id="map-container">
-        <iframe 
-          src="https://www.google.com/maps/d/embed?mid=1a0v34rq534vQg8Wktsyo1mzgJ602jpY&ehbc=2E312F" 
-          width="100%" 
-          height="480" 
-          style="border: 0; border-radius: 12px;" 
-          allowfullscreen>
-        </iframe>
-    </div>
-</section>
+            <h2 class="section-title">Location & Operatività</h2>
+            <div id="map-container">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d3029.358249673414!2d14.2435!3d40.8369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133b08468303ef3d%3A0x6734d0b674b0!2sVia%20Salita%20Vetriera%2C%20Napoli!5e0!3m2!1sit!2sit!4v1700000000000" 
+                  width="100%" height="300" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </section>
     </div>
 </main>
 
