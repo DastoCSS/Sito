@@ -47,9 +47,17 @@ function closeReel() {
     document.getElementById('lightbox-iframe').src = '';
 }
 
+// main.js - Versione Fix Mappa e Performance
 function loadMap() {
-    document.getElementById('map-container').innerHTML = `<iframe src="https://www.google.com/maps/embed?pb=YOUR_MAP_ID" width="100%" height="100%" style="border:0; border-radius:20px;" allowfullscreen="" loading="lazy"></iframe>`;
+    const mapContainer = document.getElementById('map-container');
+    // URL pulito per Napoli Centro / Via Salita Vetriera
+    const mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3029.3364964646!2d14.2415!3d40.837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133b084606138d6b%3A0x633d790f97063f10!2sVia%20Salita%20Vetriera%2C%20Napoli!5e0!3m2!1sit!2sit!4v1700000000000";
+    
+    mapContainer.innerHTML = `<iframe src="${mapUrl}" width="100%" height="100%" style="border:0; border-radius:20px;" allowfullscreen="" loading="lazy"></iframe>`;
 }
+
+// Avvia il caricamento della mappa dopo 2 secondi per non rallentare il sito (SEO Speed)
+setTimeout(loadMap, 2000);
 
 // Slider
 let currentSlide = 0;
