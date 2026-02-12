@@ -1,19 +1,20 @@
+/* --- CONFIGURAZIONE CANVAS (SFONDO ANIMATO) --- */
 const canvas = document.getElementById('canvas-bg');
 const ctx = canvas.getContext('2d', { alpha: false });
 let w, h, blobs = [];
 
 function init() {
+    // Risoluzione ridotta per massimizzare la fluidità (SEO Performance)
     w = canvas.width = window.innerWidth / 4;
     h = canvas.height = window.innerHeight / 4;
     
-    // Creazione dei "bulbi"
+    // Creazione dei "bulbi" Techno/Deep
     blobs = Array.from({ length: 5 }, () => ({
         x: Math.random() * w,
         y: Math.random() * h,
-        r: Math.random() * 80 + 40, // Bulbi belli grandi
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        // Colori Techno/Deep
+        r: Math.random() * 80 + 40, 
+        vx: (Math.random() - 0.5) * 0.2,
+        vy: (Math.random() - 0.5) * 0.2,
         c: ['#0f051a', '#220000', '#0a0a0a', '#1a0033'][Math.floor(Math.random() * 4)]
     }));
 }
@@ -35,41 +36,58 @@ function animate() {
     requestAnimationFrame(animate);
 }
 
-// Lightbox & Map logic
+/* --- LOGICA LIGHTBOX (REELS INSTAGRAM) --- */
 function openReel(id) {
     const lb = document.getElementById('lightbox');
-    document.getElementById('lightbox-iframe').src = `https://www.instagram.com/reel/${id}/embed`;
-    lb.style.display = 'flex';
+    const iframe = document.getElementById('lightbox-iframe');
+    if (lb && iframe) {
+        iframe.src = `https://www.instagram.com/reel/${id}/embed`;
+        lb.style.display = 'flex';
+    }
 }
 
 function closeReel() {
-    document.getElementById('lightbox').style.display = 'none';
-    document.getElementById('lightbox-iframe').src = '';
+    const lb = document.getElementById('lightbox');
+    const iframe = document.getElementById('lightbox-iframe');
+    if (lb && iframe) {
+        lb.style.display = 'none';
+        iframe.src = '';
+    }
 }
 
-// main.js - Versione Fix Mappa e Performance
+/* --- CARICAMENTO MAPPA (OTTIMIZZATO SEO) --- */
 function loadMap() {
     const mapContainer = document.getElementById('map-container');
-    // URL pulito per Napoli Centro / Via Salita Vetriera
-    const mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3029.3364964646!2d14.2415!3d40.837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133b084606138d6b%3A0x633d790f97063f10!2sVia%20Salita%20Vetriera%2C%20Napoli!5e0!3m2!1sit!2sit!4v1700000000000";
+    // URL Statico per Napoli / Via Salita Vetriera
+    const mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d3029.358249673414!2d14.2435!3d40.8369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133b08468303ef3d%3A0x6734d0b674b0!2sVia%20Salita%20Vetriera%2C%20Napoli!5e0!3m2!1sit!2sit!4v17000000000003";
     
-    mapContainer.innerHTML = `<iframe src="${mapUrl}" width="100%" height="100%" style="border:0; border-radius:20px;" allowfullscreen="" loading="lazy"></iframe>`;
+    if (mapContainer) {
+        mapContainer.innerHTML = `<iframe src="${mapUrl}" width="100%" height="450" style="border:0; border-radius:20px;" allowfullscreen="" loading="lazy"></iframe>`;
+    }
 }
 
-// Avvia il caricamento della mappa dopo 2 secondi per non rallentare il sito (SEO Speed)
-setTimeout(loadMap, 2000);
-
-// Slider
+/* --- SLIDER IMMAGINI --- */
 let currentSlide = 0;
-setInterval(() => {
+function startSlider() {
     const track = document.getElementById('sliderTrack');
     const slides = document.querySelectorAll('.slide');
-    if(track && slides.length) {
-        currentSlide = (currentSlide + 1) % slides.length;
-        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    
+    if (track && slides.length > 0) {
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }, 4500);
     }
-}, 4500);
+}
 
+/* --- INIZIALIZZAZIONE EVENTI --- */
 window.addEventListener('resize', init);
-init();
-animate();
+
+// Avvio coordinato al caricamento della pagina
+window.addEventListener('load', () => {
+    init();
+    animate();
+    startSlider();
+    // Ritardo di 2 secondi per la mappa per migliorare il punteggio Google PageSpeed
+    setTimeout(loadMap, 2000);
+});
