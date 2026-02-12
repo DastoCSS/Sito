@@ -1,6 +1,6 @@
 :root {
     --bg: #050505;
-    --accent: #25d366;
+    --accent: #25d366; /* Il verde WhatsApp */
     --glass: rgba(10, 10, 10, 0.6);
     --border: rgba(255, 255, 255, 0.12);
 }
@@ -178,11 +178,15 @@ body {
 .lightbox-overlay { 
     position: fixed; 
     inset: 0; 
-    background: rgba(0,0,0,0.95); 
+    background-color: rgba(0, 0, 0, 0.95); 
     z-index: 1000; 
     display: none; 
     align-items: center; 
-    justify-content: center; 
+    justify-content: center;
+    
+    /* Versione per Safari/iOS */
+    -webkit-backdrop-filter: blur(15px); 
+    /* Versione Standard */
     backdrop-filter: blur(15px); 
 }
 
@@ -197,4 +201,45 @@ body {
     background: none; 
     border: none; 
     cursor: pointer; 
+}
+/* SEZIONE PREZZI - VERSIONE COMPATIBILE */
+.pricing-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.pricing-intro {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #cccccc;
+    margin-bottom: 15px;
+}
+
+.pricing-list {
+    list-style-type: none !important;
+    margin-top: 15px;
+    padding: 0;
+}
+
+.pricing-list li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    color: #ffffff;
+}
+
+.pricing-list i {
+    color: #25d366; /* Colore diretto per evitare errori di variabile */
+}
+
+.pricing-note {
+    font-size: 11px;
+    color: #666666;
+    margin-top: 20px;
+    font-style: italic;
 }
