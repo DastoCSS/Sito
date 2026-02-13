@@ -185,7 +185,6 @@ body {
 .pricing-list i { color: var(--accent); }
 .pricing-note { font-size: 10px; color: #555; font-style: italic; margin-top: 15px; }
 
-<<<<<<< HEAD
 /* --- SEZIONE AREE DI SERVIZIO (COVERAGE) --- */
 .coverage-card {
     background: rgba(255, 255, 255, 0.05);
@@ -242,48 +241,12 @@ body {
     line-height: 1.5;
 }
 
-=======
->>>>>>> 4bc32048035b8546af61068efd40d878b48a4326
 /* --- GALLERY REELS --- */
 .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
 .item.reel { aspect-ratio: 9/16; background: #111; border-radius: 20px; position: relative; cursor: pointer; border: 1px solid var(--border); overflow: hidden; }
 .reel-img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); transition: 0.5s ease; }
 .item.reel:hover .reel-img { filter: brightness(0.9); transform: scale(1.05); }
 .play-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; z-index: 2; }
-
-.item.reel { 
-    aspect-ratio: 9/16; 
-    background: #111; 
-    border-radius: 20px; 
-    position: relative; 
-    cursor: pointer; 
-    border: 1px solid var(--border); 
-    overflow: hidden; 
-}
-
-.reel-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.6);
-    transition: 0.5s ease;
-}
-
-.item.reel:hover .reel-img {
-    filter: brightness(0.9);
-    transform: scale(1.05);
-}
-
-.play-overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    z-index: 2;
-}
 
 .play-overlay i { font-size: 24px; color: #fff; }
 .play-overlay span { font-size: 9px; font-weight: 900; letter-spacing: 1px; }
@@ -325,7 +288,6 @@ body {
     border-radius: 15px;
     border: none;
     margin: 20px 0;
-<<<<<<< HEAD
 }
 
 /* --- SEO FOOTER --- */
@@ -377,6 +339,4 @@ body {
     color: #555;
     margin-top: 10px;
     letter-spacing: 1px;
-=======
->>>>>>> 4bc32048035b8546af61068efd40d878b48a4326
 }
