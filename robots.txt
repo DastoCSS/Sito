@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dastocss.github.io/Sito/sitemap.xml
