@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DASTØ DJ Napoli | Matrimoni, 18 Anni &amp; Eventi in Campania</title>
   <meta name="description" content="DJ professionista a Napoli per matrimoni eleganti, 18 anni spettacolari ed eventi aziendali in Campania. Tech House &amp; Open Format. Preventivo gratuito entro 24h. Pioneer CDJ-2000 NXS2." />
-  <meta name="keywords" content="DJ Napoli, DJ matrimoni Napoli, DJ 18 anni Napoli, DJ Campania, DJ Sorrento, DJ Costiera Amalfitana, DJ eventi aziendali Napoli, DJ Capri, Tech House Napoli, DJ professionista Napoli, DASTØ DJ, noleggio service audio Napoli" />
+  <meta name="keywords" content="DJ Napoli, DJ matrimoni Napoli, DJ 18 anni Napoli, DJ Campania, DJ Sorrento, DJ Costiera Amalfitana, DJ eventi aziendali Napoli, DJ Capri, Tech House Napoli, DJ professionista Napoli, DASTØ DJ" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="DASTØ DJ" />
   <link rel="canonical" href="https://www.dastodj.it/" />
@@ -37,6 +37,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="CSS/style.css" />
 
+  <!-- Script per impostare automaticamente Light Mode (mattina 06:00 - 18:00) o Dark Mode (sera/notte) -->
+  <script>
+    (function() {
+      const hour = new Date().getHours();
+      // Dalle 06:00 alle 18:00 = Light Mode (mattina/giorno), altrimenti Dark Mode (sera/notte)
+      if (hour >= 6 && hour < 18) {
+        document.documentElement.classList.add('light-mode');
+      } else {
+        document.documentElement.classList.add('dark-mode');
+      }
+    })();
+  </script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -50,7 +63,7 @@
     "image": "https://www.dastodj.it/og-image.jpg",
     "telephone": "+39-351-4090392",
     "email": "info@dastodj.it",
-    "priceRange": "\u20ac\u20ac",
+    "priceRange": "\u20ac\u20ac\u20ac",
     "currenciesAccepted": "EUR",
     "paymentAccepted": "Cash, Bank Transfer",
     "address": {
@@ -97,8 +110,8 @@
           },
           "priceSpecification": {
             "@type": "PriceSpecification",
-            "minPrice": "450",
-            "maxPrice": "1100",
+            "minPrice": "600",
+            "maxPrice": "1500",
             "priceCurrency": "EUR"
           }
         },
@@ -111,8 +124,8 @@
           },
           "priceSpecification": {
             "@type": "PriceSpecification",
-            "minPrice": "300",
-            "maxPrice": "500",
+            "minPrice": "400",
+            "maxPrice": "700",
             "priceCurrency": "EUR"
           }
         },
@@ -125,8 +138,8 @@
           },
           "priceSpecification": {
             "@type": "PriceSpecification",
-            "minPrice": "230",
-            "maxPrice": "500",
+            "minPrice": "350",
+            "maxPrice": "700",
             "priceCurrency": "EUR"
           }
         },
@@ -139,8 +152,8 @@
           },
           "priceSpecification": {
             "@type": "PriceSpecification",
-            "minPrice": "180",
-            "maxPrice": "400",
+            "minPrice": "300",
+            "maxPrice": "600",
             "priceCurrency": "EUR"
           }
         }
@@ -159,7 +172,7 @@
         "name": "Quanto costa un DJ per matrimonio a Napoli?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Il costo di un DJ per matrimonio a Napoli varia da \u20ac450 per la sola festa finale (wedding party) fino a \u20ac1.100 per un servizio completo dall'aperitivo alla fine. Il prezzo dipende dalla durata, dalla location e dal service audio richiesto. Richiedi un preventivo gratuito entro 24h."
+          "text": "Il costo di un DJ per matrimonio a Napoli varia da \u20ac600 per la sola festa finale fino a \u20ac1.500 per un servizio completo dall'aperitivo alla fine, in linea con gli standard professionali di settore. Richiedi un preventivo gratuito entro 24h."
         }
       },
       {
@@ -167,7 +180,7 @@
         "name": "Quanto costa un DJ per 18 anni a Napoli?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Un DJ per 18 anni a Napoli costa tra \u20ac300 e \u20ac500 con full service incluso (console + casse Yamaha 600W). Il prezzo varia in base alla durata e alla location. Preventivo personalizzato gratuito."
+          "text": "Un DJ per 18 anni a Napoli costa tra \u20ac400 e \u20ac700 con service audio e console professionale inclusi. Preventivo personalizzato gratuito."
         }
       },
       {
@@ -175,7 +188,7 @@
         "name": "Che attrezzatura usa DASTØ DJ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "DASTØ DJ utilizza Pioneer CDJ-2000 NXS2 e DJM-900 NXS2 come setup principale, oppure DDJ Series con 2x casse Yamaha 600W come alternativa. Tutto il service audio professionale \u00e8 incluso o disponibile a noleggio."
+          "text": "DASTØ DJ utilizza Pioneer CDJ-2000 NXS2 e DJM-900 NXS2 come setup principale, oppure DDJ Series con casse Yamaha professionali per le performance live."
         }
       },
       {
@@ -183,7 +196,7 @@
         "name": "DASTØ DJ lavora fuori Napoli?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "S\u00ec, DASTØ DJ \u00e8 disponibile in tutta la Campania incluse Sorrento, Positano, Amalfi, Capri, Ischia, Procida, Caserta e Salerno. Su richiesta disponibile anche per eventi a Roma, Milano e all'estero."
+          "text": "S\u00ec, DASTØ DJ \u00e8 disponibile in tutta la Campania incluse Sorrento, Positano, Amalfi, Capri, Ischia, Procida, Caserta e Salerno, oltre che per trasferte nazionali e internazionali."
         }
       },
       {
@@ -191,7 +204,7 @@
         "name": "Come posso prenotare DASTØ DJ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Puoi contattare DASTØ DJ direttamente su WhatsApp per ricevere un preventivo gratuito personalizzato entro 24 ore. Le date 2026 si stanno esaurendo rapidamente."
+          "text": "Puoi contattare DASTØ DJ direttamente su WhatsApp per ricevere un preventivo gratuito personalizzato entro 24 ore."
         }
       }
     ]
@@ -219,7 +232,14 @@
   <div class="grain" aria-hidden="true"></div>
 
   <nav class="nav" id="nav" role="navigation" aria-label="Navigazione principale">
-    <a href="/" class="nav-logo" aria-label="DASTØ DJ – Homepage">DASTØ</a>
+    <!-- Logo dinamico in base al tema Light/Dark -->
+    <a href="/" class="nav-logo" aria-label="DASTØ DJ – Homepage">
+      <img src="img/logo-dark.png" data-dark-src="img/logo-dark.png" data-light-src="img/logo-light.png" alt="DASTØ DJ Logo" class="brand-logo" id="header-logo" />
+    </a>
+    
+    <!-- Widget Google Translate per traduzione automatica nella lingua nativa dell'utente estero -->
+    <div id="google_translate_element" style="display:inline-block; margin-left:15px;"></div>
+
     <a href="https://wa.me/393514090392?text=Ciao%20DAST%C3%B8%2C%20vorrei%20un%20preventivo%20per%20il%20mio%20evento"
        class="nav-cta" target="_blank" rel="noopener noreferrer"
        aria-label="Contatta DASTØ DJ su WhatsApp per un preventivo">
@@ -294,8 +314,8 @@
           <h3>Matrimoni</h3>
           <p>Dalla cerimonia al party finale. Regia musicale completa e playlist cucite su di voi.</p>
           <div class="card-price">
-            €450 – €1.100
-            <span>wedding party · full service incluso</span>
+            €600 – €1.500
+            <span>wedding party · service professionale incluso</span>
           </div>
           <div class="card-tags" aria-label="Zone operative">
             <span class="card-tag">Napoli</span>
@@ -309,8 +329,8 @@
           <h3>18 Anni &amp; Compleanni</h3>
           <p>Effetto wow assicurato. Luci scenografiche, bassi potenti e atmosfera da club esclusivo.</p>
           <div class="card-price">
-            €300 – €500
-            <span>full service consigliato</span>
+            €400 – €700
+            <span>service audio e luci incluso</span>
           </div>
           <div class="card-tags" aria-label="Tipologia servizio">
             <span class="card-tag">Personalizzato</span>
@@ -323,7 +343,7 @@
           <h3>Eventi Aziendali</h3>
           <p>Professionalità totale per brand, corporate party e location di prestigio a Capri e Sorrento.</p>
           <div class="card-price">
-            €230 – €500
+            €350 – €700
             <span>hotel · rooftop · beach club</span>
           </div>
           <div class="card-tags" aria-label="Tipologia servizio">
@@ -338,7 +358,7 @@
           <h3>Club &amp; Festival</h3>
           <p>Set Tech House e Open Format con energia internazionale. Selezione musicale ricercata.</p>
           <div class="card-price">
-            €180 – €400
+            €300 – €600
             <span>guest set · residenza</span>
           </div>
           <div class="card-tags" aria-label="Genere musicale">
@@ -387,12 +407,12 @@
     <section class="pricing" id="prezzi" aria-labelledby="pricing-heading">
       <div class="pricing-inner">
         <header class="section-header" data-reveal>
-          <span class="section-label" aria-hidden="true">— Trasparenza totale</span>
-          <h2 id="pricing-heading">Listino Prezzi</h2>
+          <span class="section-label" aria-hidden="true">— Trasparenza totale e standard professionali</span>
+          <h2 id="pricing-heading">Listino Prezzi Ufficiale</h2>
         </header>
         <div data-reveal>
           <table class="pricing-table" aria-label="Listino prezzi servizi DJ DASTØ Napoli">
-            <caption class="sr-only">Prezzi orientativi per ogni tipologia di evento DJ a Napoli e Campania</caption>
+            <caption class="sr-only">Prezzi orientativi aggiornati per ogni tipologia di evento DJ a Napoli e Campania</caption>
             <thead>
               <tr>
                 <th scope="col">Categoria</th>
@@ -404,66 +424,54 @@
             <tbody>
               <tr>
                 <td class="cat-name">Club &amp; Disco</td>
-                <td class="price-range">€220 – €400</td>
+                <td class="price-range">€300 – €600</td>
                 <td><span class="note-badge">Console inclusa</span></td>
-                <td>Guest set 1.5h – 2h</td>
+                <td>Guest set 1.5h – 2h in club/discoteche</td>
               </tr>
               <tr>
                 <td class="cat-name">Residenza Club</td>
-                <td class="price-range">€150 – €220</td>
+                <td class="price-range">€200 – €300</td>
                 <td><span class="note-badge">Console inclusa</span></td>
-                <td>Prezzo a serata per continuità</td>
+                <td>Prezzo a serata per continuità di stagione</td>
               </tr>
               <tr>
                 <td class="cat-name">Beach Club &amp; Lidi</td>
-                <td class="price-range">€180 – €280</td>
-                <td><span class="note-badge">+€100 casse Yamaha</span></td>
-                <td>Aperitivo o Pool Party</td>
+                <td class="price-range">€250 – €450</td>
+                <td><span class="note-badge">Service audio incluso</span></td>
+                <td>Aperitivo o Pool Party esclusivo</td>
               </tr>
               <tr>
                 <td class="cat-name">Hotel &amp; Rooftop</td>
-                <td class="price-range">€230 – €350</td>
-                <td><span class="note-badge">+€100 casse Yamaha</span></td>
-                <td>Lounge / Dinner Show</td>
+                <td class="price-range">€300 – €600</td>
+                <td><span class="note-badge">Service audio incluso</span></td>
+                <td>Lounge / Dinner Show / Ricevimenti di lusso</td>
               </tr>
               <tr>
                 <td class="cat-name">Eventi Privati</td>
-                <td class="price-range">€300 – €500</td>
-                <td><span class="note-badge">Full Service consigliato</span></td>
-                <td>Compleanni e feste aziendali</td>
+                <td class="price-range">€400 – €700</td>
+                <td><span class="note-badge">Full Service incluso</span></td>
+                <td>Compleanni, feste private e corporate party</td>
               </tr>
               <tr>
                 <td class="cat-name">Wedding Party</td>
-                <td class="price-range">€450 – €650</td>
-                <td><span class="note-badge">Full Service consigliato</span></td>
-                <td>Solo festa finale (post-torta)</td>
+                <td class="price-range">€600 – €950</td>
+                <td><span class="note-badge">Service professionale incluso</span></td>
+                <td>Solo festa finale e open bar (post-torta)</td>
               </tr>
               <tr>
                 <td class="cat-name">Wedding Full</td>
-                <td class="price-range">€750 – €1.100</td>
-                <td><span class="note-badge">Service incluso</span></td>
-                <td>Evento completo dall'aperitivo</td>
-              </tr>
-              <tr>
-                <td class="cat-name">Noleggio Casse</td>
-                <td class="price-range">€120</td>
-                <td><span class="note-badge">Coppia Yamaha 600W</span></td>
-                <td>Solo attrezzatura con stativi</td>
-              </tr>
-              <tr>
-                <td class="cat-name">Noleggio Console</td>
-                <td class="price-range">€60</td>
-                <td><span class="note-badge">Console DDJ Pro</span></td>
-                <td>Solo attrezzatura</td>
+                <td class="price-range">€1.000 – €1.500</td>
+                <td><span class="note-badge">Service completo + arredi</span></td>
+                <td>Evento completo dall'aperitivo alla fine</td>
               </tr>
             </tbody>
           </table>
         </div>
         <p class="pricing-note">
-          * I prezzi sono indicativi. Il preventivo definitivo dipende da durata, location e configurazione del service.
+          * Tariffe adeguate ai parametri professionali normati e di mercato. Il preventivo definitivo è calcolato in base a requisiti tecnici, trasferta e durata dell'esibizione.
           <a href="https://wa.me/393514090392?text=Ciao%20DAST%C3%B8%2C%20vorrei%20un%20preventivo"
              target="_blank" rel="noopener noreferrer" style="color: var(--green);">
-            Contattami per un'offerta personalizzata.
+            Contattami per un preventivo trasparente.
           </a>
         </p>
       </div>
@@ -477,8 +485,8 @@
           <p>Ogni evento viene progettato nei minimi dettagli per creare un momento che rimane nel tempo.
           Service audio professionale Pioneer DJ + Yamaha, consulenza musicale personalizzata, affidabilità totale.</p>
           <ul class="why-list" aria-label="Dotazione tecnica e servizi inclusi">
-            <li><span aria-hidden="true">✓</span> Pioneer CDJ-2000 NXS2 · DJM-900 NXS2 (o superiori)</li>
-            <li><span aria-hidden="true">✓</span> Setup alternativo DDJ Series + 2x Yamaha 600W</li>
+            <li><span aria-hidden="true">✓</span> Pioneer CDJ-2000 NXS2 · DJM-900 NXS2 (setup di performance)</li>
+            <li><span aria-hidden="true">✓</span> Casse Yamaha professionali per un impatto acustico pulito</li>
             <li><span aria-hidden="true">✓</span> Consulenza musicale pre-evento inclusa</li>
             <li><span aria-hidden="true">✓</span> Esperienza in club e festival italiani</li>
             <li><span aria-hidden="true">✓</span> Disponibile 7 giorni su 7</li>
@@ -593,7 +601,10 @@
   <footer class="footer" role="contentinfo" itemscope itemtype="https://schema.org/WPFooter">
     <div class="footer-inner">
       <div class="footer-brand">
-        <a href="/" class="footer-logo" aria-label="DASTØ DJ – torna alla homepage">DASTØ</a>
+        <!-- Logo footer dinamico -->
+        <a href="/" class="footer-logo" aria-label="DASTØ DJ – torna alla homepage">
+          <img src="img/logo-dark.png" data-dark-src="img/logo-dark.png" data-light-src="img/logo-light.png" alt="DASTØ DJ Logo" class="brand-logo" id="footer-logo" />
+        </a>
         <p>Il tuo partner musicale a Napoli e Campania</p>
       </div>
       <nav class="footer-links" aria-label="Link social e contatti DASTØ DJ">
@@ -610,6 +621,78 @@
       <span>© 2026 DASTØ DJ Napoli · Tutti i diritti riservati</span>
     </p>
   </footer>
+
+  <style>
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+    .final-cta-bg { position: absolute; inset: 0; pointer-events: none; }
+
+    /* ---- LOGO BRAND ---- */
+    .brand-logo {
+      height: 36px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    /* ---- GESTIONE TEMI LIGHT / DARK (Mattina Light, Sera Dark) ---- */
+    html.light-mode {
+      background-color: #f8f9fa;
+      color: #111111;
+    }
+    html.dark-mode {
+      background-color: #0a0a0a;
+      color: #f8f9fa;
+    }
+
+    /* ---- VINYL FACE PHOTO ---- */
+    .vinyl-inner {
+      overflow: hidden;
+    }
+    .vinyl-face {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: grayscale(20%) contrast(1.05);
+    }
+  </style>
+
+  <!-- Script per aggiornare dinamicamente il logo in base alla modalità Light o Dark attiva -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const isLight = document.documentElement.classList.contains('light-mode');
+      const headerLogo = document.getElementById('header-logo');
+      const footerLogo = document.getElementById('footer-logo');
+
+      function updateLogo(imgElement) {
+        if (!imgElement) return;
+        const lightSrc = imgElement.getAttribute('data-light-src');
+        const darkSrc = imgElement.getAttribute('data-dark-src');
+        if (isLight && lightSrc) {
+          imgElement.src = lightSrc;
+        } else if (!isLight && darkSrc) {
+          imgElement.src = darkSrc;
+        }
+      }
+
+      updateLogo(headerLogo);
+      updateLogo(footerLogo);
+    });
+  </script>
+
+  <!-- Script per Google Translate per consentire agli utenti stranieri di leggere il sito nella propria lingua madre -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'it', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   <script src="JS/main.js" defer></script>
 
