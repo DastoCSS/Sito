@@ -1,50 +1,54 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Intersection Observer for Reveal Elements
-  const revealElements = document.querySelectorAll("[data-reveal]");
+// ==========================================================================
+// DASTØ DJ - Main Script
+// Gestione Tema (Giorno/Notte), Loghi Dinamici e Animazioni allo Scroll
+// ==========================================================================
 
-  const revealCallback = (entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("revealed");
-        observer.unobserve(entry.target);
-      }
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- 1. GESTIONE TEMA E LOGHI DINAMICI ---
+    const isLightMode = document.documentElement.classList.contains('light-mode');
+    
+    // Seleziona tutti i loghi (Header, Footer e Sfondo Watermark)
+    const logos = [
+        document.getElementById('header-logo'),
+        document.getElementById('footer-logo'),
+        document.getElementById('watermark-logo')
+    ];
+
+    // Aggiorna le sorgenti delle immagini in base al tema
+    logos.forEach(img => {
+        if (!img) return;
+        const lightSrc = img.getAttribute('data-light-src');
+        const darkSrc = img.getAttribute('data-dark-src');
+        
+        if (isLightMode && lightSrc) {
+            img.src = lightSrc;
+        } else if (!isLightMode && darkSrc) {
+            img.src = darkSrc;
+        }
     });
-  };
 
-  const revealOptions = {
-    threshold: 0.15,
-    rootMargin: "0px 0px -50px 0px"
-  };
+    // --- 2. ANIMAZIONI ALLO SCROLL (Fade Up) ---
+    const revealElements = document.querySelectorAll('[data-reveal]');
+    
+    // Configurazione dell'Observer
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px', // Attiva l'animazione poco prima che l'elemento entri del tutto
+        threshold: 0.15
+    };
 
-  const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
-  revealElements.forEach(el => revealObserver.observe(el));
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Aggiunge la classe per mostrare l'elemento
+                entry.target.classList.add('is-revealed');
+                // Smette di osservare l'elemento una volta rivelato
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
 
-  // Stats Counter Animation
-  const statNums = document.querySelectorAll(".stat-num[data-count]");
-  
-  const animateStats = (el) => {
-    const target = +el.getAttribute("data-count");
-    let count = 0;
-    const duration = 2000; // 2 seconds
-    const stepTime = Math.abs(Math.floor(duration / target));
-
-    const timer = setInterval(() => {
-      count++;
-      el.textContent = count + "+";
-      if (count >= target) {
-        clearInterval(timer);
-      }
-    }, stepTime);
-  };
-
-  const statsObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateStats(entry.target);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  statNums.forEach(num => statsObserver.observe(num));
+    // Inizia a osservare tutti gli elementi con attributo data-reveal
+    revealElements.forEach(el => revealObserver.observe(el));
 });
