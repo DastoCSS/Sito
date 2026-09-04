@@ -14,11 +14,7 @@
   --border-light: #e5e5e5;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
   scroll-behavior: smooth;
@@ -46,14 +42,12 @@ html.light-mode body {
   transform: translate(-50%, -50%);
   width: 90vw;
   max-width: 900px;
-  opacity: 0.02; /* Molto leggero per non disturbare la lettura */
+  opacity: 0.02;
   z-index: -1;
   pointer-events: none;
   transition: opacity 0.4s ease;
 }
-html.light-mode .logo-watermark {
-  opacity: 0.04;
-}
+html.light-mode .logo-watermark { opacity: 0.04; }
 
 /* Grain Overlay */
 .grain {
@@ -83,11 +77,7 @@ html.light-mode .nav {
   background: rgba(248, 249, 250, 0.7);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
-.brand-logo {
-  height: 35px;
-  width: auto;
-  display: block;
-}
+.brand-logo { height: 35px; width: auto; display: block; }
 .nav-cta {
   background: var(--accent);
   color: #000;
@@ -189,8 +179,37 @@ html.light-mode .hero-sub { color: #555; }
 html.light-mode .cta-secondary { border-color: rgba(0, 0, 0, 0.2); }
 .cta-secondary:hover { border-color: var(--accent); }
 
+/* --- STATISTICHE --- */
+.stats {
+  padding: 60px 20px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+html.light-mode .stats { border-color: rgba(0,0,0,0.05); }
+.stats-inner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 5px;
+}
+.stat p { font-size: 0.95rem; color: #888; }
+html.light-mode .stat p { color: #666; }
+.stat-divider { width: 1px; height: 50px; background: rgba(255,255,255,0.1); }
+html.light-mode .stat-divider { background: rgba(0,0,0,0.1); }
+
 /* Sezioni Comuni */
-.services, .media, .final-cta {
+.services, .pricing, .media, .final-cta {
   padding: 100px 20px;
   max-width: 1200px;
   margin: 0 auto;
@@ -228,15 +247,62 @@ html.light-mode .card {
   border-color: var(--border-light);
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
-.card:hover {
-  transform: translateY(-5px);
-  border-color: var(--accent);
-}
+.card:hover { transform: translateY(-5px); border-color: var(--accent); }
 .card-icon { font-size: 2.5rem; margin-bottom: 20px; }
 .card h3 { font-size: 1.5rem; margin-bottom: 15px; }
-.card p { color: #999; margin-bottom: 25px; }
+.card p { color: #999; line-height: 1.5; }
 html.light-mode .card p { color: #666; }
-.card-price { font-weight: 700; font-size: 1.1rem; color: var(--accent); }
+
+/* --- LISTINO PREZZI --- */
+.pricing { max-width: 1000px; }
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background: var(--card-bg-dark);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-dark);
+  border-radius: 12px;
+  overflow: hidden;
+}
+html.light-mode .pricing-table {
+  background: var(--card-bg-light);
+  border-color: var(--border-light);
+}
+.pricing-table th, .pricing-table td {
+  padding: 18px 20px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.95rem;
+}
+html.light-mode .pricing-table th, html.light-mode .pricing-table td {
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.pricing-table th {
+  background: rgba(255,255,255,0.02);
+  font-weight: 600;
+  color: var(--accent);
+}
+html.light-mode .pricing-table th { background: rgba(0,0,0,0.02); }
+.pricing-table tr:last-child td { border-bottom: none; }
+.price-range { font-weight: 700; color: var(--accent); white-space: nowrap; }
+
+.note-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  background: rgba(37, 211, 102, 0.1);
+  color: var(--accent);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  margin-right: 8px;
+  font-weight: 600;
+}
+.pricing-note {
+  font-size: 0.85rem;
+  color: #888;
+  line-height: 1.5;
+}
+html.light-mode .pricing-note { color: #666; }
 
 /* Media */
 .media-inner {
@@ -249,6 +315,7 @@ html.light-mode .card p { color: #666; }
   font-size: 3rem;
   margin-bottom: 20px;
 }
+html.light-mode .reel-wrapper { border-color: var(--border-light) !important; }
 
 /* Footer */
 .footer {
@@ -277,4 +344,31 @@ html.light-mode .footer { border-color: rgba(0,0,0,0.05); }
 [data-reveal].is-revealed {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Responsività tabelle per mobile */
+@media (max-width: 768px) {
+  .pricing-table, .pricing-table tbody, .pricing-table tr, .pricing-table th, .pricing-table td {
+    display: block;
+    width: 100%;
+  }
+  .pricing-table th { display: none; }
+  .pricing-table tr {
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--accent);
+  }
+  .pricing-table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+  .pricing-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 20px;
+    width: 45%;
+    text-align: left;
+    font-weight: 600;
+    color: #888;
+  }
 }
