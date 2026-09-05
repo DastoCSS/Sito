@@ -141,7 +141,7 @@ const countryToLanguageMap = {
 };
 
 function applyLanguage(lang) {
-    if (!translations[lang]) lang = 'it'; // Default fisso su italiano
+    if (!translations[lang]) lang = 'it';
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[lang][key]) {
@@ -158,10 +158,8 @@ function applyLanguage(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Default immediato in italiano
     applyLanguage('it');
 
-    // Controllo opzionale per utenti esteri (es. Iran)
     fetch('https://ipapi.co/json/')
         .then(res => res.json())
         .then(data => {
