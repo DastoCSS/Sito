@@ -1,204 +1,181 @@
 <!DOCTYPE html>
-<html lang="it" dir="ltr">
+<html lang="it" id="html-root" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DASTØ DJ | Producer & Sound Designer</title>
-  
-  <meta name="description" content="DASTØ DJ & Producer, con oltre 10 anni di esperienza. Fondatore di Party Napoli. Specializzato in set Tech House, format Boiler Room, matrimoni ed eventi esclusivi." />
-  <meta name="keywords" content="DASTO DJ, DJ Napoli, Party Napoli, DJ Boiler Room, Tech House, DJ matrimoni, Sound Designer Ableton" />
-  <meta name="author" content="DASTØ DJ" />
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-  
+  <title>DASTØ | DJ & Producer</title>
   <link rel="stylesheet" href="CSS/style.css" />
-
-  <script>
-    const hour = new Date().getHours();
-    if (hour >= 6 && hour < 18) document.documentElement.classList.add('light-mode');
-  </script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="dark-mode">
 
-  <div class="grain" aria-hidden="true"></div>
-
+  <!-- NAVBAR -->
   <nav class="nav" id="nav">
-    <a href="/" class="brand-text" aria-label="DASTØ DJ Homepage">
-      DASTØ<span>.</span>
-    </a>
-    <div class="nav-right" style="display: flex; align-items: center; gap: 15px;">
-      <!-- Selettore Lingua Manuale -->
-      <div class="lang-switcher">
-        <button id="btn-it" class="lang-btn active" onclick="switchLanguage('it')">IT</button>
-        <span style="color: var(--border-dark);">/</span>
-        <button id="btn-en" class="lang-btn" onclick="switchLanguage('en')">EN</button>
-      </div>
-      <a href="https://wa.me/393514090392?text=Ciao%20DAST%C3%B8%2C%20vorrei%20un%20preventivo" class="nav-cta" target="_blank" rel="noopener noreferrer" data-i18n="navCta">
-        Prenota Ora
+    <div class="nav-content">
+      <!-- Logo aggiornato con link Google Share -->
+      <a href="https://share.google/fycmXV3aOoZXazhdw" class="brand-text" aria-label="DASTØ Google Share" target="_blank" rel="noopener noreferrer">
+        DASTØ<span>.</span>
       </a>
+      <a href="#booking" class="nav-cta" data-i18n="navCta">Prenota Ora</a>
     </div>
   </nav>
 
-  <main id="main-content">
-    
-    <section class="hero">
-      <div class="hero-bg" aria-hidden="true">
-        <div class="hero-circle c1"></div>
-        <div class="hero-circle c2"></div>
-        <div class="hero-circle c3"></div>
-      </div>
-      <div class="hero-inner" data-reveal>
-        <span class="hero-tag" data-i18n="heroTag">Napoli &amp; Internazionale</span>
-        <h1 class="hero-title">
-          <span class="line" data-i18n="heroTitle1">SOUND DESIGN</span>
-          <span class="line accent" data-i18n="heroTitle2">PER EVENTI ICONICI</span>
-        </h1>
-        <p class="hero-sub" data-i18n="heroSub">
-          DJ &amp; Producer con oltre 10 anni di esperienza. Fondatore di <strong>Party Napoli</strong>, porto l'energia dei club, format <em>Boiler Room</em> e regia musicale d'élite al tuo evento privato o matrimonio.
-        </p>
-        <div class="hero-actions">
-          <a href="https://wa.me/393514090392?text=Ciao%20DAST%C3%B8%2C%20vorrei%20un%20preventivo" class="cta-primary" target="_blank" rel="noopener noreferrer" data-i18n="ctaPrimary">
-            Blocca la tua data
-          </a>
-          <a href="#prezzi" class="cta-secondary" data-i18n="ctaSecondary">Scopri il listino</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="stats">
-      <div class="stats-inner">
-        <div class="stat" data-reveal>
-          <div class="stat-num">+10</div>
-          <p data-i18n="stat1">Anni di Esperienza</p>
-        </div>
-        <div class="stat-divider" aria-hidden="true"></div>
-        <div class="stat" data-reveal>
-          <div class="stat-num">500+</div>
-          <p data-i18n="stat2">Eventi &amp; Party</p>
-        </div>
-        <div class="stat-divider" aria-hidden="true"></div>
-        <div class="stat" data-reveal>
-          <div class="stat-num">100%</div>
-          <p data-i18n="stat3">Energia in Pista</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="services" id="servizi">
-      <header class="section-header" data-reveal>
-        <span class="section-label" data-i18n="servicesLabel">Esperienze sonore</span>
-        <h2 data-i18n="servicesTitle">I Servizi</h2>
-      </header>
-      <div class="service-grid">
-        <article class="card card--featured" data-reveal>
-          <div class="card-icon" aria-hidden="true">💍</div>
-          <h3 data-i18n="srv1Title">Matrimoni</h3>
-          <p data-i18n="srv1Desc">Dalla cerimonia al party finale: eleganza, timing perfetto e playlist sartoriali con consolle completa (2x2m).</p>
-        </article>
-        <article class="card" data-reveal>
-          <div class="card-icon" aria-hidden="true">🎧</div>
-          <h3 data-i18n="srv2Title">Club &amp; Boiler Room</h3>
-          <p data-i18n="srv2Desc">Set dinamici Tech House, Hip Hop e Bass Music. Format in stile Boiler Room richiestissimi.</p>
-        </article>
-        <article class="card" data-reveal>
-          <div class="card-icon" aria-hidden="true">🎂</div>
-          <h3 data-i18n="srv3Title">18 Anni &amp; Feste</h3>
-          <p data-i18n="srv3Desc">Impianto audio potente, luci da dancefloor ed energia pura per far saltare tutti i tuoi invitati.</p>
-        </article>
-        <article class="card" data-reveal>
-          <div class="card-icon" aria-hidden="true">🎹</div>
-          <h3 data-i18n="srv4Title">Corporate &amp; Lounge</h3>
-          <p data-i18n="srv4Desc">Aperitivi e brand activation con sound Soulful Lo-Fi, setup veloce e massima flessibilità.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="pricing" id="prezzi">
-      <header class="section-header" data-reveal>
-        <span class="section-label" data-i18n="pricingLabel">Trasparenza &amp; Valore</span>
-        <h2 data-i18n="pricingTitle">Listino Prezzi</h2>
-      </header>
-      <div class="table-wrapper" data-reveal>
-        <table class="pricing-table">
-          <thead>
-            <tr>
-              <th data-i18n="th1">Tipologia Evento</th>
-              <th data-i18n="th2">Dettagli &amp; Dotazione</th>
-              <th data-i18n="th3">Investimento Base</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td data-label="Evento"><strong data-i18n="row1Name">Matrimonio VIP</strong></td>
-              <td data-label="Dettagli" data-i18n="row1Desc">Regia audio/luci completa (anche outdoor), soundcheck anticipato e DJ set su misura.</td>
-              <td data-label="Prezzo" class="price-range">da €600</td>
-            </tr>
-            <tr>
-              <td data-label="Evento"><strong data-i18n="row2Name">18 Anni / Compleanno</strong></td>
-              <td data-label="Dettagli" data-i18n="row2Desc">Impianto audio, luci da dancefloor, e scaletta energica personalizzata.</td>
-              <td data-label="Prezzo" class="price-range">da €400</td>
-            </tr>
-            <tr>
-              <td data-label="Evento"><strong data-i18n="row3Name">Party &amp; Lounge Bar</strong></td>
-              <td data-label="Dettagli" data-i18n="row3Desc">Fino a 4 ore di performance, ideale per aperitivi, format <em>Boiler Room</em> e feste private.</td>
-              <td data-label="Prezzo" class="price-range">da €350</td>
-            </tr>
-            <tr>
-              <td data-label="Evento"><strong data-i18n="row4Name">Club / Ospitata</strong></td>
-              <td data-label="Dettagli" data-i18n="row4Desc">Solo cachet artistico per DJ Set (1.5 - 2 ore) Tech House, Hip Hop o Open Format.</td>
-              <td data-label="Prezzo" class="price-range">da €300</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="pricing-note" data-reveal>
-        <span class="note-badge" data-i18n="noteBadge">Info Tecniche</span> <span data-i18n="pricingNoteText">Per il setup sono necessari uno spazio di 2x2m, presa 220V e 45 min per il soundcheck.</span>
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="hero-content" data-reveal>
+      <span class="hero-tag" data-i18n="heroTag">Napoli & Internazionale</span>
+      <h1 class="glitch-title">
+        <span data-i18n="heroTitle1">SOUND DESIGN</span><br/>
+        <span class="highlight" data-i18n="heroTitle2">PER EVENTI ICONICI</span>
+      </h1>
+      <p class="hero-sub" data-i18n="heroSub">
+        DJ & Producer con oltre 10 anni di esperienza. Fondatore di <strong>Party Napoli</strong>, porto l'energia dei club, format <em>Boiler Room</em> e regia musicale d'élite al tuo evento privato o matrimonio.
       </p>
-    </section>
+      <div class="hero-actions">
+        <a href="#booking" class="btn btn-primary" data-i18n="ctaPrimary">Blocca la tua data</a>
+        <a href="#pricing" class="btn btn-secondary" data-i18n="ctaSecondary">Scopri il listino</a>
+      </div>
+    </div>
+  </header>
 
-    <section class="media" id="media">
-      <div class="media-inner">
-        <div class="media-block" data-reveal>
-          <span class="section-label" data-i18n="mediaLabel1">Produzioni &amp; Set</span>
-          <h2>SoundCloud</h2>
-          <div class="sc-wrapper">
-            <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/dastodj&color=%2325d366&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-          </div>
-        </div>
-        <div class="media-block" data-reveal>
-          <span class="section-label" data-i18n="mediaLabel2">Live, Club &amp; Party</span>
-          <h2>Instagram</h2>
-          <div class="reel-wrapper">
-            <a href="https://www.instagram.com/dastodj" target="_blank" rel="noopener noreferrer" class="cta-secondary" data-i18n="igBtn">Esplora il profilo IG</a>
-          </div>
+  <!-- STATS -->
+  <section class="stats" data-reveal>
+    <div class="stat-item">
+      <h3>+10</h3>
+      <p data-i18n="stat1">Anni di Esperienza</p>
+    </div>
+    <div class="stat-item">
+      <h3>500+</h3>
+      <p data-i18n="stat2">Eventi & Party</p>
+    </div>
+    <div class="stat-item">
+      <h3>100%</h3>
+      <p data-i18n="stat3">Energia in Pista</p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="section-header" data-reveal>
+      <span class="section-label" data-i18n="servicesLabel">Esperienze sonore</span>
+      <h2 data-i18n="servicesTitle">I Servizi</h2>
+    </div>
+    <div class="services-grid">
+      <div class="card" data-reveal>
+        <div class="card-icon">💍</div>
+        <h3 data-i18n="srv1Title">Matrimoni</h3>
+        <p data-i18n="srv1Desc">Dalla cerimonia al party finale: eleganza, timing perfetto e playlist sartoriali con consolle completa (2x2m).</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="card-icon">🎧</div>
+        <h3 data-i18n="srv2Title">Club & Boiler Room</h3>
+        <p data-i18n="srv2Desc">Set dinamici Tech House, Hip Hop e Bass Music. Format in stile Boiler Room richiestissimi.</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="card-icon">🎂</div>
+        <h3 data-i18n="srv3Title">18 Anni & Feste</h3>
+        <p data-i18n="srv3Desc">Impianto audio potente, luci da dancefloor ed energia pura per far saltare tutti i tuoi invitati.</p>
+      </div>
+      <div class="card" data-reveal>
+        <div class="card-icon">🍸</div>
+        <h3 data-i18n="srv4Title">Corporate & Lounge</h3>
+        <p data-i18n="srv4Desc">Aperitivi e brand activation con sound Soulful Lo-Fi, setup veloce e massima flessibilità.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING LIST -->
+  <section class="pricing" id="pricing">
+    <div class="section-header" data-reveal>
+      <span class="section-label" data-i18n="pricingLabel">Trasparenza & Valore</span>
+      <h2 data-i18n="pricingTitle">Listino Prezzi</h2>
+    </div>
+    <div class="table-container" data-reveal>
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th data-i18n="th1">Tipologia Evento</th>
+            <th data-i18n="th2">Dettagli & Dotazione</th>
+            <th data-i18n="th3">Investimento Base</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-i18n="row1Name">Matrimonio VIP</td>
+            <td data-i18n="row1Desc">Regia audio/luci completa (anche outdoor), soundcheck anticipato e DJ set su misura.</td>
+            <td class="price">da €600</td>
+          </tr>
+          <tr>
+            <td data-i18n="row2Name">18 Anni / Compleanno</td>
+            <td data-i18n="row2Desc">Impianto audio, luci da dancefloor, e scaletta energica personalizzata.</td>
+            <td class="price">da €400</td>
+          </tr>
+          <tr>
+            <td data-i18n="row3Name">Party & Lounge Bar</td>
+            <td data-i18n="row3Desc">Fino a 4 ore di performance, ideale per aperitivi, format <em>Boiler Room</em> e feste private.</td>
+            <td class="price">da €350</td>
+          </tr>
+          <tr>
+            <td data-i18n="row4Name">Club / Ospitata</td>
+            <td data-i18n="row4Desc">Solo cachet artistico per DJ Set (1.5 - 2 ore) Tech House, Hip Hop o Open Format.</td>
+            <td class="price">da €300</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pricing-note" data-reveal>
+      <span class="note-badge" data-i18n="noteBadge">Info Tecniche</span>
+      <p data-i18n="pricingNoteText">Per il setup sono necessari uno spazio di 2x2m, presa 220V e 45 min per il soundcheck.</p>
+    </div>
+  </section>
+
+  <!-- MEDIA & PORTFOLIO -->
+  <section class="media" id="media">
+    <div class="media-grid">
+      <!-- SoundCloud -->
+      <div class="media-block" data-reveal>
+        <span class="section-label" data-i18n="mediaLabel1">Produzioni & Set</span>
+        <h2>SoundCloud</h2>
+        <div class="sc-wrapper">
+          <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/dasto-dj&color=%231ed760&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
         </div>
       </div>
-    </section>
-
-    <section class="final-cta">
-      <div class="final-cta-content" data-reveal>
-        <h2 data-i18n="finalTitle">Rendiamo memorabile<br/><em>il tuo prossimo evento?</em></h2>
-        <p data-i18n="finalSub">Contattami per disponibilità, collaborazioni o info sui prossimi format.</p>
-        <a href="https://wa.me/393514090392?text=Ciao%20DAST%C3%B8%2C%20vorrei%20un%20preventivo" class="cta-primary cta-xl" target="_blank" rel="noopener noreferrer" data-i18n="finalCta">
-          Scrivimi su WhatsApp
-        </a>
+      
+      <!-- Instagram Embed -->
+      <div class="media-block" data-reveal>
+        <span class="section-label" data-i18n="mediaLabel2">Live, Club & Party</span>
+        <h2>Instagram</h2>
+        <div class="ig-embed-wrapper">
+          <!-- SOSTITUISCI IL LINK QUI SOTTO CON IL LINK DEL TUO POST/REEL -->
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/INSERISCI_QUI_IL_TUO_LINK_IG/" data-instgrm-version="14">
+          </blockquote>
+          <script async src="//www.instagram.com/embed.js"></script>
+        </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer class="footer">
-    <div class="footer-inner">
+  <!-- CTA / FOOTER -->
+  <footer class="footer" id="booking">
+    <div class="footer-content" data-reveal>
+      <h2 data-i18n="finalTitle">Rendiamo memorabile<br/><em>il tuo prossimo evento?</em></h2>
+      <p data-i18n="finalSub">Contattami per disponibilità, collaborazioni o info sui prossimi format.</p>
+      <a href="https://wa.me/393514090392" class="btn btn-primary" data-i18n="finalCta">Scrivimi su WhatsApp</a>
+    </div>
+    <div class="footer-bottom">
       <div class="footer-brand">
-        <span class="brand-text">DASTØ<span>.</span></span>
-        <p data-i18n="footerRole">DJ, Producer &amp; Event Creator</p>
-        <p style="font-size: 0.85rem; margin-top: 5px;"><a href="mailto:dasto.dj@gmail.com" style="color: inherit; text-decoration: none;">dasto.dj@gmail.com</a> | +39 351 409 0392</p>
+        <!-- Logo aggiornato anche nel footer -->
+        <a href="https://share.google/fycmXV3aOoZXazhdw" class="brand-text" target="_blank" rel="noopener noreferrer">
+          DASTØ<span>.</span>
+        </a>
+        <p data-i18n="footerRole">DJ, Producer & Event Creator</p>
+        <a href="mailto:dasto.dj@gmail.com">dasto.dj@gmail.com</a> | <a href="tel:+393514090392">+39 351 409 0392</a>
       </div>
-      <nav class="footer-links">
-        <a href="https://www.instagram.com/dastodj" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://soundcloud.com/dastodj" target="_blank" rel="noopener noreferrer">SoundCloud</a>
-      </nav>
+      <div class="footer-social">
+        <a href="https://instagram.com/dasto.dj" target="_blank">Instagram</a>
+        <a href="https://soundcloud.com/dasto-dj" target="_blank">SoundCloud</a>
+      </div>
     </div>
   </footer>
 
