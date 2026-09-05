@@ -357,6 +357,44 @@ const translations = {
     }
 };
 
+// ==========================================================================
+// DASTØ DJ - Modern Main Script
+// ==========================================================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    // --- 1. MOUSE MOVE EFFECT ON CARDS (Glassmorphism Glow) ---
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
+
+    // --- 2. SCROLL REVEAL ANIMATIONS ---
+    const revealElements = document.querySelectorAll('[data-reveal]');
+    
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -60px 0px',
+        threshold: 0.1
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-revealed');
+                observer.unobserver(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    revealElements.forEach(el => revealObserver.observe(el));
+});
+
 // Mappatura completa nazione -> lingua ufficiale principale
 const countryToLanguageMap = {
     // Italiano
