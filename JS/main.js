@@ -1,193 +1,89 @@
-const translations = {
-    it: {
-        navCta: "Prenota Ora",
-        heroTag: "Napoli & Internazionale",
-        heroTitle1: "SOUND DESIGN",
-        heroTitle2: "PER EVENTI ICONICI",
-        heroSub: "DJ & Producer con oltre 10 anni di esperienza. Fondatore di <strong>Party Napoli</strong>, porto l'energia dei club, format <em>Boiler Room</em> e regia musicale d'élite al tuo evento privato o matrimonio.",
-        ctaPrimary: "Blocca la tua data",
-        ctaSecondary: "Scopri il listino",
-        stat1: "Anni di Esperienza",
-        stat2: "Eventi & Party",
-        stat3: "Energia in Pista",
-        servicesLabel: "Esperienze sonore",
-        servicesTitle: "I Servizi",
-        srv1Title: "Matrimoni",
-        srv1Desc: "Dalla cerimonia al party finale: eleganza, timing perfetto e playlist sartoriali con consolle completa (2x2m).",
-        srv2Title: "Club & Boiler Room",
-        srv2Desc: "Set dinamici Tech House, Hip Hop e Bass Music. Format in stile Boiler Room richiestissimi.",
-        srv3Title: "18 Anni & Feste",
-        srv3Desc: "Impianto audio potente, luci da dancefloor ed energia pura per far saltare tutti i tuoi invitati.",
-        srv4Title: "Corporate & Lounge",
-        srv4Desc: "Aperitivi e brand activation con sound Soulful Lo-Fi, setup veloce e massima flessibilità.",
-        pricingLabel: "Trasparenza & Valore",
-        pricingTitle: "Listino Prezzi",
-        th1: "Tipologia Evento",
-        th2: "Dettagli & Dotazione",
-        th3: "Investimento Base",
-        row1Name: "Matrimonio VIP",
-        row1Desc: "Regia audio/luci completa (anche outdoor), soundcheck anticipato e DJ set su misura.",
-        row2Name: "18 Anni / Compleanno",
-        row2Desc: "Impianto audio, luci da dancefloor, e scaletta energica personalizzata.",
-        row3Name: "Party & Lounge Bar",
-        row3Desc: "Fino a 4 ore di performance, ideale per aperitivi, format <em>Boiler Room</em> e feste private.",
-        row4Name: "Club / Ospitata",
-        row4Desc: "Solo cachet artistico per DJ Set (1.5 - 2 ore) Tech House, Hip Hop o Open Format.",
-        noteBadge: "Info Tecniche",
-        pricingNoteText: "Per il setup sono necessari uno spazio di 2x2m, presa 220V e 45 min per il soundcheck.",
-        mediaLabel1: "Produzioni & Set",
-        mediaLabel2: "Live, Club & Party",
-        finalTitle: "Rendiamo memorabile<br/><em>il tuo prossimo evento?</em>",
-        finalSub: "Contattami per disponibilità, collaborazioni o info sui prossimi format.",
-        finalCta: "Scrivimi su WhatsApp",
-        footerRole: "DJ, Producer & Event Creator"
-    },
-    en: {
-        navCta: "Book Now",
-        heroTag: "Naples & International",
-        heroTitle1: "SOUND DESIGN",
-        heroTitle2: "FOR ICONIC EVENTS",
-        heroSub: "DJ & Producer with over 10 years of experience. Founder of <strong>Party Napoli</strong>, bringing club energy, <em>Boiler Room</em> formats, and elite musical direction to your private event or wedding.",
-        ctaPrimary: "Lock Your Date",
-        ctaSecondary: "View Pricing",
-        stat1: "Years of Experience",
-        stat2: "Events & Parties",
-        stat3: "Dancefloor Energy",
-        servicesLabel: "Sonic Experiences",
-        servicesTitle: "Services",
-        srv1Title: "Weddings",
-        srv1Desc: "From ceremony to final party: elegance, perfect timing, and tailored playlists with complete DJ setup (2x2m).",
-        srv2Title: "Club & Boiler Room",
-        srv2Desc: "Dynamic Tech House, Hip Hop, and Bass Music sets. Highly requested Boiler Room style formats.",
-        srv3Title: "18th Birthdays & Parties",
-        srv3Desc: "Powerful sound system, dancefloor lights, and pure energy to get all your guests jumping.",
-        srv4Title: "Corporate & Lounge",
-        srv4Desc: "Aperitifs and brand activations with Soulful Lo-Fi sound, fast setup, and maximum flexibility.",
-        pricingLabel: "Transparency & Value",
-        pricingTitle: "Pricing List",
-        th1: "Event Type",
-        th2: "Details & Gear",
-        th3: "Base Investment",
-        row1Name: "VIP Wedding",
-        row1Desc: "Complete audio/lighting direction (outdoor too), early soundcheck, and custom DJ set.",
-        row2Name: "18th Birthday / Party",
-        row2Desc: "Sound system, dancefloor lights, and personalized high-energy playlist.",
-        row3Name: "Party & Lounge Bar",
-        row3Desc: "Up to 4 hours of performance, ideal for aperitifs, <em>Boiler Room</em> sessions, and private parties.",
-        row4Name: "Club / Guest DJ",
-        row4Desc: "Artist fee only for DJ Set (1.5 - 2 hours) Tech House, Hip Hop, or Open Format.",
-        noteBadge: "Tech Info",
-        pricingNoteText: "Setup requires a 2x2m space, 220V power socket, and 45 mins for soundcheck.",
-        mediaLabel1: "Productions & Sets",
-        mediaLabel2: "Live, Club & Party",
-        finalTitle: "Let's make your<br/><em>next event unforgettable?</em>",
-        finalSub: "Contact me for availability, collaborations, or info on upcoming formats.",
-        finalCta: "Message on WhatsApp",
-        footerRole: "DJ, Producer & Event Creator"
-    },
-    fa: {
-        navCta: "رزرو آنلاین",
-        heroTag: "ناپل و بین‌المللی",
-        heroTitle1: "طراحی صدا",
-        heroTitle2: "برای رویدادهای خاص",
-        heroSub: "دی‌جی و تهیه‌کننده با بیش از ۱۰ سال سابقه. بنیان‌گذار <strong>Party Napoli</strong>، انتقال انرژی کلوپ‌ها، فرمت‌های <em>Boiler Room</em> و مدیریت حرفه‌ای موسیقی به مهمانی خصوصی یا عروسی شما.",
-        ctaPrimary: "رزرو تاریخ شما",
-        ctaSecondary: "مشاهده تعرفه‌ها",
-        stat1: "سال تجربه",
-        stat2: "رویداد و مهمانی",
-        stat3: "انرژی در پیست رقص",
-        servicesLabel: "تجربه‌های صوتی",
-        servicesTitle: "خدمات ما",
-        srv1Title: "مراسم عروسی",
-        srv1Desc: "از مراسم تا مهمانی پایانی: ظرافت، زمان‌بندی دقیق و پلی‌لیست‌های اختصاصی با سیستم صوتی کامل (۲در۲ متر).",
-        srv2Title: "کلوپ و بولیر روم",
-        srv2Desc: "ست‌های پویا تک هاوس، هیپ‌هاپ و بیس موزیک. فرمت‌های پرمخاطب سبک Boiler Room.",
-        srv3Title: "تولد ۱۸ سالگی و مهمانی‌ها",
-        srv3Desc: "سیستم صوتی قدرتمند، نورپردازی رقص و انرژی خالص برای به وجد آوردن مهمانان شما.",
-        srv4Title: "شرکتی و لانژ",
-        srv4Desc: "مهمانی‌های عصرگاهی و برندینگ با صدای Soulful Lo-Fi، نصب سریع و انعطاف‌پذیری بالا.",
-        pricingLabel: "شفافیت و ارزش",
-        pricingTitle: "لیست قیمت‌ها",
-        th1: "نوع رویداد",
-        th2: "جزئیات و تجهیزات",
-        th3: "سرمایه‌گذاری پایه",
-        row1Name: "عروسی VIP",
-        row1Desc: "کارگردانی کامل صدا و نور (فضای باز هم امکان‌پذیر)، ساندچک زودهنگام و دی‌جی ست سفارشی.",
-        row2Name: "تولد ۱۸ سالگی / مهمانی",
-        row2Desc: "سیستم صوتی، نورپردازی رقص و لیست پخش انرژی‌بخش شخصی‌سازی شده.",
-        row3Name: "مهمانی و بار لانژ",
-        row3Desc: "تا ۴ ساعت اجرا، ایده‌آل برای پیش‌غذا، جلسات <em>Boiler Room</em> و مهمانی‌های خصوصی.",
-        row4Name: "کلوپ / دی‌جی مهمان",
-        row4Desc: "فقط دستمزد هنری برای دی‌جی ست (۱.۵ تا ۲ ساعت) تک هاوس، هیپ‌هاپ یا اوپن فرمت.",
-        noteBadge: "اطلاعات فنی",
-        pricingNoteText: "برای راه‌اندازی به فضای ۲x2 متر، پریز برق ۲۲۰ ولت و ۴۵ دقیقه زمان برای ساندچک نیاز است.",
-        mediaLabel1: "تولیدات و ست‌ها",
-        mediaLabel2: "لایو، کلوپ و مهمانی",
-        finalTitle: "آیا رویداد بعدی شما را<br/><em>به یادماندنی کنیم؟</em>",
-        finalSub: "برای بررسی ظرفیت، همکاری یا اطلاعات درباره فرمت‌های بعدی با من تماس بگیرید.",
-        finalCta: "ارسال پیام در واتس‌اپ",
-        footerRole: "دی‌جی، تهیه‌کننده و خالق رویداد"
-    }
-};
-
-const countryToLanguageMap = {
-    IT: 'it', IR: 'fa', AF: 'fa'
-};
-
-function applyLanguage(lang) {
-    if (!translations[lang]) lang = 'en';
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[lang][key]) {
-            el.innerHTML = translations[lang][key];
-        }
-    });
-    const htmlRoot = document.getElementById('html-root');
-    htmlRoot.setAttribute('lang', lang);
-    if (lang === 'fa' || lang === 'ar') {
-        htmlRoot.setAttribute('dir', 'rtl');
-    } else {
-        htmlRoot.setAttribute('dir', 'ltr');
-    }
+:root {
+  --bg-dark: #09090b;
+  --card-bg-dark: #121214;
+  --text-main-dark: #f4f4f5;
+  --text-muted-dark: #a1a1aa;
+  --border-dark: #27272a;
+  --accent-primary: #1ed760;
+  --accent-hover: #1db954;
+  --font-heading: 'Oswald', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --transition-smooth: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    fetch('https://ipapi.co/json/')
-        .then(res => res.json())
-        .then(data => {
-            let targetLang = countryToLanguageMap[data.country_code] || 'en';
-            applyLanguage(targetLang);
-        })
-        .catch(() => {
-            fetch('https://get.geojs.io/v1/ip/country.json')
-                .then(res => res.json())
-                .then(data => {
-                    let targetLang = countryToLanguageMap[data.country] || 'en';
-                    applyLanguage(targetLang);
-                })
-                .catch(() => {
-                    const browserLang = (navigator.language || navigator.userLanguage).substring(0, 2);
-                    applyLanguage(translations[browserLang] ? browserLang : 'en');
-                });
-        });
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background-color: var(--bg-dark); color: var(--text-main-dark); line-height: 1.6; overflow-x: hidden; }
 
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-        card.addEventListener('mousemove', e => {
-            const rect = card.getBoundingClientRect();
-            card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-            card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-        });
-    });
+[dir="rtl"] body { text-align: right; }
+a { text-decoration: none; color: inherit; }
 
-    const revealElements = document.querySelectorAll('[data-reveal]');
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-revealed');
-                obs.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-    revealElements.forEach(el => observer.observe(el));
-});
+.nav { position: fixed; top: 0; width: 100%; padding: 1.5rem 5%; background: rgba(9, 9, 11, 0.85); backdrop-filter: blur(12px); z-index: 1000; border-bottom: 1px solid var(--border-dark); }
+.nav-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.brand-text { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700; letter-spacing: 2px; }
+.brand-text span { color: var(--accent-primary); }
+.nav-cta { background: var(--accent-primary); color: #000; padding: 0.6rem 1.2rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; transition: var(--transition-smooth); }
+.nav-cta:hover { background: var(--accent-hover); transform: scale(1.05); }
+
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 0 5%; position: relative; background: radial-gradient(circle at 50% 30%, rgba(30, 215, 96, 0.08) 0%, transparent 60%); }
+.hero-content { text-align: center; max-width: 800px; z-index: 2; margin-top: 60px; }
+.hero-tag { display: inline-block; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-primary); border: 1px solid var(--accent-primary); padding: 0.4rem 1rem; border-radius: 50px; margin-bottom: 1.5rem; }
+.glitch-title { font-family: var(--font-heading); font-size: clamp(3rem, 8vw, 6rem); line-height: 1.1; text-transform: uppercase; margin-bottom: 1.5rem; }
+.glitch-title .highlight { color: var(--accent-primary); }
+.hero-sub { font-size: 1.1rem; color: var(--text-muted-dark); margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+.hero-actions { display: flex; gap: 1rem; justify-content: center; }
+
+.btn { padding: 1rem 2rem; border-radius: 8px; font-weight: 600; transition: var(--transition-smooth); display: inline-block; }
+.btn-primary { background: var(--accent-primary); color: #000; }
+.btn-primary:hover { background: var(--accent-hover); transform: translateY(-3px); }
+.btn-secondary { background: var(--card-bg-dark); color: var(--text-main-dark); border: 1px solid var(--border-dark); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; padding: 5rem 5%; max-width: 1200px; margin: 0 auto; text-align: center; border-bottom: 1px solid var(--border-dark); }
+.stat-item h3 { font-family: var(--font-heading); font-size: 3rem; color: var(--accent-primary); margin-bottom: 0.5rem; }
+.stat-item p { color: var(--text-muted-dark); font-size: 0.9rem; text-transform: uppercase; }
+
+section { padding: 6rem 5%; max-width: 1200px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 4rem; }
+.section-label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-primary); display: block; margin-bottom: 0.5rem; }
+.section-header h2 { font-family: var(--font-heading); font-size: 2.5rem; text-transform: uppercase; }
+
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+.card { background: var(--card-bg-dark); border: 1px solid var(--border-dark); border-radius: 16px; padding: 2.5rem 2rem; position: relative; overflow: hidden; transition: var(--transition-smooth); }
+.card:hover { transform: translateY(-5px); border-color: rgba(30, 215, 96, 0.3); }
+.card-icon { font-size: 2.5rem; margin-bottom: 1.5rem; }
+.card h3 { font-size: 1.2rem; margin-bottom: 1rem; }
+.card p { color: var(--text-muted-dark); font-size: 0.95rem; }
+
+.table-container { overflow-x: auto; border: 1px solid var(--border-dark); border-radius: 12px; background: var(--card-bg-dark); }
+.pricing-table { width: 100%; border-collapse: collapse; text-align: left; }
+.pricing-table th, .pricing-table td { padding: 1.5rem; border-bottom: 1px solid var(--border-dark); }
+.pricing-table th { font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted-dark); }
+.pricing-table .price { color: var(--accent-primary); font-family: var(--font-heading); font-size: 1.2rem; }
+
+.pricing-note { margin-top: 2rem; background: rgba(30, 215, 96, 0.05); border: 1px solid rgba(30, 215, 96, 0.2); padding: 1.5rem; border-radius: 8px; display: flex; align-items: center; gap: 1.5rem; }
+.note-badge { background: var(--accent-primary); color: #000; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+.pricing-note p { font-size: 0.9rem; color: var(--text-muted-dark); }
+
+.media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; }
+.media-block h2 { font-family: var(--font-heading); font-size: 2rem; margin-bottom: 1.5rem; text-transform: uppercase; }
+.sc-wrapper, .ig-embed-wrapper { background: var(--card-bg-dark); border: 1px solid var(--border-dark); border-radius: 12px; overflow: hidden; }
+.ig-embed-wrapper { max-height: 380px; overflow-y: auto; display: flex; justify-content: center; padding: 10px; }
+
+.footer { border-top: 1px solid var(--border-dark); padding: 6rem 5% 2rem; background: var(--card-bg-dark); text-align: center; }
+.footer-content { max-width: 600px; margin: 0 auto 5rem; }
+.footer-content h2 { font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 3.5rem); text-transform: uppercase; margin-bottom: 1rem; }
+.footer-content h2 em { color: var(--accent-primary); font-style: normal; }
+.footer-content p { color: var(--text-muted-dark); margin-bottom: 2rem; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid var(--border-dark); padding-top: 2rem; text-align: left; }
+.footer-brand p, .footer-brand a { color: var(--text-muted-dark); font-size: 0.9rem; }
+.footer-social { display: flex; gap: 1.5rem; }
+.footer-social a { font-weight: 600; color: var(--text-main-dark); }
+
+[data-reveal] { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+[data-reveal].is-revealed { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+  .hero-actions { flex-direction: column; }
+  .pricing-note { flex-direction: column; align-items: flex-start; }
+  .footer-bottom { flex-direction: column; align-items: center; text-align: center; gap: 2rem; }
+}
