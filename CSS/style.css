@@ -1,6 +1,6 @@
 /* ============================================
-   DASTO DJ â€” style.css
-   Dark Luxury Â· Tech House Napoli
+   DASTO DJ — style.css
+   Dark Luxury · Tech House Napoli
    Fonts: Bebas Neue (display) + DM Sans (body)
    ============================================ */
 
@@ -1196,7 +1196,7 @@ a { text-decoration: none; color: inherit; }
 
 /* ---- RESPONSIVE ---- */
 
-/* Tablet (â‰¤ 900px) */
+/* Tablet (≤ 900px) */
 @media (max-width: 900px) {
   .why-inner {
     grid-template-columns: 1fr;
@@ -1213,7 +1213,7 @@ a { text-decoration: none; color: inherit; }
   }
 }
 
-/* Mobile (â‰¤ 768px) */
+/* Mobile (≤ 768px) */
 @media (max-width: 768px) {
   .nav { padding: 14px 20px; }
   .nav-logo { font-size: 1.3rem; }
@@ -1269,7 +1269,7 @@ a { text-decoration: none; color: inherit; }
   .map-wrapper iframe { height: 280px; }
 }
 
-/* Small mobile (â‰¤ 480px) */
+/* Small mobile (≤ 480px) */
 @media (max-width: 480px) {
   .hero-title { font-size: clamp(2.8rem, 18vw, 4.5rem); }
   .hero-actions { flex-direction: column; align-items: stretch; text-align: center; }
@@ -1302,7 +1302,7 @@ a { text-decoration: none; color: inherit; }
   .zones-list span { font-size: 0.65rem; padding: 5px 12px; }
 }
 
-/* Very small (â‰¤ 360px) */
+/* Very small (≤ 360px) */
 @media (max-width: 360px) {
   .nav-cta { display: none; }
   .hero-title { font-size: clamp(2.5rem, 20vw, 3.5rem); }
