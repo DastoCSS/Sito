@@ -32,7 +32,7 @@ h1 {
 
 .subtitle {
     font-size: 1.2rem;
-    color: #00ff66; /* Verde Neon */
+    color: #00ff66;
     font-weight: 600;
     margin-bottom: 10px;
 }
@@ -45,13 +45,13 @@ h1 {
 h2 {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #00ff66; /* Verde Neon */
+    color: #00ff66;
     margin-bottom: 15px;
 }
 
 .card {
     background-color: #161616;
-    border: 1px solid #00ff66; /* Bordo Verde Neon */
+    border: 1px solid #00ff66;
     border-radius: 8px;
     padding: 25px;
     margin-top: 20px;
@@ -67,11 +67,73 @@ p {
     font-weight: bold;
 }
 
+.center {
+    text-align: center;
+}
+
+/* Listino Prezzi */
+.price-list {
+    list-style: none;
+    padding: 0;
+}
+
+.price-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #262626;
+    color: #cccccc;
+}
+
+.price-list li:last-child {
+    border-bottom: none;
+}
+
+/* Pulsanti e Social */
+.links {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #222222;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid #00ff66;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background-color: #00ff66;
+    color: #000000;
+}
+
+.highlight-btn {
+    background-color: #00ff66;
+    color: #000000;
+}
+
+.highlight-btn:hover {
+    background-color: #00cc52;
+}
+
+.soundcloud-wrapper {
+    margin-top: 10px;
+}
+
 @media (max-width: 600px) {
     h1 {
         font-size: 2.2rem;
     }
     .card {
         padding: 18px;
+    }
+    .links {
+        flex-direction: column;
     }
 }
