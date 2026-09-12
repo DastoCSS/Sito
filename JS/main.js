@@ -1,24 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Iniezione dinamica delle coordinate di Napoli per la SEO Locale
-    const geoMetaLatitude = document.createElement('meta');
-    geoMetaLatitude.name = "geo.position";
-    geoMetaLatitude.content = "40.8517746;14.2681244";
-    document.head.appendChild(geoMetaLatitude);
+    // Iniezione dinamica coordinate
+    const geoMeta = document.createElement('meta');
+    geoMeta.name = "geo.position";
+    geoMeta.content = "40.8517746;14.2681244";
+    document.head.appendChild(geoMeta);
 
-    // 2. Registrazione posizione utente per query "DJ vicino a me"
+    // Geolocalizzazione utente per ricerche locali
     if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(
             (position) => {
-                console.log("Utente localizzato per rilevamento vicinanza SEO.");
+                console.log("Posizione verificata per rilevamento vicinanza.");
             },
-            (error) => {
-                // Fallback silenzioso se l'utente rifiuta la posizione
-            },
+            (error) => {},
             { timeout: 5000 }
         );
     }
-
-    // 3. Monitoraggio dei motori di ricerca e browser
-    const userAgent = navigator.userAgent;
-    console.log("DASTO SEO Engine attivo su browser: " + userAgent);
 });
