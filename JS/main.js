@@ -1,7 +1,7 @@
 /* ============================================
-   DASTO DJ — main.js  (aggiornato 2026)
+   DASTO DJ — main.js
    Scroll reveal · Nav · Counter · Vinyl pause
-   + Download button per il Manuale DJ
+   + Download button per il Listino Prezzi PDF
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,7 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const nav = document.getElementById('nav');
 
   const updateNav = () => {
-    nav.classList.toggle('scrolled', window.scrollY > 50);
+    if (nav) {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    }
   };
 
   window.addEventListener('scroll', updateNav, { passive: true });
@@ -118,29 +120,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ─────────────────────────────────────────
-     7. DOWNLOAD BUTTON — Manuale DJ/Produzione
-        Inserisci il pulsante ovunque nel HTML:
-        <button id="downloadManuale">↓ Scarica il Manuale</button>
-        oppure aggiungilo dinamicamente qui sotto.
+     7. DOWNLOAD BUTTON — Listino Prezzi PDF
   ───────────────────────────────────────── */
-
-  /**
-   * Crea e inietta il pulsante di download se non esiste già nell'HTML.
-   * Se preferisci metterlo tu nell'HTML con id="downloadManuale",
-   * questo blocco lo trova e gli aggiunge solo il listener.
-   */
   const injectDownloadBtn = () => {
-    // Cerca un pulsante già presente nel markup
     let btn = document.getElementById('downloadManuale');
 
-    // Se non c'è, crealo e appendilo alla sezione finale-cta
     if (!btn) {
       btn = document.createElement('a');
       btn.id        = 'downloadManuale';
       btn.className = 'cta-secondary download-btn';
-      btn.innerHTML = '📄 Scarica il Manuale DJ';
+      btn.innerHTML = '📄 Scarica Listino Prezzi';
 
-      // Stile extra inline (o usa la classe CSS qui sotto)
       Object.assign(btn.style, {
         marginTop    : '16px',
         display      : 'inline-flex',
@@ -149,29 +139,16 @@ document.addEventListener('DOMContentLoaded', () => {
         cursor       : 'pointer'
       });
 
-      // Inseriscilo dopo la hero-actions oppure nel footer — scegli tu
       const heroActions = document.querySelector('.hero-actions');
       if (heroActions) heroActions.after(btn);
     }
 
-    /**
-     * ─── COME USARLO ────────────────────────────────────────
-     * OPZIONE A — link diretto al file (consigliato):
-     *   Carica il PDF sul server (es. /files/Manuale_DJ.pdf)
-     *   e imposta href + download come segue.
-     *
-     * OPZIONE B — blob generato lato client (se il file è
-     *   già disponibile come ArrayBuffer/Base64 in memoria).
-     * ────────────────────────────────────────────────────────
-     */
-
-    // ── OPZIONE A (modifica il path se necessario) ──
-    btn.href     = '/files/Lezioni_Produzione_e_DJ.pdf'; // ← aggiorna il percorso
-    btn.download = 'Manuale_DJ_Produzione_DASTO.pdf';
+    // Percorso corretto del file PDF presente nel repository
+    btn.href     = 'pdf/Listino prezzi.pdf';
+    btn.download = 'Listino_Prezzi_DASTO_DJ.pdf';
     btn.target   = '_blank';
     btn.rel      = 'noopener noreferrer';
 
-    // Feedback visivo al click
     btn.addEventListener('click', () => {
       const original = btn.innerHTML;
       btn.innerHTML  = '✓ Download avviato!';
@@ -185,4 +162,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   injectDownloadBtn();
 
-}); // fine DOMContentLoaded
+});
