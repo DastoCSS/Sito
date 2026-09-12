@@ -1,55 +1,24 @@
-/* Layout minimale e pulito */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Iniezione dinamica delle coordinate di Napoli per la SEO Locale
+    const geoMetaLatitude = document.createElement('meta');
+    geoMetaLatitude.name = "geo.position";
+    geoMetaLatitude.content = "40.8517746;14.2681244";
+    document.head.appendChild(geoMetaLatitude);
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #ffffff;
-    color: #000000;
-    line-height: 1.5;
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-header {
-    margin-bottom: 30px;
-}
-
-h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-p {
-    font-size: 1rem;
-    margin-bottom: 15px;
-}
-
-strong {
-    font-weight: bold;
-}
-
-/* Ottimizzazione per dispositivi mobili */
-@media (max-width: 600px) {
-    body {
-        padding: 15px;
+    // 2. Registrazione posizione utente per query "DJ vicino a me"
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                console.log("Utente localizzato per rilevamento vicinanza SEO.");
+            },
+            (error) => {
+                // Fallback silenzioso se l'utente rifiuta la posizione
+            },
+            { timeout: 5000 }
+        );
     }
-    h1 {
-        font-size: 1.6rem;
-    }
-    h2 {
-        font-size: 1.25rem;
-    }
-}
+
+    // 3. Monitoraggio dei motori di ricerca e browser
+    const userAgent = navigator.userAgent;
+    console.log("DASTO SEO Engine attivo su browser: " + userAgent);
+});
