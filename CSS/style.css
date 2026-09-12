@@ -6,48 +6,72 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #ffffff;
-    color: #000000;
-    line-height: 1.5;
+    background-color: #0d0d0d;
+    color: #ffffff;
+    line-height: 1.6;
     padding: 20px;
-    max-width: 900px;
+}
+
+.container {
+    max-width: 800px;
     margin: 0 auto;
 }
 
-header {
-    margin-bottom: 25px;
+.hero {
+    text-align: center;
+    padding: 40px 0 20px 0;
 }
 
 h1 {
-    font-size: 2.2rem;
-    font-weight: bold;
-    margin-bottom: 8px;
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #00ff66; /* Verde Neon */
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.desc {
+    color: #b0b0b0;
+    font-size: 1rem;
 }
 
 h2 {
-    font-size: 1.6rem;
-    font-weight: bold;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #00ff66; /* Verde Neon */
+    margin-bottom: 15px;
+}
+
+.card {
+    background-color: #161616;
+    border: 1px solid #00ff66; /* Bordo Verde Neon */
+    border-radius: 8px;
+    padding: 25px;
     margin-top: 20px;
-    margin-bottom: 8px;
 }
 
 p {
+    color: #e0e0e0;
     font-size: 1rem;
-    margin-bottom: 12px;
 }
 
-strong {
+.highlight {
+    color: #00ff66;
     font-weight: bold;
 }
 
 @media (max-width: 600px) {
-    body {
-        padding: 15px;
-    }
     h1 {
-        font-size: 1.7rem;
+        font-size: 2.2rem;
     }
-    h2 {
-        font-size: 1.3rem;
+    .card {
+        padding: 18px;
     }
 }
