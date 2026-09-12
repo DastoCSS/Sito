@@ -1,7 +1,7 @@
 /* ============================================
    DASTO DJ — main.js (aggiornato 2026)
-   Scroll reveal · Nav · Counter · Vinyl pause
-   + Dynamic Prefetch & Download Manuale DJ
+   Scroll reveal · Nav · Counter · Download PDF
+   Percorsi da Scrivania Locale
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -106,54 +106,45 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  /* ── 7. DOWNLOAD BUTTON & PREFETCH (Manuale DJ) ── */
-  const injectDownloadBtn = () => {
-    const pdfUrl = '/files/Lezioni_Produzione_e_DJ.pdf';
-    
-    // Prefetch silenzioso per caricare il file in background
-    const prefetchLink = document.createElement('link');
-    prefetchLink.rel = 'prefetch';
-    prefetchLink.href = pdfUrl;
-    prefetchLink.as = 'document';
-    document.head.appendChild(prefetchLink);
+  /* ── 7. DOWNLOAD BUTTONS (PDF DA SCRIVANIA / PDF FOLDER) ── */
+  const setupPdfDownloads = () => {
+    // Definizione dei PDF nella cartella /pdf/
+    const pdfFiles = [
+      { id: 'downloadListino', path: 'pdf/Listino Prezzi.pdf', label: '📊 Listino Prezzi 2026' },
+      { id: 'downloadPressKit', path: 'pdf/Press Kit.pdf', label: '📁 Press Kit / Media Kit' },
+      { id: 'downloadTechRider', path: 'pdf/tech-rider-dasto.pdf', label: '🎛️ Technical Rider' }
+    ];
 
-    let btn = document.getElementById('downloadManuale');
+    pdfFiles.forEach(file => {
+      // Dynamic Prefetch
+      const prefetchLink = document.createElement('link');
+      prefetchLink.rel = 'prefetch';
+      prefetchLink.href = file.path;
+      prefetchLink.as = 'document';
+      document.head.appendChild(prefetchLink);
 
-    if (!btn) {
-      btn = document.createElement('a');
-      btn.id = 'downloadManuale';
-      btn.className = 'cta-secondary download-btn';
-      btn.innerHTML = '📄 Scarica la Guida DJ gratuita';
+      let btn = document.getElementById(file.id);
 
-      Object.assign(btn.style, {
-        marginTop: '16px',
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: '8px',
-        cursor: 'pointer'
-      });
+      if (btn) {
+        btn.href = file.path;
+        btn.download = file.path.split('/').pop();
+        btn.target = '_blank';
+        btn.rel = 'noopener noreferrer';
 
-      const heroActions = document.querySelector('.hero-actions');
-      if (heroActions) heroActions.after(btn);
-    }
-
-    btn.href = pdfUrl;
-    btn.download = 'Manuale_DJ_Produzione_DASTO.pdf';
-    btn.target = '_blank';
-    btn.rel = 'noopener noreferrer';
-
-    btn.addEventListener('click', () => {
-      const originalText = btn.innerHTML;
-      btn.innerHTML = '✓ Download in corso...';
-      btn.style.color = 'var(--green, #25d366)';
-      
-      setTimeout(() => {
-        btn.innerHTML = originalText;
-        btn.style.color = '';
-      }, 3000);
+        btn.addEventListener('click', () => {
+          const originalText = btn.innerHTML;
+          btn.innerHTML = '✓ Scaricato!';
+          btn.style.color = '#25d366';
+          
+          setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.style.color = '';
+          }, 3000);
+        });
+      }
     });
   };
 
-  injectDownloadBtn();
+  setupPdfDownloads();
 
 });
