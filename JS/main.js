@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Iniezione dinamica coordinate
+    // Iniezione dinamica coordinate di Napoli per SEO Locale
     const geoMeta = document.createElement('meta');
     geoMeta.name = "geo.position";
     geoMeta.content = "40.8517746;14.2681244";
     document.head.appendChild(geoMeta);
 
-    // Geolocalizzazione utente per ricerche locali
+    // Geolocalizzazione per query "DJ vicino a me"
     if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(
             (position) => {
