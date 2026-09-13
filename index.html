@@ -4,46 +4,336 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Meta Tag SEO e Posizionamento -->
-    <title>DASTO | DJ Napoli, Campania e Italia - Musica per Eventi & Club</title>
-    <meta name="description" content="DASTO è il DJ di riferimento a Napoli e in Campania. DJ set per eventi privati, clubbing e feste in tutta Italia. Contattaci per info e listino prezzi.">
+    <!-- Meta Tag SEO e Posizionamento Top 3 -->
+    <title>DASTO DJ | DJ a Napoli, Campania & Italia – Matrimoni, Eventi & Club</title>
+    <meta name="description" content="DASTO è il DJ professionista a Napoli e in Campania per matrimoni eleganti, 18 anni spettacolari ed eventi esclusivi. Esplora i servizi e richiedi un preventivo.">
     <meta name="keywords" content="DJ Napoli, DJ, DJ a Napoli, DJ Campania, DJ Italia, DJ vicino a me, DASTO DJ">
     <meta name="robots" content="index, follow">
 
-    <!-- Meta Tag Geo per Browser e SEO Locale -->
+    <!-- Meta Tag Geo (SEO Locale) -->
     <meta name="geo.region" content="IT-72">
     <meta name="geo.placename" content="Napoli">
     <meta name="geo.position" content="40.8517746;14.2681244">
     <meta name="ICBM" content="40.8517746, 14.2681244">
 
-    <!-- Collegamento CSS -->
-    <link rel="stylesheet" href="CSS/style.css">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
 
-    <!-- Schema.org JSON-LD per Google -->
+    <!-- Stile Glassmorphism integrato (Nero, Bianco, Verde Neon) -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #050505;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(0, 255, 102, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 85% 85%, rgba(0, 255, 102, 0.08) 0%, transparent 45%);
+            background-attachment: fixed;
+            color: #ffffff;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        /* Navigazione */
+        nav {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #00ff66;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 8px #00ff66;
+        }
+
+        /* Header / Hero */
+        header {
+            background: rgba(20, 20, 20, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 255, 102, 0.25);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .brand {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #00ff66;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(0, 255, 102, 0.5);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .subtitle {
+            color: #cccccc;
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+        }
+
+        .alert-badge {
+            display: inline-block;
+            background: rgba(0, 255, 102, 0.1);
+            color: #00ff66;
+            border: 1px solid #00ff66;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        /* Cards Glassmorphism */
+        .card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .section-tag {
+            color: #00ff66;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Pulsanti */
+        .cta-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #00ff66;
+            color: #000000;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.3);
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #ffffff;
+            color: #000000;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            border-color: #00ff66;
+            color: #00ff66;
+            background: transparent;
+        }
+
+        /* Stats Grid */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .stat-item {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 3px solid #00ff66;
+            text-align: center;
+        }
+
+        .stat-item .num {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #00ff66;
+            line-height: 1;
+        }
+
+        .stat-item span {
+            font-size: 0.85rem;
+            color: #aaaaaa;
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* Servizi Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .service-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .service-icon {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .service-price {
+            color: #00ff66;
+            font-weight: bold;
+            margin: 10px 0 5px 0;
+            font-size: 0.95rem;
+        }
+
+        .service-tag {
+            font-size: 0.8rem;
+            color: #888888;
+        }
+
+        /* Tabella Prezzi */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: rgba(0, 255, 102, 0.1);
+            color: #00ff66;
+            padding: 12px;
+            border-bottom: 1px solid rgba(0, 255, 102, 0.3);
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            color: #dddddd;
+        }
+
+        /* Testimonial e Zone */
+        .review-card {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 3px solid #00ff66;
+            margin-top: 15px;
+        }
+
+        .stars {
+            color: #00ff66;
+            margin-bottom: 8px;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .location-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: #cccccc;
+        }
+
+        .soundcloud-wrapper {
+            margin-top: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.5rem; }
+            header { padding: 25px; }
+            .cta-group { flex-direction: column; }
+        }
+    </style>
+
+    <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "EntertainmentBusiness",
-      "name": "DASTO",
+      "name": "DASTO DJ",
       "url": "https://dastocss.github.io",
-      "telephone": "+390000000000",
-      "priceRange": "€€",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Napoli",
         "addressRegion": "NA",
         "addressCountry": "IT"
       },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 40.8517746,
-        "longitude": 14.2681244
-      },
-      "areaServed": [
-        { "@type": "City", "name": "Napoli" },
-        { "@type": "AdministrativeArea", "name": "Campania" },
-        { "@type": "Country", "name": "Italia" }
-      ],
+      "areaServed": ["Napoli", "Campania", "Italia", "Worldwide"],
       "sameAs": [
         "https://www.instagram.com/",
         "https://soundcloud.com/"
@@ -54,50 +344,289 @@
 </head>
 <body>
 
-    <header class="hero">
-        <div class="container">
-            <h1>DASTO</h1>
-            <p class="subtitle">DJ a Napoli, Campania e Italia</p>
-            <p class="desc">Servizi DJ per eventi moderni, feste e clubbing.</p>
-        </div>
-    </header>
+    <div class="container">
+        
+        <nav>
+            <a href="#about" data-it="Chi Sono" data-en="About Me" data-fr="À Propos">Chi Sono</a>
+            <a href="#servizi" data-it="I Servizi" data-en="Services" data-fr="Services">I Servizi</a>
+            <a href="#prezzi" data-it="Listino Prezzi" data-en="Price List" data-fr="Tarifs">Listino Prezzi</a>
+            <a href="#music" data-it="Ascolta Mix" data-en="Listen Mixes" data-fr="Écouter Mixes">Ascolta Mix</a>
+            <a href="#contatti" data-it="Contatti" data-en="Contact" data-fr="Contact">Contatti</a>
+        </nav>
 
-    <main class="container">
-        <!-- Sezione Servizi -->
-        <section id="servizi" class="card">
-            <h2>DJ Set per Eventi e Feste Private</h2>
-            <p>Cerchi un <span class="highlight">DJ vicino a me</span> a Napoli o in Campania? DASTO offre intrattenimento musicale per club, festival e party privati su tutto il territorio nazionale.</p>
-        </section>
-
-        <!-- Sezione Player SoundCloud -->
-        <section id="music" class="card">
-            <h2>Ascolta i Mix</h2>
-            <div class="soundcloud-wrapper">
-                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1"></iframe>
+        <header>
+            <div class="brand">DASTO</div>
+            <div class="alert-badge" data-it="⚡ Date 2026 quasi al completo" data-en="⚡ 2026 Dates almost fully booked" data-fr="⚡ Dates 2026 presque complètes">⚡ Date 2026 quasi al completo</div>
+            <h1 data-it="DJ A NAPOLI · IL TUO EVENTO LEGGENDARIO" 
+                data-en="DJ IN NAPLES · YOUR LEGENDARY EVENT" 
+                data-fr="DJ À NAPLES · VOTRE ÉVÉNEMENT LÉGENDAIRE">
+                DJ A NAPOLI · IL TUO EVENTO LEGGENDARIO
+            </h1>
+            <p class="subtitle" 
+               data-it="DJ professionista a Napoli per matrimoni eleganti, 18 anni spettacolari ed eventi esclusivi. Atmosfera, energia e impatto garantiti." 
+               data-en="Professional DJ in Naples for elegant weddings, spectacular 18th birthdays, and exclusive events. Atmosphere and energy guaranteed." 
+               data-fr="DJ professionnel à Naples pour mariages élégants, 18 ans spectaculaires et événements exclusifs. Énergie garantie.">
+                DJ professionista a Napoli per matrimoni eleganti, 18 anni spettacolari ed eventi esclusivi. Atmosfera, energia e impatto garantiti.
+            </p>
+            
+            <div class="cta-group">
+                <a href="https://wa.me/390000000000" class="btn" data-it="🔥 BLOCCA LA TUA DATA 2026" data-en="🔥 BOOK YOUR 2026 DATE" data-fr="🔥 RÉSERVEZ VOTRE DATE 2026">🔥 BLOCCA LA TUA DATA 2026</a>
+                <a href="#music" class="btn btn-secondary" data-it="▶ Ascolta i Mix" data-en="▶ Listen to Mixes" data-fr="▶ Écouter les Mixes">▶ Ascolta i Mix</a>
             </div>
-        </section>
 
-        <!-- Sezione Listino Prezzi -->
-        <section id="prezzi" class="card">
-            <h2>Listino Prezzi & Service</h2>
-            <ul class="price-list">
-                <li><strong>Feste Private / Compleanni:</strong> A partire da €250</li>
-                <li><strong>Club & Discoteche:</strong> Su richiesta</li>
-                <li><strong>Matrimoni & Eventi Luxury:</strong> A partire da €500</li>
-            </ul>
-        </section>
-
-        <!-- Sezione Social e Contatti -->
-        <section id="social" class="card center">
-            <h2>Seguimi e Contattami</h2>
-            <div class="links">
-                <a href="https://www.instagram.com/" target="_blank" class="btn">Instagram</a>
-                <a href="https://soundcloud.com/" target="_blank" class="btn">SoundCloud</a>
-                <a href="https://wa.me/390000000000" target="_blank" class="btn highlight-btn">WhatsApp / Prenotazioni</a>
+            <!-- Stats -->
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="num">13</div>
+                    <span data-it="Anni di Esperienza" data-en="Years of Experience" data-fr="Années d'Expérience">Anni di Esperienza</span>
+                </div>
+                <div class="stat-item">
+                    <div class="num">60</div>
+                    <span data-it="Eventi Realizzati" data-en="Events Completed" data-fr="Événements Réalisés">Eventi Realizzati</span>
+                </div>
+                <div class="stat-item">
+                    <div class="num">1♥</div>
+                    <span data-it="Passione Vera" data-en="True Passion" data-fr="Vraie Passion">Passione Vera</span>
+                </div>
             </div>
-        </section>
-    </main>
+        </header>
 
-    <script src="JS/main.js"></script>
+        <main>
+            <!-- Servizi Section -->
+            <section id="servizi" class="card">
+                <span class="section-tag" data-it="— Cosa faccio" data-en="— What I do" data-fr="— Ce que je fais">— Cosa faccio</span>
+                <h2 class="section-title" data-it="I Servizi" data-en="Services" data-fr="Les Services">I Servizi</h2>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">💍</div>
+                        <h3 data-it="Matrimoni" data-en="Weddings" data-fr="Mariages">Matrimoni</h3>
+                        <p style="font-size: 0.85rem; color: #aaa;" data-it="Dalla cerimonia al party finale. Regia musicale completa e playlist cucite su di voi." data-en="From ceremony to final party. Complete musical direction." data-fr="De la mélodie de la cérémonie au party final.">Dalla cerimonia al party finale. Regia musicale completa e playlist cucite su di voi.</p>
+                        <div class="service-price">€450 – €1.100</div>
+                        <div class="service-tag">wedding party · full service incluso</div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🎂</div>
+                        <h3 data-it="18 Anni & Compleanni" data-en="18th Birthdays" data-fr="18 Ans & Anniversaires">18 Anni & Compleanni</h3>
+                        <p style="font-size: 0.85rem; color: #aaa;" data-it="Effetto wow assicurato. Luci scenografiche, bassi potenti e atmosfera da club esclusivo." data-en="Wow effect guaranteed. Dynamic lights and club vibes." data-fr="Effet wow garanti. Lumières et ambiance club.">Effetto wow assicurato. Luci scenografiche, bassi potenti e atmosfera da club esclusivo.</p>
+                        <div class="service-price">€300 – €500</div>
+                        <div class="service-tag">full service consigliato</div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🏢</div>
+                        <h3 data-it="Eventi Aziendali" data-en="Corporate Events" data-fr="Événements d'Entreprise">Eventi Aziendali</h3>
+                        <p style="font-size: 0.85rem; color: #aaa;" data-it="Professionalità totale per brand, corporate party e location di prestigio." data-en="Total professionalism for brands, corporate parties & rooftop locations." data-fr="Professionalisme total pour vos événements d'entreprise.">Professionalità totale per brand, corporate party e location di prestigio a Capri e Sorrento.</p>
+                        <div class="service-price">€230 – €500</div>
+                        <div class="service-tag">hotel · rooftop · beach club</div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🎧</div>
+                        <h3 data-it="Club & Festival" data-en="Club & Festivals" data-fr="Clubs & Festivals">Club & Festival</h3>
+                        <p style="font-size: 0.85rem; color: #aaa;" data-it="Set Tech House e Open Format con energia internazionale." data-en="Tech House and Open Format sets with international energy." data-fr="Sets Tech House et Open Format à haute énergie.">Set Tech House e Open Format con energia internazionale. Selezione musicale ricercata.</p>
+                        <div class="service-price">€180 – €400</div>
+                        <div class="service-tag">guest set · residenza</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SoundCloud Section -->
+            <section id="music" class="card">
+                <span class="section-tag" data-it="— Ascolta prima di chiamare" data-en="— Listen before calling" data-fr="— Écoutez avant d'appeler">— Ascolta prima di chiamare</span>
+                <h2 class="section-title" data-it="Il Suono." data-en="The Sound." data-fr="Le Son.">Il Suono.</h2>
+                <p style="color: #aaa;" data-it="Tech House, Open Format, vibes da club internazionale. Metti play." data-en="Tech House, Open Format, international club vibes. Press play." data-fr="Tech House, Open Format, ambiance club. Appuyez sur play.">Tech House, Open Format, vibes da club internazionale. Metti play.</p>
+                
+                <div class="soundcloud-wrapper">
+                    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1"></iframe>
+                </div>
+
+                <div class="cta-group">
+                    <a href="https://soundcloud.com/" target="_blank" class="btn btn-secondary">▶ Tutti i Mix su SoundCloud</a>
+                </div>
+            </section>
+
+            <!-- Listino Prezzi Tabella -->
+            <section id="prezzi" class="card">
+                <span class="section-tag" data-it="— Trasparenza totale" data-en="— Total transparency" data-fr="— Transparence totale">— Trasparenza totale</span>
+                <h2 class="section-title" data-it="Listino Prezzi 2026" data-en="2026 Price List" data-fr="Grille Tarifaire 2026">Listino Prezzi 2026</h2>
+                <p style="font-size: 0.85rem; color: #aaa;" data-it="Prezzi orientativi per ogni tipologia di evento DJ a Napoli e Campania." data-en="Orientative prices for every DJ event type in Naples and Campania." data-fr="Prix indicatifs pour chaque type d'événement DJ.">Prezzi orientativi per ogni tipologia di evento DJ a Napoli e Campania</p>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th data-it="Categoria" data-en="Category" data-fr="Catégorie">Categoria</th>
+                                <th data-it="Prezzo" data-en="Price" data-fr="Prix">Prezzo</th>
+                                <th data-it="Note Service" data-en="Service Notes" data-fr="Notes Service">Note Service</th>
+                                <th data-it="Descrizione" data-en="Description" data-fr="Description">Descrizione</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Club & Disco</td>
+                                <td>€220 – €400</td>
+                                <td>Console inclusa</td>
+                                <td>Guest set 1.5h – 2h</td>
+                            </tr>
+                            <tr>
+                                <td>Residenza Club</td>
+                                <td>€150 – €220</td>
+                                <td>Console inclusa</td>
+                                <td>Prezzo a serata per continuità</td>
+                            </tr>
+                            <tr>
+                                <td>Beach Club & Lidi</td>
+                                <td>€180 – €280</td>
+                                <td>+€100 casse Yamaha</td>
+                                <td>Aperitivo o Pool Party</td>
+                            </tr>
+                            <tr>
+                                <td>Hotel & Rooftop</td>
+                                <td>€230 – €350</td>
+                                <td>+€100 casse Yamaha</td>
+                                <td>Lounge / Dinner Show</td>
+                            </tr>
+                            <tr>
+                                <td>Eventi Privati</td>
+                                <td>€300 – €500</td>
+                                <td>Full Service consigliato</td>
+                                <td>Compleanni e feste aziendali</td>
+                            </tr>
+                            <tr>
+                                <td>Wedding Party</td>
+                                <td>€450 – €650</td>
+                                <td>Full Service consigliato</td>
+                                <td>Solo festa finale (post-torta)</td>
+                            </tr>
+                            <tr>
+                                <td>Wedding Full</td>
+                                <td>€750 – €1.100</td>
+                                <td>Service incluso</td>
+                                <td>Evento completo dall'aperitivo</td>
+                            </tr>
+                            <tr>
+                                <td>Noleggio Casse</td>
+                                <td>€120</td>
+                                <td>Coppia Yamaha 600W</td>
+                                <td>Solo attrezzatura con stativi</td>
+                            </tr>
+                            <tr>
+                                <td>Noleggio Console</td>
+                                <td>€60</td>
+                                <td>Console DDJ Pro</td>
+                                <td>Solo attrezzatura</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="font-size: 0.75rem; color: #888; margin-top: 10px;" data-it="* I prezzi sono indicativi. Il preventivo definitivo dipende da durata, location e configurazione del service." data-en="* Prices are indicative. The final quote depends on duration, location, and setup." data-fr="* Les prix sont indicatifs. Le devis final dépend de la durée et du lieu.">* I prezzi sono indicativi. Il preventivo definitivo dipende da durata, location e configurazione del service. Contattami per un'offerta personalizzata.</p>
+            </section>
+
+            <!-- Chi Sono -->
+            <section id="about" class="card">
+                <span class="section-tag" data-it="— Chi sono" data-en="— About me" data-fr="— À propos de moi">— Chi sono</span>
+                <h2 class="section-title" data-it="Non è solo musica. È atmosfera." data-en="It's not just music. It's atmosphere." data-fr="Ce n'est pas seulement de la musique. C'est de l'atmosphère.">Non è solo musica. È atmosfera.</h2>
+                <p data-it="Ogni evento viene progettato nei minimi dettagli per creare un momento che rimane nel tempo. Service audio professionale Pioneer DJ + Yamaha, consulenza musicale personalizzata, affidabilità totale." data-en="Every event is designed in detail to create a lasting moment. Professional Pioneer DJ + Yamaha equipment, tailored musical advice, complete reliability." data-fr="Chaque événement est conçu dans les moindres détails. Matériel professionnel Pioneer DJ + Yamaha.">Ogni evento viene progettato nei minimi dettagli per creare un momento che rimane nel tempo. Service audio professionale Pioneer DJ + Yamaha, consulenza musicale personalizzata, affidabilità totale.</p>
+                
+                <ul style="list-style: none; margin-top: 15px; font-size: 0.9rem; color: #ccc;">
+                    <li>✓ Pioneer CDJ-2000 NXS2 · DJM-900 NXS2 (o superiori)</li>
+                    <li>✓ Setup alternativo DDJ Series + 2x Yamaha 600W</li>
+                    <li>✓ Consulenza musicale pre-evento inclusa</li>
+                    <li>✓ Esperienza in club e festival italiani</li>
+                    <li>✓ Disponibile 7 giorni su 7</li>
+                </ul>
+
+                <div style="margin-top: 25px; background: rgba(0,0,0,0.4); padding: 20px; border-radius: 12px;">
+                    <span class="section-tag" data-it="— La realtà" data-en="— The reality" data-fr="— La réalité">— La realtà</span>
+                    <p style="font-size: 0.9rem; color: #bbb;" data-it="Ho iniziato a suonare a 20 anni perché la musica era l'unica cosa che volevo fare davvero. Oggi ne ho quasi 34 e quella stessa passione guida ogni set. Non ho centinaia di eventi alle spalle, ma qualche decina fatti bene con cura." data-en="I started DJing at 20. Today at 34, that same passion drives every set. I prefer quality over quantity." data-fr="J'ai commencé à 20 ans. Aujourd'hui à 34 ans, cette même passion guide chaque set.">Ho iniziato a suonare a 20 anni perché la musica era l'unica cosa che volevo fare davvero. Oggi ne ho quasi 34 e quella stessa passione guida ogni set, ogni evento, ogni scelta musicale. Preferisco essere onesto con te piuttosto che venderti numeri che non mi appartengono.</p>
+                </div>
+
+                <div class="cta-group">
+                    <a href="https://www.instagram.com/" target="_blank" class="btn btn-secondary">▶ Guarda su Instagram</a>
+                </div>
+            </section>
+
+            <!-- Recensioni -->
+            <section class="card">
+                <span class="section-tag" data-it="— Cosa dicono" data-en="— Testimonials" data-fr="— Témoignages">— Cosa dicono</span>
+                <h2 class="section-title" data-it="Recensioni" data-en="Reviews" data-fr="Avis">Recensioni</h2>
+                
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="font-style: italic;" data-it="&quot;Ha reso il nostro matrimonio indimenticabile. Playlist perfetta, professionalità totale. Tutti gli ospiti hanno ballato fino all'alba!&quot;" data-en="&quot;Made our wedding unforgettable. Perfect playlist, total professionalism!&quot;" data-fr="&quot;A rendu notre mariage inoubliable. Playlist parfaite!&quot;">"Ha reso il nostro matrimonio indimenticabile. Playlist perfetta, professionalità totale. Tutti gli ospiti hanno ballato fino all'alba!"</p>
+                    <span style="font-size: 0.8rem; color: #888; display: block; margin-top: 8px;">Marco & Laura — Matrimonio, Napoli</span>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="font-style: italic;" data-it="&quot;Il mio 18° è stato epico. Atmosfera da club vero, ragazzi pazzi di energia. Grazie DASTO, sei stato il top!&quot;" data-en="&quot;My 18th birthday was epic. Real club vibe. Thanks DASTO!&quot;" data-fr="&quot;Mon 18e anniversaire était épique. Ambiance vrai club.&quot;">"Il mio 18° è stato epico. Atmosfera da club vero, ragazzi pazzi di energia. Grazie DASTO, sei stato il top!"</p>
+                    <span style="font-size: 0.8rem; color: #888; display: block; margin-top: 8px;">Giulia R. — 18 Anni, Caserta</span>
+                </div>
+            </section>
+
+            <!-- Zone Operative -->
+            <section class="card">
+                <span class="section-tag" data-it="— Dove lavoro" data-en="— Locations" data-fr="— Localisation">— Dove lavoro</span>
+                <h2 class="section-title" data-it="Zone Operative DASTO DJ" data-en="DASTO DJ Service Areas" data-fr="Zones d'intervention DASTO DJ">Zone Operative DASTO DJ</h2>
+                
+                <div class="tags-container">
+                    <span class="location-tag">Napoli</span>
+                    <span class="location-tag">Caserta</span>
+                    <span class="location-tag">Salerno</span>
+                    <span class="location-tag">Sorrento</span>
+                    <span class="location-tag">Positano</span>
+                    <span class="location-tag">Amalfi</span>
+                    <span class="location-tag">Capri</span>
+                    <span class="location-tag">Ischia</span>
+                    <span class="location-tag">Procida</span>
+                    <span class="location-tag">Roma</span>
+                    <span class="location-tag">Milano</span>
+                    <span class="location-tag">Europa</span>
+                </div>
+            </section>
+
+            <!-- CTA Finale e Contatti -->
+            <section id="contatti" class="card" style="text-align: center;">
+                <h2 class="section-title" data-it="Pronto a creare qualcosa di memorabile?" data-en="Ready to create something memorable?" data-fr="Prêt à créer quelque chose de mémorable?">Pronto a creare qualcosa di memorabile?</h2>
+                <p style="color: #aaa;" data-it="Contattami via WhatsApp per un preventivo gratuito entro 24h." data-en="Contact me on WhatsApp for a free quote within 24h." data-fr="Contactez-moi sur WhatsApp pour un devis gratuit en 24h.">Contattami via WhatsApp per un preventivo gratuito entro 24h.</p>
+                
+                <div class="cta-group" style="justify-content: center; margin-top: 20px;">
+                    <a href="https://wa.me/390000000000" target="_blank" class="btn">💬 SCRIVIMI SU WHATSAPP</a>
+                </div>
+
+                <div class="cta-group" style="justify-content: center; margin-top: 25px;">
+                    <a href="https://www.instagram.com/" target="_blank" class="btn btn-secondary">Instagram</a>
+                    <a href="https://soundcloud.com/" target="_blank" class="btn btn-secondary">SoundCloud</a>
+                </div>
+            </section>
+        </main>
+
+        <footer style="text-align: center; padding: 20px 0; color: #666; font-size: 0.85rem;">
+            <p>© 2026 DASTO DJ Napoli · Tutti i diritti riservati</p>
+        </footer>
+
+    </div>
+
+    <!-- Script Cambio Lingua Automatico (IT / FR / EN) -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const userLang = (navigator.language || navigator.userLanguage).substring(0, 2).toLowerCase();
+            let lang = 'en'; 
+
+            if (userLang === 'it') {
+                lang = 'it';
+            } else if (userLang === 'fr') {
+                lang = 'fr';
+            }
+
+            if (lang !== 'it') {
+                document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+                    el.innerHTML = el.getAttribute('data-' + lang);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
