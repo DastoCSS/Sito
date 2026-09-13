@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Meta Tag SEO per Posizionamento Top 3 -->
+    <!-- Meta Tag SEO e Posizionamento Top 3 -->
     <title>DASTO DJ – Open Format DJ & Sound Experience | Napoli, Campania & Italy</title>
-    <meta name="description" content="DASTO è un DJ Open Format specializzato in Club, Eventi Privati, Luxury Hotel e Residenze a Napoli, Campania, Italia e all'estero.">
+    <meta name="description" content="DASTO è un DJ Open Format a Napoli e Campania specializzato in Club, Eventi Privati, Luxury Hotel e Residenze in tutta Italia ed Estero.">
     <meta name="keywords" content="DJ Napoli, DJ, DJ a Napoli, DJ Campania, DJ Italia, DJ vicino a me, DASTO DJ">
     <meta name="robots" content="index, follow">
 
@@ -16,7 +16,10 @@
     <meta name="geo.position" content="40.8517746;14.2681244">
     <meta name="ICBM" content="40.8517746, 14.2681244">
 
-    <!-- Stile Glassmorphism Integrato (Sfondo Nero, Vetro Sfocato, Dettagli Verde Neon) -->
+    <!-- Favicon -->
+    <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
+
+    <!-- Stile Glassmorphism Integrato (Nero + Vetro Sfocato + Verde Neon) -->
     <style>
         * {
             margin: 0;
@@ -28,8 +31,8 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #050505;
             background-image: 
-                radial-gradient(circle at 20% 20%, rgba(0, 255, 102, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 80%, rgba(0, 255, 102, 0.08) 0%, transparent 40%);
+                radial-gradient(circle at 15% 15%, rgba(0, 255, 102, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 85% 85%, rgba(0, 255, 102, 0.08) 0%, transparent 45%);
             background-attachment: fixed;
             color: #ffffff;
             line-height: 1.6;
@@ -42,7 +45,7 @@
             margin: 0 auto;
         }
 
-        /* Glassmorphism Navigation Bar */
+        /* Navigazione Glassmorphism */
         nav {
             display: flex;
             gap: 20px;
@@ -69,12 +72,12 @@
             text-shadow: 0 0 8px #00ff66;
         }
 
-        /* Glassmorphism Header / Hero */
+        /* Header / Hero Glassmorphism */
         header {
             background: rgba(20, 20, 20, 0.4);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(0, 255, 102, 0.2);
+            border: 1px solid rgba(0, 255, 102, 0.25);
             border-radius: 20px;
             padding: 40px;
             margin-bottom: 30px;
@@ -105,7 +108,7 @@
             margin-bottom: 25px;
         }
 
-        /* Glassmorphism Cards */
+        /* Cards Glassmorphism */
         .card {
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(12px);
@@ -125,22 +128,23 @@
             letter-spacing: 1px;
         }
 
-        /* Pulsanti Glassmorphism */
+        /* Group Pulsanti e Social */
         .cta-group {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
+            margin-top: 15px;
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 28px;
+            padding: 12px 24px;
             background: #00ff66;
             color: #000000;
             text-decoration: none;
             font-weight: 700;
             border-radius: 50px;
-            box-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.3);
             transition: 0.3s;
         }
 
@@ -153,14 +157,15 @@
 
         .btn-secondary {
             background: rgba(255, 255, 255, 0.05);
-            color: #00ff66;
-            border: 1px solid #00ff66;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: none;
         }
 
         .btn-secondary:hover {
-            background: #00ff66;
-            color: #000000;
+            border-color: #00ff66;
+            color: #00ff66;
+            background: transparent;
         }
 
         /* Statistiche in Vetro */
@@ -189,17 +194,45 @@
             color: #aaaaaa;
         }
 
+        /* Listino Prezzi */
+        .price-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .price-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .price-list li:last-child {
+            border-bottom: none;
+        }
+
         .price-tag {
             color: #00ff66;
             font-weight: bold;
-            font-size: 1.2rem;
-            margin-top: 8px;
+            font-size: 1.1rem;
+        }
+
+        .soundcloud-wrapper {
+            margin-top: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         @media (max-width: 600px) {
             h1 { font-size: 1.6rem; }
             header { padding: 25px; }
             .cta-group { flex-direction: column; }
+            .price-list li { flex-direction: column; align-items: flex-start; }
         }
     </style>
 
@@ -217,6 +250,10 @@
         "addressCountry": "IT"
       },
       "areaServed": ["Napoli", "Campania", "Italia", "Worldwide"],
+      "sameAs": [
+        "https://www.instagram.com/",
+        "https://soundcloud.com/"
+      ],
       "knowsAbout": ["DJ Napoli", "DJ", "DJ a Napoli", "DJ Campania", "DJ Italia", "DJ vicino a me"]
     }
     </script>
@@ -227,18 +264,19 @@
         
         <nav>
             <a href="#about" data-it="About" data-en="About" data-fr="À propos">About</a>
-            <a href="#servizi" data-it="Servizi & Prezzi" data-en="Services & Prices" data-fr="Services et Tarifs">Servizi & Prezzi</a>
-            <a href="#contatti" data-it="Contatti" data-en="Contact" data-fr="Contact">Contatti</a>
+            <a href="#servizi" data-it="Servizi & Prezzi" data-en="Services & Rates" data-fr="Services et Tarifs">Servizi & Prezzi</a>
+            <a href="#music" data-it="Musica" data-en="Music" data-fr="Musique">Musica</a>
+            <a href="#social" data-it="Contatti" data-en="Contact" data-fr="Contact">Contatti</a>
         </nav>
 
         <header>
             <div class="brand">DASTO DJ</div>
-            <h1 id="hero-title" data-it="Dagli hotel di lusso ai club: il sound perfetto per ogni atmosfera" 
+            <h1 data-it="Dagli hotel di lusso ai club: il sound perfetto per ogni atmosfera" 
                 data-en="From luxury hotels to clubs: the perfect sound for every atmosphere" 
                 data-fr="Des hôtels de luxe aux clubs : le son parfait pour ogni atmosphère">
                 Dagli hotel di lusso ai club: il sound perfetto per ogni atmosfera
             </h1>
-            <p class="subtitle" id="hero-sub" 
+            <p class="subtitle" 
                data-it="Open Format DJ · Sound Design · Service Audio & Luci Professionale" 
                data-en="Open Format DJ · Sound Design · Professional Audio & Light Service" 
                data-fr="DJ Open Format · Sound Design · Service Audio et Lumière Professionnel">
@@ -252,13 +290,19 @@
         </header>
 
         <main>
+            <!-- About Section -->
             <section id="about" class="card">
                 <h2 class="section-title" data-it="ABOUT THE ARTIST" data-en="ABOUT THE ARTIST" data-fr="À PROPOS DE L'ARTISTE">ABOUT THE ARTIST</h2>
-                <p id="about-p1" 
-                   data-it="Con base a Napoli e attivo in tutta Italia ed all'estero, DASTO è un DJ Open Format specializzato nel creare il giusto groove per Club, Eventi Privati, Luxury Hotel e Residenze."
+                <p data-it="Con base a Napoli e attivo in tutta Italia ed all'estero, DASTO è un DJ Open Format specializzato nel creare il giusto groove per Club, Eventi Privati, Luxury Hotel e Residenze."
                    data-en="Based in Naples and active throughout Italy and abroad, DASTO is an Open Format DJ specialized in creating the right groove for Clubs, Private Events, Luxury Hotels, and Residences."
                    data-fr="Basé à Naples et actif dans toute l'Italie et à l'étranger, DASTO est un DJ Open Format spécialisé dans la création del groove parfait pour les Clubs, Événements Privés et Hôtels de Luxe.">
                    Con base a Napoli e attivo in tutta Italia ed all'estero, <strong>DASTO</strong> è un DJ Open Format specializzato nel creare il giusto groove per Club, Eventi Privati, Luxury Hotel e Residenze.
+                </p>
+                <p style="margin-top: 10px; color: #aaa;" 
+                   data-it="Il suo stile fonde le hit commerciali con sonorità House, Tech-House e Urban, adattando ogni set all'atmosfera per garantire alta energia e una pista sempre piena."
+                   data-en="His style blends commercial hits with House, Tech-House, and Urban soundscapes, tailoring every set to match the venue's vibe and keep the dancefloor full."
+                   data-fr="Son style mélange les hits commerciaux avec des sonorités House, Tech-House et Urban, en adaptant chaque set à l'atmosphère.">
+                   Il suo stile fonde le hit commerciali con sonorità House, Tech-House e Urban, adattando ogni set all'atmosfera per garantire alta energia e una pista sempre piena.
                 </p>
                 
                 <div class="stats">
@@ -273,29 +317,63 @@
                 </div>
             </section>
 
-            <section id="servizi" class="card">
-                <h2 class="section-title" data-it="SERVIZI & TARIFFARIO 2026" data-en="SERVICES & RATES 2026" data-fr="SERVICES ET TARIFS 2026">SERVIZI & TARIFFARIO 2026</h2>
-                
-                <div style="margin-top: 15px;">
-                    <h3>Club & Nightlife</h3>
-                    <p style="color: #aaa;" data-it="Guest set (1.5h-2h) o residenze continuative per discoteche e club." data-en="Guest set (1.5h-2h) or residencies for clubs." data-fr="Set Guest (1.5h-2h) ou résidences pour clubs.">Guest set (1.5h-2h) o residenze continuative per discoteche e club.</p>
-                    <p class="price-tag">€150 – €350</p>
+            <!-- SoundCloud Section -->
+            <section id="music" class="card">
+                <h2 class="section-title" data-it="Ascolta i Mix" data-en="Listen to Mixes" data-fr="Écouter les Mixes">Ascolta i Mix</h2>
+                <p style="color: #aaa;" data-it="Ascolta gli ultimi DJ set e selezioni musicali su SoundCloud." data-en="Listen to the latest DJ sets and music selections on SoundCloud." data-fr="Écoutez les derniers DJ sets et sélections musicales sur SoundCloud.">Ascolta gli ultimi DJ set e selezioni musicali su SoundCloud.</p>
+                <div class="soundcloud-wrapper">
+                    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1"></iframe>
                 </div>
+            </section>
 
-                <div style="margin-top: 20px;">
-                    <h3>Hotel & Rooftop</h3>
-                    <p style="color: #aaa;" data-it="Sonorizzazione Lounge, Nu-Jazz e Deep per cocktail bar ed eventi luxury." data-en="Lounge, Nu-Jazz, and Deep sound design for cocktail bars and luxury events." data-fr="Animation sonore Lounge, Nu-Jazz et Deep pour bars à cocktails et événements de luxe.">Sonorizzazione Lounge, Nu-Jazz e Deep per cocktail bar ed eventi luxury.</p>
+            <!-- Listino Prezzi Section -->
+            <section id="servizi" class="card">
+                <h2 class="section-title" data-it="Listino Prezzi & Service" data-en="Prices & Services" data-fr="Tarifs et Services">Listino Prezzi & Service</h2>
+                <ul class="price-list">
+                    <li>
+                        <div>
+                            <strong data-it="Club & Nightlife" data-en="Club & Nightlife" data-fr="Club & Nightlife">Club & Nightlife</strong>
+                            <p style="font-size: 0.85rem; color: #aaa;" data-it="Guest set (1.5h-2h) o residenze per discoteche." data-en="Guest set (1.5h-2h) or residencies." data-fr="Set Guest (1.5h-2h) ou résidences.">Guest set (1.5h-2h) o residenze per discoteche.</p>
+                        </div>
+                        <span class="price-tag">€150 – €350</span>
+                    </li>
+                    <li>
+                        <div>
+                            <strong data-it="Feste Private / Compleanni" data-en="Private Parties / Birthdays" data-fr="Fêtes Privées / Anniversaires">Feste Private / Compleanni</strong>
+                            <p style="font-size: 0.85rem; color: #aaa;" data-it="DJ set + service audio base incluso." data-en="DJ set + basic audio service included." data-fr="DJ set + service audio de base inclus.">DJ set + service audio base incluso.</p>
+                        </div>
+                        <span class="price-tag" data-it="Da €250" data-en="From €250" data-fr="À partir de €250">Da €250</span>
+                    </li>
+                    <li>
+                        <div>
+                            <strong data-it="Matrimoni & Eventi Luxury" data-en="Weddings & Luxury Events" data-fr="Mariages et Événements de Luxe">Matrimoni & Eventi Luxury</strong>
+                            <p style="font-size: 0.85rem; color: #aaa;" data-it="Sonorizzazione completa cocktail, cena e dopo party." data-en="Full sound experience for cocktail, dinner & afterparty." data-fr="Animation sonore complète cocktail, dîner et soirée.">Sonorizzazione completa cocktail, cena e dopo party.</p>
+                        </div>
+                        <span class="price-tag" data-it="Da €500" data-en="From €500" data-fr="À partir de €500">Da €500</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Social e Contatti Section -->
+            <section id="social" class="card">
+                <h2 class="section-title" data-it="Seguimi e Contattami" data-en="Follow & Contact" data-fr="Suivez-moi et Contactez-moi">Seguimi e Contattami</h2>
+                <p style="color: #aaa;" data-it="Rimani aggiornato sulle prossime date o richiedi un preventivo immediato." data-en="Stay updated on upcoming dates or request an immediate quote." data-fr="Restez informé des prochaines dates ou demandez un devis immédiat.">Rimani aggiornato sulle prossime date o richiedi un preventivo immediato.</p>
+                
+                <div class="cta-group">
+                    <a href="https://www.instagram.com/" target="_blank" class="btn btn-secondary">Instagram</a>
+                    <a href="https://soundcloud.com/" target="_blank" class="btn btn-secondary">SoundCloud</a>
+                    <a href="https://wa.me/390000000000" target="_blank" class="btn" data-it="WhatsApp / Prenotazioni" data-en="WhatsApp / Bookings" data-fr="WhatsApp / Réservations">WhatsApp / Prenotazioni</a>
                 </div>
             </section>
         </main>
 
     </div>
 
-    <!-- Script Cambio Lingua Automatico in base al Browser del Visitatore -->
+    <!-- Script Cambio Lingua Automatico (IT/FR/EN per resto del mondo) -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const userLang = (navigator.language || navigator.userLanguage).substring(0, 2).toLowerCase();
-            let lang = 'en'; // Lingua di default per tutto il mondo
+            let lang = 'en'; 
 
             if (userLang === 'it') {
                 lang = 'it';
@@ -312,3 +390,5 @@
     </script>
 </body>
 </html>
+
+```
