@@ -13,138 +13,127 @@ body {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
-/* Navigazione */
-nav {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 30px;
-    border-bottom: 1px solid #222;
-    padding-bottom: 15px;
-    flex-wrap: wrap;
-}
-
-nav a {
-    color: #00ff66;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-/* Hero */
-.brand {
-    font-size: 1.2rem;
-    font-weight: 800;
-    color: #00ff66;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
+.hero {
+    text-align: center;
+    padding: 40px 0 20px 0;
 }
 
 h1 {
-    font-size: 2.2rem;
+    font-size: 3rem;
     font-weight: 800;
-    text-transform: uppercase;
-    line-height: 1.2;
-    margin-bottom: 15px;
+    letter-spacing: 2px;
     color: #ffffff;
+    margin-bottom: 5px;
 }
 
 .subtitle {
-    color: #b0b0b0;
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-}
-
-/* Pulsanti Action */
-.cta-group {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #00ff66;
-    color: #000000;
-    text-decoration: none;
-    font-weight: 700;
-    border-radius: 6px;
-    transition: 0.2s;
-}
-
-.btn:hover {
-    background-color: #00cc52;
-}
-
-.btn-secondary {
-    background-color: transparent;
+    font-size: 1.2rem;
     color: #00ff66;
-    border: 1px solid #00ff66;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
-.btn-secondary:hover {
-    background-color: #00ff66;
-    color: #000000;
+.desc {
+    color: #b0b0b0;
+    font-size: 1rem;
 }
 
-/* Card Sezioni */
-.section-title {
-    font-size: 1.6rem;
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
     color: #00ff66;
     margin-bottom: 15px;
-    text-transform: uppercase;
 }
 
 .card {
     background-color: #161616;
-    border: 1px solid #262626;
+    border: 1px solid #00ff66;
     border-radius: 8px;
     padding: 25px;
-    margin-bottom: 25px;
-}
-
-.stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
     margin-top: 20px;
 }
 
-.stat-item {
-    background-color: #0d0d0d;
-    padding: 15px;
-    border-radius: 6px;
-    border-left: 3px solid #00ff66;
+p {
+    color: #e0e0e0;
+    font-size: 1rem;
 }
 
-.stat-item strong {
-    display: block;
-    font-size: 1.2rem;
-    color: #ffffff;
-}
-
-.stat-item span {
-    font-size: 0.85rem;
-    color: #888888;
-}
-
-.price-tag {
+.highlight {
     color: #00ff66;
     font-weight: bold;
-    font-size: 1.1rem;
+}
+
+.center {
+    text-align: center;
+}
+
+/* Listino Prezzi */
+.price-list {
+    list-style: none;
+    padding: 0;
+}
+
+.price-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #262626;
+    color: #cccccc;
+}
+
+.price-list li:last-child {
+    border-bottom: none;
+}
+
+/* Pulsanti e Social */
+.links {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #222222;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid #00ff66;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background-color: #00ff66;
+    color: #000000;
+}
+
+.highlight-btn {
+    background-color: #00ff66;
+    color: #000000;
+}
+
+.highlight-btn:hover {
+    background-color: #00cc52;
+}
+
+.soundcloud-wrapper {
     margin-top: 10px;
 }
 
 @media (max-width: 600px) {
-    h1 { font-size: 1.6rem; }
-    .cta-group { flex-direction: column; }
+    h1 {
+        font-size: 2.2rem;
+    }
+    .card {
+        padding: 18px;
+    }
+    .links {
+        flex-direction: column;
+    }
 }
