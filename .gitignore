@@ -1,3 +1,10 @@
+# OS Metadata
 .DS_Store
 Thumbs.db
-node_modules/
+
+# Editor Config
+.vscode/
+.idea/
+
+# Local build / cache
+*.log
